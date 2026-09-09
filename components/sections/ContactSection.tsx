@@ -4,7 +4,10 @@ import * as React from "react";
 import { useTranslations } from "next-intl";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import * as z from "zod";
+import {
+  createLocalizedContactSchema,
+  type ContactFormData,
+} from "@/lib/validations/contact";
 import {
   AlertCircle,
   CheckCircle2,
@@ -23,24 +26,10 @@ import { Textarea } from "@/components/ui/textarea";
 export function ContactSection() {
   const t = useTranslations("Contact");
 
-  const contactSchema = React.useMemo(
-    () =>
-      z.object({
-        name: z.string().min(2, t("nameErrorMin")).max(100, t("nameErrorMax")),
-        email: z.string().email(t("emailError")),
-        subject: z
-          .string()
-          .min(5, t("subjectErrorMin"))
-          .max(200, t("subjectErrorMax")),
-        message: z
-          .string()
-          .min(10, t("messageErrorMin"))
-          .max(2000, t("messageErrorMax")),
-      }),
+  const contactValidationSchema = React.useMemo(
+    () => createLocalizedContactSchema(t),
     [t],
   );
-
-  type ContactFormData = z.infer<typeof contactSchema>;
 
   const [status, setStatus] = React.useState<
     "idle" | "submitting" | "success" | "error"
@@ -53,7 +42,7 @@ export function ContactSection() {
     reset,
     formState: { errors },
   } = useForm<ContactFormData>({
-    resolver: zodResolver(contactSchema),
+    resolver: zodResolver(contactValidationSchema),
     mode: "onBlur",
   });
 
