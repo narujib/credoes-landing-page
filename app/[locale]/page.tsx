@@ -1,5 +1,6 @@
 import { setRequestLocale } from "next-intl/server";
 import { HeroSection } from "@/components/sections/HeroSection";
+import { AboutSection } from "@/components/sections/AboutSection";
 
 export default async function HomePage({
   params,
@@ -12,6 +13,7 @@ export default async function HomePage({
   return (
     <main className="flex flex-1 flex-col">
       <HeroSection locale={locale} />
+      <AboutSection locale={locale} />
     </main>
   );
 }
