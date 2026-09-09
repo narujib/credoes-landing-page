@@ -1,5 +1,6 @@
 import * as React from "react";
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 import { Globe } from "lucide-react";
 
 interface FooterProps {
@@ -53,75 +54,55 @@ function GitHubIcon(props: React.SVGProps<SVGSVGElement>) {
 }
 
 export function Footer({ locale = "id" }: FooterProps) {
-  const isEn = locale === "en";
+  const t = useTranslations("Footer");
   const currentYear = new Date().getFullYear();
 
   const navigationLinks = [
-    { label: isEn ? "Home" : "Beranda", href: "" },
-    { label: isEn ? "About Us" : "Tentang Kami", href: "/#about" },
-    { label: isEn ? "Services" : "Layanan", href: "/#services" },
-    { label: isEn ? "Contact" : "Kontak", href: "/#contact" },
+    { label: t("home"), href: "" },
+    { label: t("about"), href: "/#about" },
+    { label: t("services"), href: "/#services" },
+    { label: t("contact"), href: "/#contact" },
   ];
 
   const serviceLinks = [
-    {
-      label: isEn ? "Web Engineering" : "Rekayasa Web",
-      href: "/#services",
-    },
-    {
-      label: isEn ? "Cloud & DevOps" : "Cloud & DevOps",
-      href: "/#services",
-    },
-    {
-      label: isEn ? "Enterprise AI" : "AI Enterprise",
-      href: "/#services",
-    },
-    {
-      label: isEn ? "Cybersecurity" : "Keamanan Siber",
-      href: "/#services",
-    },
+    { label: t("webEngineering"), href: "/#services" },
+    { label: t("cloudDevOps"), href: "/#services" },
+    { label: t("enterpriseAi"), href: "/#services" },
+    { label: t("cybersecurity"), href: "/#services" },
   ];
 
   const legalLinks = [
-    {
-      label: isEn ? "Privacy Policy" : "Kebijakan Privasi",
-      href: "/privacy-policy",
-    },
-    {
-      label: isEn ? "Terms of Service" : "Syarat & Ketentuan",
-      href: "/terms-of-service",
-    },
+    { label: t("privacyPolicy"), href: "/privacy-policy" },
+    { label: t("termsOfService"), href: "/terms-of-service" },
   ];
 
   const socialLinks = [
     {
       icon: TwitterIcon,
       href: "https://twitter.com",
-      label: isEn ? "Follow us on Twitter/X" : "Ikuti kami di Twitter/X",
+      label: "Twitter / X",
     },
     {
       icon: LinkedInIcon,
       href: "https://linkedin.com",
-      label: isEn ? "Connect on LinkedIn" : "Hubungi kami di LinkedIn",
+      label: "LinkedIn",
     },
     {
       icon: GitHubIcon,
       href: "https://github.com",
-      label: isEn
-        ? "View our GitHub repository"
-        : "Kunjungi repositori GitHub kami",
+      label: "GitHub",
     },
     {
       icon: Globe,
       href: `/${locale}`,
-      label: isEn ? "Global Website" : "Situs Web Global",
+      label: "Global Website",
     },
   ];
 
   return (
     <footer
       className="border-t border-border/40 bg-card/50 backdrop-blur-xs text-card-foreground"
-      aria-label={isEn ? "Site Footer" : "Footer Situs"}
+      aria-label={t("navTitle")}
     >
       <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
@@ -138,9 +119,7 @@ export function Footer({ locale = "id" }: FooterProps) {
               <span>Acme Corp</span>
             </Link>
             <p className="text-sm text-muted-foreground leading-relaxed max-w-sm">
-              {isEn
-                ? "Delivering state-of-the-art enterprise web architectures, cloud infrastructure, and intelligent automation systems worldwide."
-                : "Menyediakan arsitektur web enterprise mutakhir, infrastruktur cloud tangguh, dan sistem otomasi cerdas untuk pasar global."}
+              {t("brandDesc")}
             </p>
             {/* Social Links */}
             <div className="flex items-center gap-3 pt-2">
@@ -165,7 +144,7 @@ export function Footer({ locale = "id" }: FooterProps) {
           {/* Quick Links Column */}
           <div className="space-y-4">
             <h3 className="text-sm font-semibold uppercase tracking-wider text-foreground">
-              {isEn ? "Navigation" : "Navigasi"}
+              {t("navTitle")}
             </h3>
             <ul className="space-y-2.5 text-sm">
               {navigationLinks.map((link, idx) => (
@@ -173,7 +152,7 @@ export function Footer({ locale = "id" }: FooterProps) {
                   <Link
                     href={`/${locale}${link.href}`}
                     className="text-muted-foreground transition-colors hover:text-foreground"
-                    aria-label={`Navigate to ${link.label}`}
+                    aria-label={link.label}
                   >
                     {link.label}
                   </Link>
@@ -185,7 +164,7 @@ export function Footer({ locale = "id" }: FooterProps) {
           {/* Services Column */}
           <div className="space-y-4">
             <h3 className="text-sm font-semibold uppercase tracking-wider text-foreground">
-              {isEn ? "Capabilities" : "Layanan"}
+              {t("capTitle")}
             </h3>
             <ul className="space-y-2.5 text-sm">
               {serviceLinks.map((link, idx) => (
@@ -193,7 +172,7 @@ export function Footer({ locale = "id" }: FooterProps) {
                   <Link
                     href={`/${locale}${link.href}`}
                     className="text-muted-foreground transition-colors hover:text-foreground"
-                    aria-label={`Learn more about ${link.label}`}
+                    aria-label={link.label}
                   >
                     {link.label}
                   </Link>
@@ -205,7 +184,7 @@ export function Footer({ locale = "id" }: FooterProps) {
           {/* Legal Column */}
           <div className="space-y-4">
             <h3 className="text-sm font-semibold uppercase tracking-wider text-foreground">
-              {isEn ? "Legal & Trust" : "Legalitas & Kepatuhan"}
+              {t("legalTitle")}
             </h3>
             <ul className="space-y-2.5 text-sm">
               {legalLinks.map((link, idx) => (
@@ -213,7 +192,7 @@ export function Footer({ locale = "id" }: FooterProps) {
                   <Link
                     href={`/${locale}${link.href}`}
                     className="text-muted-foreground transition-colors hover:text-foreground"
-                    aria-label={`View ${link.label}`}
+                    aria-label={link.label}
                   >
                     {link.label}
                   </Link>
@@ -226,16 +205,11 @@ export function Footer({ locale = "id" }: FooterProps) {
         {/* Bottom Bar */}
         <div className="mt-16 pt-8 border-t border-border/40 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-muted-foreground">
           <p>
-            &copy; {currentYear} Acme Corp Ltd.{" "}
-            {isEn
-              ? "All rights reserved."
-              : "Hak cipta dilindungi undang-undang."}
+            &copy; {currentYear} Acme Corp Ltd. {t("allRightsReserved")}
           </p>
           <div className="flex items-center gap-2">
             <div className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
-            <span>
-              {isEn ? "All Systems Operational" : "Semua Sistem Normal"}
-            </span>
+            <span>{t("systemsOperational")}</span>
           </div>
         </div>
       </div>

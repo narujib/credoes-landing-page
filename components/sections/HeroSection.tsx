@@ -1,5 +1,6 @@
 import * as React from "react";
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 import { ArrowRight, ShieldCheck, Sparkles } from "lucide-react";
 import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
@@ -9,7 +10,7 @@ interface HeroSectionProps {
 }
 
 export function HeroSection({ locale = "id" }: HeroSectionProps) {
-  const isEn = locale === "en";
+  const t = useTranslations("Hero");
 
   return (
     <section
@@ -29,61 +30,44 @@ export function HeroSection({ locale = "id" }: HeroSectionProps) {
           {/* Badge */}
           <div className="inline-flex items-center gap-2 rounded-full border border-border/80 bg-muted/60 px-4 py-1.5 text-xs font-medium text-foreground backdrop-blur-sm shadow-xs transition-colors hover:bg-muted">
             <Sparkles className="h-3.5 w-3.5 text-primary" />
-            <span>
-              {isEn
-                ? "Next-Generation Enterprise Solutions"
-                : "Solusi Enterprise Generasi Terbaru"}
-            </span>
+            <span>{t("badge")}</span>
           </div>
 
           {/* Main Headline (H1) */}
           <h1 className="max-w-4xl text-4xl font-extrabold tracking-tight text-foreground sm:text-5xl md:text-6xl lg:text-7xl">
-            {isEn ? (
-              <>
-                Empowering Your Digital Transformation with{" "}
-                <span className="bg-gradient-to-r from-foreground via-foreground/90 to-foreground/60 bg-clip-text text-transparent dark:from-white dark:to-zinc-400">
-                  Reliability & Precision
-                </span>
-              </>
-            ) : (
-              <>
-                Mentransformasi Bisnis Digital Anda dengan{" "}
-                <span className="bg-gradient-to-r from-foreground via-foreground/90 to-foreground/60 bg-clip-text text-transparent dark:from-white dark:to-zinc-400">
-                  Keandalan & Presisi
-                </span>
-              </>
-            )}
+            {t("titlePart1")}{" "}
+            <span className="bg-gradient-to-r from-foreground via-foreground/90 to-foreground/60 bg-clip-text text-transparent dark:from-white dark:to-zinc-400">
+              {t("titleHighlight")}
+            </span>
           </h1>
 
           {/* Subtitle */}
           <p className="max-w-2xl text-lg text-muted-foreground sm:text-xl font-normal leading-relaxed">
-            {isEn
-              ? "We build scalable, high-performance web systems and digital architecture designed to drive sustainable growth for modern companies."
-              : "Kami membangun arsitektur digital dan sistem web berperforma tinggi yang dirancang untuk mendorong pertumbuhan berkelanjutan perusahaan modern."}
+            {t("subtitle")}
           </p>
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row items-center gap-4 pt-2">
             <Link
               href={`/${locale}#contact`}
-              aria-label={isEn ? "Contact Us" : "Hubungi Kami"}
+              aria-label={t("ctaContact")}
               className={cn(
                 buttonVariants({ size: "lg" }),
                 "w-full sm:w-auto text-base px-8 h-12 shadow-xs cursor-pointer",
               )}
             >
-              <span>{isEn ? "Get Started" : "Hubungi Kami"}</span>
+              <span>{t("ctaContact")}</span>
               <ArrowRight className="ml-2 h-4 w-4" />
             </Link>
             <Link
               href={`/${locale}#services`}
-              aria-label={isEn ? "Explore Services" : "Pelajari Layanan"}
+              aria-label={t("ctaServices")}
               className={cn(
                 buttonVariants({ variant: "outline", size: "lg" }),
                 "w-full sm:w-auto text-base px-8 h-12 cursor-pointer",
               )}
             >
-              <span>{isEn ? "Our Services" : "Pelajari Layanan"}</span>
+              <span>{t("ctaServices")}</span>
             </Link>
           </div>
 
@@ -91,27 +75,27 @@ export function HeroSection({ locale = "id" }: HeroSectionProps) {
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-6 pt-12 text-muted-foreground max-w-3xl w-full border-t border-border/40">
             <div className="flex flex-col items-center">
               <span className="text-2xl sm:text-3xl font-bold text-foreground">
-                99.9%
+                {t("uptimeValue")}
               </span>
               <span className="text-xs sm:text-sm mt-1">
-                {isEn ? "Uptime SLA" : "Jaminan Uptime"}
+                {t("uptimeLabel")}
               </span>
             </div>
             <div className="flex flex-col items-center">
               <span className="text-2xl sm:text-3xl font-bold text-foreground">
-                500+
+                {t("clientsValue")}
               </span>
               <span className="text-xs sm:text-sm mt-1">
-                {isEn ? "Enterprise Clients" : "Klien Korporat"}
+                {t("clientsLabel")}
               </span>
             </div>
             <div className="col-span-2 sm:col-span-1 flex flex-col items-center">
               <div className="flex items-center gap-1.5 text-2xl sm:text-3xl font-bold text-foreground">
                 <ShieldCheck className="h-6 w-6 text-primary" />
-                <span>24/7</span>
+                <span>{t("supportValue")}</span>
               </div>
               <span className="text-xs sm:text-sm mt-1">
-                {isEn ? "Dedicated Support" : "Dukungan Teknis"}
+                {t("supportLabel")}
               </span>
             </div>
           </div>

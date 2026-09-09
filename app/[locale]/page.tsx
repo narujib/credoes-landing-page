@@ -15,9 +15,9 @@ export default async function HomePage({
   return (
     <main className="flex flex-1 flex-col">
       <HeroSection locale={locale} />
-      <AboutSection locale={locale} />
+      <AboutSection />
       <ServicesSection locale={locale} />
-      <ContactSection locale={locale} />
+      <ContactSection />
     </main>
   );
 }

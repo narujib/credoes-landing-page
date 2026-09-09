@@ -2,6 +2,7 @@
 
 import * as React from "react";
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 import { Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
@@ -26,6 +27,7 @@ interface MobileMenuProps {
 
 export function MobileMenu({ items, locale = "id" }: MobileMenuProps) {
   const [open, setOpen] = React.useState(false);
+  const t = useTranslations("Navbar");
 
   return (
     <Sheet open={open} onOpenChange={setOpen}>
@@ -35,16 +37,18 @@ export function MobileMenu({ items, locale = "id" }: MobileMenuProps) {
             variant="ghost"
             size="icon"
             className="md:hidden"
-            aria-label="Open mobile navigation menu"
+            aria-label={t("menu")}
           >
             <Menu className="h-5 w-5" />
-            <span className="sr-only">Open navigation menu</span>
+            <span className="sr-only">{t("menu")}</span>
           </Button>
         }
       />
       <SheetContent side="right" className="w-[300px] sm:w-[350px]">
         <SheetHeader>
-          <SheetTitle className="text-left font-bold text-lg">Menu</SheetTitle>
+          <SheetTitle className="text-left font-bold text-lg">
+            {t("menu")}
+          </SheetTitle>
         </SheetHeader>
         <div className="flex flex-col gap-4 py-6">
           <nav
@@ -57,14 +61,16 @@ export function MobileMenu({ items, locale = "id" }: MobileMenuProps) {
                 href={`/${locale}${item.href}`}
                 onClick={() => setOpen(false)}
                 className="text-base font-medium text-muted-foreground transition-colors hover:text-foreground py-2"
-                aria-label={`Navigate to ${item.label}`}
+                aria-label={item.label}
               >
                 {item.label}
               </Link>
             ))}
           </nav>
           <div className="border-t pt-4 flex items-center justify-between">
-            <span className="text-sm text-muted-foreground">Settings</span>
+            <span className="text-sm text-muted-foreground">
+              {t("settings")}
+            </span>
             <div className="flex items-center gap-2">
               <LanguageSwitcher currentLocale={locale} />
               <ThemeToggle />

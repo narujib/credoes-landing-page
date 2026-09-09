@@ -1,74 +1,53 @@
 import * as React from "react";
+import { useTranslations } from "next-intl";
 import { Award, Globe2, ShieldCheck, TrendingUp, Users } from "lucide-react";
 
-interface AboutSectionProps {
-  locale?: string;
-}
-
-export function AboutSection({ locale = "id" }: AboutSectionProps) {
-  const isEn = locale === "en";
+export function AboutSection() {
+  const t = useTranslations("About");
 
   const stats = [
     {
-      value: "10+",
-      label: isEn ? "Years of Excellence" : "Tahun Pengalaman",
-      description: isEn
-        ? "Delivering battle-tested solutions since 2016"
-        : "Menghadirkan solusi teruji sejak 2016",
+      value: t("stat1Value"),
+      label: t("stat1Label"),
+      description: t("stat1Desc"),
     },
     {
-      value: "150+",
-      label: isEn ? "Enterprise Projects" : "Proyek Enterprise",
-      description: isEn
-        ? "Successfully launched across 12 countries"
-        : "Berhasil diluncurkan di 12 negara",
+      value: t("stat2Value"),
+      label: t("stat2Label"),
+      description: t("stat2Desc"),
     },
     {
-      value: "99.4%",
-      label: isEn ? "Client Retention" : "Kepuasan Klien",
-      description: isEn
-        ? "Long-term partnerships and trust"
-        : "Kemitraan jangka panjang berkelanjutan",
+      value: t("stat3Value"),
+      label: t("stat3Label"),
+      description: t("stat3Desc"),
     },
     {
-      value: "24/7",
-      label: isEn ? "Global SLA Support" : "Dukungan SLA Global",
-      description: isEn
-        ? "Continuous monitoring and incident response"
-        : "Pemantauan dan respons insiden nonstop",
+      value: t("stat4Value"),
+      label: t("stat4Label"),
+      description: t("stat4Desc"),
     },
   ];
 
   const values = [
     {
       icon: ShieldCheck,
-      title: isEn ? "Enterprise-Grade Security" : "Keamanan Tingkat Enterprise",
-      description: isEn
-        ? "Strict compliance with ISO 27001 and GDPR privacy standards."
-        : "Kepatuhan ketat terhadap standar keamanan ISO 27001 dan GDPR.",
+      title: t("pillar1Title"),
+      description: t("pillar1Desc"),
     },
     {
       icon: TrendingUp,
-      title: isEn ? "Engineered for Scale" : "Arsitektur Skala Tinggi",
-      description: isEn
-        ? "Resilient cloud infrastructure optimized for massive transaction volume."
-        : "Infrastruktur cloud tangguh dioptimalkan untuk volume transaksi masif.",
+      title: t("pillar2Title"),
+      description: t("pillar2Desc"),
     },
     {
       icon: Users,
-      title: isEn
-        ? "Client-Centric Collaboration"
-        : "Kolaborasi Berpusat Klien",
-      description: isEn
-        ? "Dedicated agile teams aligned seamlessly with your business milestones."
-        : "Tim agile berdedikasi yang selaras dengan target bisnis Anda.",
+      title: t("pillar3Title"),
+      description: t("pillar3Desc"),
     },
     {
       icon: Award,
-      title: isEn ? "Proven Reliability" : "Keandalan Terbukti",
-      description: isEn
-        ? "Zero-compromise approach to code quality and system performance."
-        : "Standar kualitas kode tanpa kompromi untuk performa optimal.",
+      title: t("pillar4Title"),
+      description: t("pillar4Desc"),
     },
   ];
 
@@ -76,36 +55,23 @@ export function AboutSection({ locale = "id" }: AboutSectionProps) {
     <section
       id="about"
       className="py-20 md:py-28 bg-muted/30 border-y border-border/40 scroll-mt-16"
-      aria-label={isEn ? "About Company" : "Tentang Perusahaan"}
+      aria-label={t("badge")}
     >
       <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="max-w-3xl mx-auto text-center space-y-4 mb-16">
           <div className="inline-flex items-center gap-2 rounded-full border border-border bg-background px-3.5 py-1 text-xs font-semibold text-primary shadow-xs">
             <Globe2 className="h-3.5 w-3.5" />
-            <span>{isEn ? "About Acme Corp" : "Tentang Acme Corp"}</span>
+            <span>{t("badge")}</span>
           </div>
           <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl md:text-5xl">
-            {isEn ? (
-              <>
-                Building the Future of Digital Commerce with{" "}
-                <span className="bg-gradient-to-r from-foreground via-foreground/90 to-foreground/70 bg-clip-text text-transparent dark:from-white dark:to-zinc-300">
-                  Integrity & Precision
-                </span>
-              </>
-            ) : (
-              <>
-                Membangun Masa Depan Digital dengan{" "}
-                <span className="bg-gradient-to-r from-foreground via-foreground/90 to-foreground/70 bg-clip-text text-transparent dark:from-white dark:to-zinc-300">
-                  Integritas & Presisi
-                </span>
-              </>
-            )}
+            {t("titlePart1")}{" "}
+            <span className="bg-gradient-to-r from-foreground via-foreground/90 to-foreground/70 bg-clip-text text-transparent dark:from-white dark:to-zinc-300">
+              {t("titleHighlight")}
+            </span>
           </h2>
           <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
-            {isEn
-              ? "We are a trusted technology partner empowering high-growth companies and global institutions with resilient web platforms, modern cloud infrastructure, and transformative digital experiences."
-              : "Kami adalah mitra teknologi tepercaya yang mendampingi perusahaan berkembang dan institusi global dengan platform web tangguh, infrastruktur cloud modern, dan pengalaman digital transformatif."}
+            {t("description")}
           </p>
         </div>
 
