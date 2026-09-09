@@ -1,7 +1,8 @@
 "use client";
 
 import * as React from "react";
-import { usePathname, useRouter } from "next/navigation";
+import { useLocale } from "next-intl";
+import { usePathname, useRouter } from "@/i18n/routing";
 import { Globe } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
@@ -16,22 +17,14 @@ export function LanguageSwitcher({
 }: {
   currentLocale?: string;
 }) {
+  const localeFromHook = useLocale();
+  const activeLocale = currentLocale || localeFromHook || "id";
   const pathname = usePathname();
   const router = useRouter();
 
-  const handleLocaleChange = (newLocale: string) => {
-    if (!pathname) return;
-    const segments = pathname.split("/");
-    if (segments[1] === "id" || segments[1] === "en") {
-      segments[1] = newLocale;
-      router.push(segments.join("/") || "/");
-    } else {
-      router.push(`/${newLocale}${pathname}`);
-    }
+  const handleLocaleChange = (newLocale: "id" | "en") => {
+    router.replace(pathname, { locale: newLocale });
   };
-
-  const activeLocale =
-    currentLocale || (pathname?.startsWith("/en") ? "en" : "id");
 
   return (
     <DropdownMenu>
