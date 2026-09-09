@@ -1,3 +1,5 @@
+"use client";
+
 import * as React from "react";
 import Link from "next/link";
 import { useTranslations } from "next-intl";
@@ -19,6 +21,38 @@ export function Navbar({ locale = "id" }: NavbarProps) {
     { label: t("contact"), href: "/#contact" },
   ];
 
+  const handleNavClick = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    href: string,
+  ) => {
+    if (typeof window === "undefined") return;
+
+    const isHomePage =
+      window.location.pathname === `/${locale}` ||
+      window.location.pathname === `/${locale}/` ||
+      window.location.pathname === "/";
+
+    if (!isHomePage) return;
+
+    if (href === "") {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      window.history.pushState(null, "", `/${locale}`);
+      return;
+    }
+
+    const hashIndex = href.indexOf("#");
+    if (hashIndex !== -1) {
+      const targetId = href.slice(hashIndex + 1);
+      const element = document.getElementById(targetId);
+      if (element) {
+        e.preventDefault();
+        element.scrollIntoView({ behavior: "smooth" });
+        window.history.pushState(null, "", `/${locale}${href}`);
+      }
+    }
+  };
+
   return (
     <>
       <a
@@ -32,6 +66,7 @@ export function Navbar({ locale = "id" }: NavbarProps) {
           {/* Logo */}
           <Link
             href={`/${locale}`}
+            onClick={(e) => handleNavClick(e, "")}
             className="flex items-center gap-2 font-bold text-xl tracking-tight text-foreground transition-opacity hover:opacity-90"
             aria-label="Acme Corp Home"
           >
@@ -50,6 +85,7 @@ export function Navbar({ locale = "id" }: NavbarProps) {
               <Link
                 key={item.href}
                 href={`/${locale}${item.href}`}
+                onClick={(e) => handleNavClick(e, item.href)}
                 className="text-muted-foreground transition-colors hover:text-foreground"
                 aria-label={item.label}
               >

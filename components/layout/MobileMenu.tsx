@@ -29,6 +29,40 @@ export function MobileMenu({ items, locale = "id" }: MobileMenuProps) {
   const [open, setOpen] = React.useState(false);
   const t = useTranslations("Navbar");
 
+  const handleNavClick = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    href: string,
+  ) => {
+    setOpen(false);
+
+    if (typeof window === "undefined") return;
+
+    const isHomePage =
+      window.location.pathname === `/${locale}` ||
+      window.location.pathname === `/${locale}/` ||
+      window.location.pathname === "/";
+
+    if (!isHomePage) return;
+
+    if (href === "") {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      window.history.pushState(null, "", `/${locale}`);
+      return;
+    }
+
+    const hashIndex = href.indexOf("#");
+    if (hashIndex !== -1) {
+      const targetId = href.slice(hashIndex + 1);
+      const element = document.getElementById(targetId);
+      if (element) {
+        e.preventDefault();
+        element.scrollIntoView({ behavior: "smooth" });
+        window.history.pushState(null, "", `/${locale}${href}`);
+      }
+    }
+  };
+
   return (
     <Sheet open={open} onOpenChange={setOpen}>
       <SheetTrigger
@@ -59,7 +93,7 @@ export function MobileMenu({ items, locale = "id" }: MobileMenuProps) {
               <Link
                 key={item.href}
                 href={`/${locale}${item.href}`}
-                onClick={() => setOpen(false)}
+                onClick={(e) => handleNavClick(e, item.href)}
                 className="text-base font-medium text-muted-foreground transition-colors hover:text-foreground py-2"
                 aria-label={item.label}
               >

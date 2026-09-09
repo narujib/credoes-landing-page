@@ -1,3 +1,5 @@
+"use client";
+
 import * as React from "react";
 import Link from "next/link";
 import { useTranslations } from "next-intl";
@@ -11,6 +13,19 @@ interface HeroSectionProps {
 
 export function HeroSection({ locale = "id" }: HeroSectionProps) {
   const t = useTranslations("Hero");
+
+  const handleNavClick = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    targetId: string,
+  ) => {
+    if (typeof window === "undefined") return;
+    const element = document.getElementById(targetId);
+    if (element) {
+      e.preventDefault();
+      element.scrollIntoView({ behavior: "smooth" });
+      window.history.pushState(null, "", `/${locale}#${targetId}`);
+    }
+  };
 
   return (
     <section
@@ -50,6 +65,7 @@ export function HeroSection({ locale = "id" }: HeroSectionProps) {
           <div className="flex flex-col sm:flex-row items-center gap-4 pt-2">
             <Link
               href={`/${locale}#contact`}
+              onClick={(e) => handleNavClick(e, "contact")}
               aria-label={t("ctaContact")}
               className={cn(
                 buttonVariants({ size: "lg" }),
@@ -61,6 +77,7 @@ export function HeroSection({ locale = "id" }: HeroSectionProps) {
             </Link>
             <Link
               href={`/${locale}#services`}
+              onClick={(e) => handleNavClick(e, "services")}
               aria-label={t("ctaServices")}
               className={cn(
                 buttonVariants({ variant: "outline", size: "lg" }),

@@ -1,3 +1,5 @@
+"use client";
+
 import * as React from "react";
 import Link from "next/link";
 import { useTranslations } from "next-intl";
@@ -57,6 +59,38 @@ export function Footer({ locale = "id" }: FooterProps) {
   const t = useTranslations("Footer");
   const currentYear = new Date().getFullYear();
 
+  const handleNavClick = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    href: string,
+  ) => {
+    if (typeof window === "undefined") return;
+
+    const isHomePage =
+      window.location.pathname === `/${locale}` ||
+      window.location.pathname === `/${locale}/` ||
+      window.location.pathname === "/";
+
+    if (!isHomePage) return;
+
+    if (href === "") {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      window.history.pushState(null, "", `/${locale}`);
+      return;
+    }
+
+    const hashIndex = href.indexOf("#");
+    if (hashIndex !== -1) {
+      const targetId = href.slice(hashIndex + 1);
+      const element = document.getElementById(targetId);
+      if (element) {
+        e.preventDefault();
+        element.scrollIntoView({ behavior: "smooth" });
+        window.history.pushState(null, "", `/${locale}${href}`);
+      }
+    }
+  };
+
   const navigationLinks = [
     { label: t("home"), href: "" },
     { label: t("about"), href: "/#about" },
@@ -110,6 +144,7 @@ export function Footer({ locale = "id" }: FooterProps) {
           <div className="lg:col-span-2 space-y-4">
             <Link
               href={`/${locale}`}
+              onClick={(e) => handleNavClick(e, "")}
               className="flex items-center gap-2 font-bold text-xl tracking-tight text-foreground transition-opacity hover:opacity-90 inline-flex"
               aria-label="Acme Corp Home"
             >
@@ -151,6 +186,7 @@ export function Footer({ locale = "id" }: FooterProps) {
                 <li key={idx}>
                   <Link
                     href={`/${locale}${link.href}`}
+                    onClick={(e) => handleNavClick(e, link.href)}
                     className="text-muted-foreground transition-colors hover:text-foreground"
                     aria-label={link.label}
                   >
@@ -171,6 +207,7 @@ export function Footer({ locale = "id" }: FooterProps) {
                 <li key={idx}>
                   <Link
                     href={`/${locale}${link.href}`}
+                    onClick={(e) => handleNavClick(e, link.href)}
                     className="text-muted-foreground transition-colors hover:text-foreground"
                     aria-label={link.label}
                   >
