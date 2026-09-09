@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import { getMessages, setRequestLocale } from "next-intl/server";
 import { NextIntlClientProvider } from "next-intl";
 import { routing } from "@/i18n/routing";
+import { Navbar } from "@/components/layout/Navbar";
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
@@ -25,7 +26,8 @@ export default async function LocaleLayout({
 
   return (
     <NextIntlClientProvider messages={messages}>
-      {children}
+      <Navbar locale={locale} />
+      <div className="flex-1 flex flex-col">{children}</div>
     </NextIntlClientProvider>
   );
 }
