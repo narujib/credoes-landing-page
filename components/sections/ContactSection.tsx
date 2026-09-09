@@ -62,14 +62,13 @@ export function ContactSection() {
         setResponseMessage(t("successMsg"));
         reset();
       } else {
-        setStatus("success");
-        setResponseMessage(t("successMsg"));
-        reset();
+        const errorData = await response.json().catch(() => null);
+        setStatus("error");
+        setResponseMessage(errorData?.error || t("errorMsg"));
       }
     } catch {
-      setStatus("success");
-      setResponseMessage(t("successMsg"));
-      reset();
+      setStatus("error");
+      setResponseMessage(t("errorMsg"));
     }
   };
 
