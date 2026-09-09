@@ -31,9 +31,11 @@ export function ServiceCard({ service }: ServiceCardProps) {
             </span>
           )}
         </div>
-        <CardTitle className="text-xl font-bold tracking-tight text-card-foreground group-hover:text-primary transition-colors flex items-center justify-between">
-          <span>{service.title}</span>
-          <ArrowUpRight className="h-4 w-4 opacity-0 transition-all -translate-x-1 translate-y-1 group-hover:opacity-100 group-hover:translate-x-0 group-hover:translate-y-0 text-primary" />
+        <CardTitle className="text-xl font-bold tracking-tight text-card-foreground group-hover:text-primary transition-colors">
+          <h3 className="flex items-center justify-between text-xl font-bold tracking-tight">
+            <span>{service.title}</span>
+            <ArrowUpRight className="h-4 w-4 opacity-0 transition-all -translate-x-1 translate-y-1 group-hover:opacity-100 group-hover:translate-x-0 group-hover:translate-y-0 text-primary" />
+          </h3>
         </CardTitle>
         <p className="text-sm text-muted-foreground leading-relaxed mt-2">
           {service.description}
