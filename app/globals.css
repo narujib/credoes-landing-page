@@ -137,9 +137,9 @@ body {
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground antialiased transition-colors duration-200;
   }
   html {
-    @apply font-sans;
+    @apply font-sans scroll-smooth;
   }
 }
