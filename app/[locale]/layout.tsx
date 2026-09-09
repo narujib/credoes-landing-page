@@ -4,6 +4,11 @@ import { NextIntlClientProvider } from "next-intl";
 import { routing } from "@/i18n/routing";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
+import {
+  OrganizationJsonLd,
+  WebSiteJsonLd,
+  LocalBusinessJsonLd,
+} from "@/components/seo/json-ld";
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
@@ -27,6 +32,9 @@ export default async function LocaleLayout({
 
   return (
     <NextIntlClientProvider messages={messages}>
+      <OrganizationJsonLd />
+      <WebSiteJsonLd locale={locale} />
+      <LocalBusinessJsonLd />
       <Navbar locale={locale} />
       <div
         id="main-content"
