@@ -1,5 +1,6 @@
 import { NextResponse, type NextRequest } from "next/server";
 import { contactSchema } from "@/lib/validations/contact";
+import { sendContactEmail } from "@/lib/email";
 
 // In-memory rate limiting map: ip -> timestamps of requests
 const rateLimitMap = new Map<string, number[]>();
@@ -112,10 +113,11 @@ export async function POST(request: NextRequest) {
 
     const validatedData = validationResult.data;
 
-    // Log received contact form inquiry securely on server side
-    console.info(
-      `[Contact API] Received inquiry from: ${validatedData.name} <${validatedData.email}> - Subject: ${validatedData.subject}`,
-    );
+    // 5. Dispatch Email notification via secure server-side email service
+    const emailResult = await sendContactEmail(validatedData);
+    if (!emailResult.success) {
+      console.warn("[Contact API] Email dispatch issue:", emailResult.error);
+    }
 
     return NextResponse.json(
       {
