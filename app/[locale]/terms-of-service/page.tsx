@@ -1,7 +1,46 @@
 import * as React from "react";
+import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowLeft, FileText, Scale } from "lucide-react";
 import { setRequestLocale, getTranslations } from "next-intl/server";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "Terms" });
+
+  const title = `${t("title")} | Acme Corp`;
+  const description = t("s1Desc");
+
+  return {
+    title,
+    description,
+    alternates: {
+      canonical: `/${locale}/terms-of-service`,
+      languages: {
+        id: "/id/terms-of-service",
+        en: "/en/terms-of-service",
+        "x-default": "/id/terms-of-service",
+      },
+    },
+    openGraph: {
+      title,
+      description,
+      url: `/${locale}/terms-of-service`,
+      siteName: "Acme Corp",
+      locale: locale === "id" ? "id_ID" : "en_US",
+      type: "website",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+    },
+  };
+}
 
 export default async function TermsOfServicePage({
   params,

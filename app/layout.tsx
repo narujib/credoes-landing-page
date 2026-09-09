@@ -13,9 +13,20 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://acmecorp.example";
+
 export const metadata: Metadata = {
-  title: "Company Landing Page",
-  description: "Modern and elegant company landing page starter.",
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: "Acme Corp — Modern Digital Solutions & Enterprise Architecture",
+    template: "%s | Acme Corp",
+  },
+  description:
+    "We build scalable, high-performance web systems and digital architecture designed to drive sustainable growth for modern enterprises.",
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function RootLayout({
