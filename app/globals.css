@@ -46,11 +46,30 @@
   --radius-2xl: calc(var(--radius) * 1.8);
   --radius-3xl: calc(var(--radius) * 2.2);
   --radius-4xl: calc(var(--radius) * 2.6);
+  --animate-fade-in: fade-in 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   --animate-fade-in-up: fade-in-up 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   --animate-slide-in-left: slide-in-left 0.6s cubic-bezier(0.16, 1, 0.3, 1)
     forwards;
   --animate-slide-in-right: slide-in-right 0.6s cubic-bezier(0.16, 1, 0.3, 1)
     forwards;
+
+  @keyframes fade-in {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  @keyframes fade-out {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
 
   @keyframes fade-in-up {
     0% {
@@ -175,9 +194,24 @@ body {
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground antialiased transition-colors duration-200;
+    @apply bg-background text-foreground antialiased;
   }
   html {
     @apply font-sans scroll-smooth;
   }
+}
+
+/* Hardware-accelerated smooth theme view transitions */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 0.35s;
+  animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+::view-transition-old(root) {
+  animation-name: fade-out;
+}
+
+::view-transition-new(root) {
+  animation-name: fade-in;
 }

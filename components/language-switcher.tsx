@@ -21,9 +21,13 @@ export function LanguageSwitcher({
   const activeLocale = currentLocale || localeFromHook || "id";
   const pathname = usePathname();
   const router = useRouter();
+  const [isPending, startTransition] = React.useTransition();
 
   const handleLocaleChange = (newLocale: "id" | "en") => {
-    router.replace(pathname, { locale: newLocale });
+    if (newLocale === activeLocale) return;
+    startTransition(() => {
+      router.replace(pathname, { locale: newLocale });
+    });
   };
 
   return (
@@ -41,16 +45,23 @@ export function LanguageSwitcher({
           </Button>
         }
       />
-      <DropdownMenuContent align="end">
+      <DropdownMenuContent
+        align="end"
+        className="animate-in fade-in-50 zoom-in-95 duration-200"
+      >
         <DropdownMenuItem
           onClick={() => handleLocaleChange("id")}
-          className={activeLocale === "id" ? "font-semibold text-primary" : ""}
+          className={`cursor-pointer transition-colors duration-200 ${
+            activeLocale === "id" ? "font-semibold text-primary" : ""
+          }`}
         >
           Bahasa Indonesia (ID)
         </DropdownMenuItem>
         <DropdownMenuItem
           onClick={() => handleLocaleChange("en")}
-          className={activeLocale === "en" ? "font-semibold text-primary" : ""}
+          className={`cursor-pointer transition-colors duration-200 ${
+            activeLocale === "en" ? "font-semibold text-primary" : ""
+          }`}
         >
           English (EN)
         </DropdownMenuItem>

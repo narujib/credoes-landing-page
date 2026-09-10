@@ -36,13 +36,14 @@ export default async function LocaleLayout({
       <WebSiteJsonLd locale={locale} />
       <LocalBusinessJsonLd />
       <Navbar locale={locale} />
-      <div
+      <main
         id="main-content"
         tabIndex={-1}
-        className="flex-1 flex flex-col outline-none"
+        key={locale}
+        className="flex-1 flex flex-col outline-none animate-fade-in"
       >
         {children}
-      </div>
+      </main>
       <Footer locale={locale} />
     </NextIntlClientProvider>
   );
