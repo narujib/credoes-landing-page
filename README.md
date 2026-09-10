@@ -1,36 +1,173 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# next-landing-starter
 
-## Getting Started
+![Build Status](https://img.shields.io/github/actions/workflow/status/your-username/next-landing-starter/ci.yml?style=flat-square&label=build)
+![Version](https://img.shields.io/badge/version-0.1.0-blue?style=flat-square)
+![License](https://img.shields.io/badge/license-MIT-green?style=flat-square)
+![Next.js](https://img.shields.io/badge/Next.js-16.3.4-black?style=flat-square&logo=next.js)
+![TypeScript](https://img.shields.io/badge/TypeScript-5.x-3178c6?style=flat-square&logo=typescript)
 
-First, run the development server:
+A production-ready, opinionated **Next.js landing page starter** built for enterprise-grade web presence. It ships with full internationalization (i18n), dark/light theme support, a CAPTCHA-protected contact form with transactional email delivery, SEO primitives, and a polished component system — so you can focus on content and branding instead of boilerplate.
+
+**Target audience:** Freelancers, agencies, and product teams who need a solid, maintainable foundation for a multilingual marketing or portfolio site with real lead-capture functionality.
+
+---
+
+## Tech Stack & Features
+
+### Technologies Used
+
+| Layer | Technology |
+|---|---|
+| **Framework** | [Next.js 16](https://nextjs.org/) (App Router) |
+| **Language** | [TypeScript 5](https://www.typescriptlang.org/) |
+| **Styling** | [Tailwind CSS v4](https://tailwindcss.com/) + `tw-animate-css` |
+| **Component System** | [shadcn/ui](https://ui.shadcn.com/) + [Base UI](https://base-ui.com/) |
+| **Icons** | [Lucide React](https://lucide.dev/) |
+| **i18n** | [next-intl v4](https://next-intl-docs.vercel.app/) |
+| **Theming** | [next-themes](https://github.com/pacocoursey/next-themes) |
+| **Forms** | [React Hook Form v7](https://react-hook-form.com/) + [Zod v4](https://zod.dev/) |
+| **CAPTCHA** | [Cloudflare Turnstile](https://www.cloudflare.com/products/turnstile/) (`@marsidev/react-turnstile`) |
+| **Email Delivery** | [Resend](https://resend.com/) (REST API, no SDK) |
+| **Linting / Formatting** | ESLint 9 + Prettier 3 |
+
+### Key Features
+
+- 🌐 **Full Internationalization (i18n)** — English and Indonesian locales out of the box, with automatic locale detection and routing via `next-intl`. Easily extendable to additional languages.
+- 🌗 **Dark / Light Theme Switching** — System-preference-aware theme toggle using `next-themes`, fully integrated across all components.
+- 📬 **CAPTCHA-Protected Contact Form** — A fully accessible, server-validated contact form featuring Cloudflare Turnstile CAPTCHA, Zod schema validation, and inline i18n error messages.
+- ✉️ **Transactional Email via Resend** — Contact submissions dispatch a formatted HTML email via the Resend API, with a graceful server-side logging fallback for local development.
+- 🗺️ **SEO-Ready Primitives** — Auto-generated `sitemap.ts`, `robots.ts`, and dynamic Open Graph image generation (`opengraph-image.tsx`) per locale.
+- 📄 **Legal Page Templates** — Pre-structured Privacy Policy and Terms of Service pages under the locale-aware App Router.
+- 🧩 **Composable Section Components** — Modular `HeroSection`, `AboutSection`, `ServicesSection`, and `ContactSection` that map directly to landing page anatomy.
+- 📱 **Responsive Layout** — Mobile-first responsive Navbar with a dedicated `MobileMenu` component and an accessible language switcher.
+- ✅ **Form Validation** — Client-side Zod validation with localized error messages and `react-hook-form` for performance-optimized re-renders.
+
+---
+
+## Getting Started (Local Setup)
+
+### Prerequisites
+
+- **Node.js** `>= 20.x` (LTS recommended)
+- **npm** `>= 10.x` (bundled with Node.js 20)
+- A **Cloudflare Turnstile** site/secret key pair (free tier available at [dash.cloudflare.com](https://dash.cloudflare.com/))
+- A **Resend** API key (free tier available at [resend.com](https://resend.com/)) — _optional for local development, falls back to server logging_
+
+### Installation
 
 ```bash
+# 1. Clone the repository
+git clone https://github.com/your-username/next-landing-starter.git
+cd next-landing-starter
+
+# 2. Install dependencies
+npm install
+
+# 3. Set up environment variables
+cp .env.example .env.local
+
+# 4. Fill in your credentials in .env.local (see section below)
+#    Then start the development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+The app will be available at [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Environment Variables
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Copy `.env.example` to `.env.local` and populate the following variables. **Never commit `.env.local` to version control.**
 
-## Learn More
+```env
+# ─── Email Delivery ─────────────────────────────────────────────────────────
+# Server-side only — do NOT prefix with NEXT_PUBLIC_
+RESEND_API_KEY=re_your_api_key_here
+CONTACT_EMAIL_TO=inquiries@yourdomain.com
+CONTACT_EMAIL_FROM=Your Name <onboarding@resend.dev>
 
-To learn more about Next.js, take a look at the following resources:
+# ─── Cloudflare Turnstile CAPTCHA ───────────────────────────────────────────
+# Client-side — safe to expose in the browser
+NEXT_PUBLIC_TURNSTILE_SITE_KEY=0x4AAAAAAA_your_site_key
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+# Server-side only — do NOT prefix with NEXT_PUBLIC_
+TURNSTILE_SECRET_KEY=0x4AAAAAAA_your_secret_key
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+> **Note:** If `RESEND_API_KEY` is omitted, the email service gracefully falls back to printing the submission details to the server console — useful for local development without setting up Resend.
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Project Structure
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```
+next-landing-starter/
+├── app/                        # Next.js App Router root
+│   ├── [locale]/               # Locale-scoped routes (i18n)
+│   │   ├── page.tsx            # Main landing page
+│   │   ├── layout.tsx          # Locale layout (fonts, providers)
+│   │   ├── opengraph-image.tsx # Dynamic OG image generation per locale
+│   │   ├── privacy-policy/     # Privacy Policy page
+│   │   └── terms-of-service/   # Terms of Service page
+│   ├── api/
+│   │   └── contact/            # POST /api/contact — form handler & email dispatch
+│   ├── globals.css             # Global CSS, Tailwind base layer, design tokens
+│   ├── layout.tsx              # Root layout (ThemeProvider, html/body)
+│   ├── robots.ts               # Auto-generated robots.txt
+│   └── sitemap.ts              # Auto-generated sitemap.xml
+│
+├── components/                 # All UI components
+│   ├── layout/                 # Structural layout components
+│   │   ├── Navbar.tsx          # Top navigation bar with language switcher
+│   │   ├── MobileMenu.tsx      # Animated off-canvas mobile navigation
+│   │   └── Footer.tsx          # Site footer with links and locale info
+│   ├── sections/               # Landing page section components
+│   │   ├── HeroSection.tsx     # Above-the-fold hero with CTA
+│   │   ├── AboutSection.tsx    # Company or product "about" section
+│   │   ├── ServicesSection.tsx # Services/features grid
+│   │   ├── ServiceCard.tsx     # Individual service card sub-component
+│   │   └── ContactSection.tsx  # CAPTCHA-protected contact form + info panel
+│   ├── seo/                    # SEO meta/structured-data components
+│   ├── ui/                     # shadcn/ui primitive components (Button, Input, etc.)
+│   ├── language-switcher.tsx   # Locale toggle dropdown
+│   ├── theme-provider.tsx      # next-themes provider wrapper
+│   └── theme-toggle.tsx        # Dark/light mode toggle button
+│
+├── i18n/                       # next-intl configuration
+│   ├── routing.ts              # Locale list, default locale, detection config
+│   └── request.ts              # Per-request locale resolution
+│
+├── lib/                        # Shared utilities and server-side helpers
+│   ├── email.ts                # HTML email renderer + Resend dispatch function
+│   ├── utils.ts                # General utility helpers (e.g., cn)
+│   └── validations/            # Zod schemas (e.g., contact form schema)
+│
+├── messages/                   # i18n translation files
+│   ├── en.json                 # English translations
+│   └── id.json                 # Indonesian translations
+│
+├── docs/                       # Internal developer documentation
+│   ├── TASK.md                 # Active task tracking
+│   ├── coding-guidelines.md    # Project coding standards
+│   ├── captcha.md              # Turnstile CAPTCHA implementation notes
+│   └── responsive.md           # Responsive design guidelines
+│
+├── .env.example                # Environment variable template (safe to commit)
+├── next.config.ts              # Next.js configuration (next-intl plugin)
+├── tsconfig.json               # TypeScript compiler options
+├── eslint.config.mjs           # ESLint flat config
+└── components.json             # shadcn/ui CLI configuration
+```
+
+---
+
+## Development
+
+### Available Scripts
+
+```bash
+npm run dev      # Start the local development server (http://localhost:3000)
+npm run build    # Produce an optimised production build
+npm run start    # Serve the production build locally
+npm run lint     # Run ESLint across the codebase
+npm run format   # Auto-format all files with Prettier
+```
+
