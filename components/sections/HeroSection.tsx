@@ -49,9 +49,9 @@ export function HeroSection({ locale = "id" }: HeroSectionProps) {
           </div>
 
           {/* Main Headline (H1) */}
-          <h1 className="max-w-4xl text-4xl font-extrabold tracking-tight text-foreground sm:text-5xl md:text-6xl lg:text-7xl">
+          <h1 className="max-w-4xl font-heading text-5xl font-bold uppercase tracking-wide text-foreground sm:text-6xl md:text-7xl lg:text-8xl leading-none">
             {t("titlePart1")}{" "}
-            <span className="bg-gradient-to-r from-foreground via-foreground/90 to-foreground/60 bg-clip-text text-transparent dark:from-white dark:to-zinc-400">
+            <span className="bg-gradient-to-r from-primary via-primary/90 to-accent bg-clip-text text-transparent dark:from-primary dark:via-accent dark:to-secondary">
               {t("titleHighlight")}
             </span>
           </h1>
@@ -69,7 +69,7 @@ export function HeroSection({ locale = "id" }: HeroSectionProps) {
               aria-label={t("ctaContact")}
               className={cn(
                 buttonVariants({ size: "lg" }),
-                "w-full sm:w-auto text-base px-8 h-12 shadow-xs cursor-pointer transition-all duration-300 ease-in-out hover:-translate-y-0.5 hover:shadow-md",
+                "w-full sm:w-auto text-base px-8 h-12 shadow-xs cursor-pointer transition-all duration-300 ease-in-out hover:-translate-y-0.5 hover:shadow-md font-medium",
               )}
             >
               <span>{t("ctaContact")}</span>
@@ -81,7 +81,7 @@ export function HeroSection({ locale = "id" }: HeroSectionProps) {
               aria-label={t("ctaServices")}
               className={cn(
                 buttonVariants({ variant: "outline", size: "lg" }),
-                "w-full sm:w-auto text-base px-8 h-12 cursor-pointer transition-all duration-300 ease-in-out hover:-translate-y-0.5 hover:shadow-md",
+                "w-full sm:w-auto text-base px-8 h-12 cursor-pointer transition-all duration-300 ease-in-out hover:-translate-y-0.5 hover:shadow-md font-medium",
               )}
             >
               <span>{t("ctaServices")}</span>
@@ -91,7 +91,7 @@ export function HeroSection({ locale = "id" }: HeroSectionProps) {
           {/* Highlights / Trust Indicators */}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-8 text-muted-foreground max-w-3xl w-full border-t border-border/40">
             <div className="flex flex-col items-center p-2 rounded-xl transition-all duration-300 ease-in-out hover:bg-muted/40">
-              <span className="text-2xl sm:text-3xl font-bold text-foreground">
+              <span className="font-heading text-3xl sm:text-4xl font-bold text-foreground">
                 {t("uptimeValue")}
               </span>
               <span className="text-xs sm:text-sm mt-1">
@@ -99,7 +99,7 @@ export function HeroSection({ locale = "id" }: HeroSectionProps) {
               </span>
             </div>
             <div className="flex flex-col items-center p-2 rounded-xl transition-all duration-300 ease-in-out hover:bg-muted/40">
-              <span className="text-2xl sm:text-3xl font-bold text-foreground">
+              <span className="font-heading text-3xl sm:text-4xl font-bold text-foreground">
                 {t("clientsValue")}
               </span>
               <span className="text-xs sm:text-sm mt-1">
@@ -107,7 +107,7 @@ export function HeroSection({ locale = "id" }: HeroSectionProps) {
               </span>
             </div>
             <div className="flex flex-col items-center p-2 rounded-xl transition-all duration-300 ease-in-out hover:bg-muted/40">
-              <div className="flex items-center gap-1.5 text-2xl sm:text-3xl font-bold text-foreground">
+              <div className="flex items-center gap-1.5 font-heading text-3xl sm:text-4xl font-bold text-foreground">
                 <ShieldCheck className="h-6 w-6 text-primary" />
                 <span>{t("supportValue")}</span>
               </div>

@@ -1,6 +1,7 @@
 "use client";
 
 import * as React from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { useTranslations } from "next-intl";
 import { ThemeToggle } from "@/components/theme-toggle";
@@ -67,13 +68,17 @@ export function Navbar({ locale = "id" }: NavbarProps) {
           <Link
             href={`/${locale}`}
             onClick={(e) => handleNavClick(e, "")}
-            className="flex items-center gap-2 font-bold text-xl tracking-tight text-foreground transition-all duration-300 ease-in-out hover:opacity-90"
-            aria-label="Acme Corp Home"
+            className="flex items-center gap-2 transition-all duration-300 ease-in-out hover:opacity-90 py-1"
+            aria-label="CREdoes Home"
           >
-            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-primary-foreground font-extrabold text-sm transition-transform duration-300 ease-in-out group-hover:scale-105">
-              CO
-            </div>
-            <span>Acme Corp</span>
+            <Image
+              src="/images/logo-full.svg"
+              alt="CREdoes"
+              width={140}
+              height={40}
+              className="h-8 md:h-9 w-auto object-contain"
+              priority
+            />
           </Link>
 
           {/* Desktop Navigation */}

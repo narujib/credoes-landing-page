@@ -37,6 +37,7 @@ export function LanguageSwitcher({
           <Button
             variant="ghost"
             size="sm"
+            disabled={isPending}
             aria-label="Switch language"
             className="flex items-center gap-1.5 px-2.5 text-xs font-semibold uppercase tracking-wider"
           >
@@ -50,6 +51,7 @@ export function LanguageSwitcher({
         className="animate-in fade-in-50 zoom-in-95 duration-200"
       >
         <DropdownMenuItem
+          disabled={isPending}
           onClick={() => handleLocaleChange("id")}
           className={`cursor-pointer transition-colors duration-200 ${
             activeLocale === "id" ? "font-semibold text-primary" : ""
@@ -58,6 +60,7 @@ export function LanguageSwitcher({
           Bahasa Indonesia (ID)
         </DropdownMenuItem>
         <DropdownMenuItem
+          disabled={isPending}
           onClick={() => handleLocaleChange("en")}
           className={`cursor-pointer transition-colors duration-200 ${
             activeLocale === "en" ? "font-semibold text-primary" : ""

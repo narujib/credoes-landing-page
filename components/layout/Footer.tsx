@@ -1,6 +1,7 @@
 "use client";
 
 import * as React from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { useTranslations } from "next-intl";
 import { Globe } from "lucide-react";
@@ -145,13 +146,16 @@ export function Footer({ locale = "id" }: FooterProps) {
             <Link
               href={`/${locale}`}
               onClick={(e) => handleNavClick(e, "")}
-              className="flex items-center gap-2 font-bold text-xl tracking-tight text-foreground transition-all duration-300 ease-in-out hover:opacity-90 inline-flex"
-              aria-label="Acme Corp Home"
+              className="flex items-center gap-2 transition-all duration-300 ease-in-out hover:opacity-90 inline-flex py-1"
+              aria-label="CREdoes Home"
             >
-              <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-primary-foreground font-extrabold text-sm transition-transform duration-300 ease-in-out group-hover:scale-105">
-                CO
-              </div>
-              <span>Acme Corp</span>
+              <Image
+                src="/images/logo-full.svg"
+                alt="CREdoes"
+                width={140}
+                height={40}
+                className="h-8 md:h-9 w-auto object-contain"
+              />
             </Link>
             <p className="text-sm text-muted-foreground leading-relaxed max-w-sm">
               {t("brandDesc")}
@@ -242,7 +246,7 @@ export function Footer({ locale = "id" }: FooterProps) {
         {/* Bottom Bar */}
         <div className="mt-10 md:mt-12 pt-6 border-t border-border/40 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-muted-foreground">
           <p>
-            &copy; {currentYear} Acme Corp Ltd. {t("allRightsReserved")}
+            &copy; {currentYear} CREdoes. {t("allRightsReserved")}
           </p>
           <div className="flex items-center gap-2">
             <div className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />

@@ -2,14 +2,31 @@
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
 
+/* ── CREdoes Brand Font ── */
+@font-face {
+  font-family: "Agency FB";
+  src: url("/fonts/agency-fb-bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Agency FB";
+  src: url("/fonts/agency-fb-bold.ttf") format("truetype");
+  font-weight: 400 900;
+  font-style: normal;
+  font-display: swap;
+}
+
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-sans);
+  --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-  --font-heading: var(--font-sans);
+  --font-heading: var(--font-agency);
+  --font-agency: var(--font-agency);
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -46,6 +63,14 @@
   --radius-2xl: calc(var(--radius) * 1.8);
   --radius-3xl: calc(var(--radius) * 2.2);
   --radius-4xl: calc(var(--radius) * 2.6);
+
+  /* ── CREdoes Extended Brand Colors ── */
+  --color-credoes-teal-hover: var(--credoes-teal-hover);
+  --color-credoes-teal-light: var(--credoes-teal-light);
+  --color-credoes-lime-hover: var(--credoes-lime-hover);
+  --color-credoes-cyan-hover: var(--credoes-cyan-hover);
+  --color-credoes-pale: var(--credoes-pale);
+
   --animate-fade-in: fade-in 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   --animate-fade-in-up: fade-in-up 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   --animate-slide-in-left: slide-in-left 0.6s cubic-bezier(0.16, 1, 0.3, 1)
@@ -127,18 +152,18 @@ body {
   --card-foreground: oklch(0.145 0 0);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
+  --primary: oklch(0.44 0.09 170); /* CREdoes Teal #006D5B */
+  --primary-foreground: oklch(1 0 0); /* White */
+  --secondary: oklch(0.82 0.22 130); /* Lime Green #7AE127 */
+  --secondary-foreground: oklch(0.15 0 0); /* Dark text */
   --muted: oklch(0.97 0 0);
   --muted-foreground: oklch(0.48 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
+  --accent: oklch(0.94 0.02 170); /* Light Teal Tint #E5F0EE */
+  --accent-foreground: oklch(0.36 0.07 170); /* Deep Teal text #005446 */
   --destructive: oklch(0.577 0.245 27.325);
   --border: oklch(0.922 0 0);
   --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
+  --ring: oklch(0.44 0.09 170); /* Focus ring = Teal */
   --chart-1: oklch(0.87 0 0);
   --chart-2: oklch(0.556 0 0);
   --chart-3: oklch(0.439 0 0);
@@ -147,12 +172,20 @@ body {
   --radius: 0.625rem;
   --sidebar: oklch(0.985 0 0);
   --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
+  --sidebar-primary: oklch(0.44 0.09 170); /* Teal */
   --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-accent: oklch(0.94 0.02 170); /* Light Teal Tint */
+  --sidebar-accent-foreground: oklch(0.36 0.07 170);
   --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
+  --sidebar-ring: oklch(0.44 0.09 170); /* Teal */
+
+  /* ── CREdoes Extended Brand Tokens ── */
+  --credoes-teal-hover: oklch(0.36 0.07 170); /* #005446 */
+  --credoes-teal-light: oklch(0.94 0.02 170); /* #E5F0EE */
+  --credoes-lime-hover: oklch(0.72 0.19 130); /* #65C21F */
+  --credoes-cyan-hover: oklch(0.65 0.13 230); /* #0CA1D6 */
+  --credoes-pale: oklch(0.96 0.02 220); /* #E4F4F8 */
+  --font-agency: "Agency FB", "Arial Narrow", Arial, sans-serif;
 }
 
 .dark {
@@ -162,18 +195,18 @@ body {
   --card-foreground: oklch(0.985 0 0);
   --popover: oklch(0.205 0 0);
   --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.922 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.52 0.1 170); /* Teal lighter for dark */
+  --primary-foreground: oklch(1 0 0); /* White */
+  --secondary: oklch(0.82 0.22 130); /* Lime Green */
+  --secondary-foreground: oklch(0.15 0 0); /* Dark text */
   --muted: oklch(0.269 0 0);
   --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
+  --accent: oklch(0.22 0.04 170); /* Dark Teal Tint */
+  --accent-foreground: oklch(0.985 0 0); /* Light text */
   --destructive: oklch(0.704 0.191 22.216);
   --border: oklch(1 0 0 / 10%);
   --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.556 0 0);
+  --ring: oklch(0.52 0.1 170); /* Focus ring = Teal */
   --chart-1: oklch(0.87 0 0);
   --chart-2: oklch(0.556 0 0);
   --chart-3: oklch(0.439 0 0);
@@ -181,12 +214,19 @@ body {
   --chart-5: oklch(0.269 0 0);
   --sidebar: oklch(0.205 0 0);
   --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary: oklch(0.52 0.1 170); /* Teal */
   --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent: oklch(0.22 0.04 170); /* Dark Teal Tint */
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.556 0 0);
+  --sidebar-ring: oklch(0.52 0.1 170); /* Teal */
+
+  /* ── CREdoes Extended Brand Tokens (Dark) ── */
+  --credoes-teal-hover: oklch(0.44 0.09 170);
+  --credoes-teal-light: oklch(0.2 0.04 170);
+  --credoes-lime-hover: oklch(0.72 0.19 130);
+  --credoes-cyan-hover: oklch(0.65 0.13 230);
+  --credoes-pale: oklch(0.96 0.02 220);
 }
 
 @layer base {
@@ -198,6 +238,14 @@ body {
   }
   html {
     @apply font-sans scroll-smooth;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-heading);
   }
 }
 
