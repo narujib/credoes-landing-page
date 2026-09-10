@@ -56,6 +56,59 @@ function sanitizeString(input: unknown): string {
     .trim();
 }
 
+/**
+ * Verify Cloudflare Turnstile CAPTCHA token with Cloudflare API
+ */
+async function verifyCaptchaToken(
+  token: string,
+  ip: string,
+): Promise<{ success: boolean; error?: string }> {
+  const secretKey = process.env.TURNSTILE_SECRET_KEY;
+  if (!secretKey) {
+    console.error("[Contact API] TURNSTILE_SECRET_KEY is not configured.");
+    return { success: false, error: "CAPTCHA service is not configured." };
+  }
+
+  try {
+    const formData = new URLSearchParams();
+    formData.append("secret", secretKey);
+    formData.append("response", token);
+    if (ip && ip !== "127.0.0.1") {
+      formData.append("remoteip", ip);
+    }
+
+    const response = await fetch(
+      "https://challenges.cloudflare.com/turnstile/v0/siteverify",
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: formData.toString(),
+      },
+    );
+
+    const result = (await response.json()) as {
+      success: boolean;
+      "error-codes"?: string[];
+    };
+
+    if (!result.success) {
+      console.warn("[Turnstile Verification Failed]:", result["error-codes"]);
+      return {
+        success: false,
+        error: "CAPTCHA verification failed. Please try again.",
+      };
+    }
+
+    return { success: true };
+  } catch (err) {
+    console.error("[Turnstile Verification Network Error]:", err);
+    return {
+      success: false,
+      error: "Unable to verify CAPTCHA due to network error.",
+    };
+  }
+}
+
 export async function POST(request: NextRequest) {
   try {
     // 1. Validate Content-Type
@@ -116,6 +169,10 @@ export async function POST(request: NextRequest) {
       email: sanitizeString(payload.email),
       subject: sanitizeString(payload.subject),
       message: sanitizeString(payload.message),
+      captchaToken:
+        typeof payload.captchaToken === "string"
+          ? payload.captchaToken.trim()
+          : "",
     };
 
     // 4. Server-side Zod Validation
@@ -133,7 +190,22 @@ export async function POST(request: NextRequest) {
 
     const validatedData = validationResult.data;
 
-    // 5. Dispatch Email notification via secure server-side email service
+    // 5. Verify CAPTCHA Token with Cloudflare Turnstile
+    const captchaResult = await verifyCaptchaToken(
+      validatedData.captchaToken,
+      ip,
+    );
+    if (!captchaResult.success) {
+      return NextResponse.json(
+        {
+          success: false,
+          error: captchaResult.error || "CAPTCHA verification failed.",
+        },
+        { status: 400 },
+      );
+    }
+
+    // 6. Dispatch Email notification via secure server-side email service
     const emailResult = await sendContactEmail(validatedData);
     if (!emailResult.success) {
       console.error("[Contact API] Email dispatch failure:", emailResult.error);
