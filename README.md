@@ -1,8 +1,6 @@
 # next-landing-starter
 
-![Build Status](https://img.shields.io/github/actions/workflow/status/your-username/next-landing-starter/ci.yml?style=flat-square&label=build)
 ![Version](https://img.shields.io/badge/version-0.1.0-blue?style=flat-square)
-![License](https://img.shields.io/badge/license-MIT-green?style=flat-square)
 ![Next.js](https://img.shields.io/badge/Next.js-16.3.4-black?style=flat-square&logo=next.js)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.x-3178c6?style=flat-square&logo=typescript)
 
@@ -48,7 +46,7 @@ A production-ready, opinionated **Next.js landing page starter** built for enter
 
 ### Prerequisites
 
-- **Node.js** `>= 20.x` (LTS recommended)
+- **Node.js** `>= 20.9.0` (LTS recommended)
 - **npm** `>= 10.x` (bundled with Node.js 20)
 - A **Cloudflare Turnstile** site/secret key pair (free tier available at [dash.cloudflare.com](https://dash.cloudflare.com/))
 - A **Resend** API key (free tier available at [resend.com](https://resend.com/)) — _optional for local development, falls back to server logging_
@@ -57,7 +55,7 @@ A production-ready, opinionated **Next.js landing page starter** built for enter
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/your-username/next-landing-starter.git
+git clone https://github.com/narujib/next-landing-starter.git
 cd next-landing-starter
 
 # 2. Install dependencies
@@ -143,12 +141,6 @@ next-landing-starter/
 ├── messages/                   # i18n translation files
 │   ├── en.json                 # English translations
 │   └── id.json                 # Indonesian translations
-│
-├── docs/                       # Internal developer documentation
-│   ├── TASK.md                 # Active task tracking
-│   ├── coding-guidelines.md    # Project coding standards
-│   ├── captcha.md              # Turnstile CAPTCHA implementation notes
-│   └── responsive.md           # Responsive design guidelines
 │
 ├── .env.example                # Environment variable template (safe to commit)
 ├── next.config.ts              # Next.js configuration (next-intl plugin)
