@@ -12,11 +12,12 @@ export async function generateMetadata({
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "Terms" });
 
-  const title = `${t("title")} | Acme Corp`;
+  const pageTitle = t("title");
+  const fullTitle = `${pageTitle} | Acme Corp`;
   const description = t("s1Desc");
 
   return {
-    title,
+    title: pageTitle,
     description,
     alternates: {
       canonical: `/${locale}/terms-of-service`,
@@ -27,7 +28,7 @@ export async function generateMetadata({
       },
     },
     openGraph: {
-      title,
+      title: fullTitle,
       description,
       url: `/${locale}/terms-of-service`,
       siteName: "Acme Corp",
@@ -36,7 +37,7 @@ export async function generateMetadata({
     },
     twitter: {
       card: "summary_large_image",
-      title,
+      title: fullTitle,
       description,
     },
   };

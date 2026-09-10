@@ -13,14 +13,16 @@ export async function generateMetadata({
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "Hero" });
 
-  const title =
+  const titleString =
     locale === "id"
       ? `Acme Corp — Solusi Digital & Rekayasa Web Enterprise`
       : `Acme Corp — Modern Digital Solutions & Enterprise Architecture`;
   const description = t("subtitle");
 
   return {
-    title,
+    title: {
+      absolute: titleString,
+    },
     description,
     alternates: {
       canonical: `/${locale}`,
@@ -31,7 +33,7 @@ export async function generateMetadata({
       },
     },
     openGraph: {
-      title,
+      title: titleString,
       description,
       url: `/${locale}`,
       siteName: "Acme Corp",
@@ -40,7 +42,7 @@ export async function generateMetadata({
     },
     twitter: {
       card: "summary_large_image",
-      title,
+      title: titleString,
       description,
     },
   };

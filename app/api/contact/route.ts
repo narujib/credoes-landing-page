@@ -6,9 +6,29 @@ import { sendContactEmail } from "@/lib/email";
 const rateLimitMap = new Map<string, number[]>();
 const RATE_LIMIT_WINDOW_MS = 60 * 1000; // 1 minute
 const MAX_REQUESTS_PER_WINDOW = 5;
+const CLEANUP_THRESHOLD = 100;
+
+function cleanupExpiredRateLimits(now: number) {
+  for (const [key, timestamps] of rateLimitMap.entries()) {
+    const valid = timestamps.filter(
+      (time) => now - time < RATE_LIMIT_WINDOW_MS,
+    );
+    if (valid.length === 0) {
+      rateLimitMap.delete(key);
+    } else {
+      rateLimitMap.set(key, valid);
+    }
+  }
+}
 
 function isRateLimited(ip: string): boolean {
   const now = Date.now();
+
+  // Evict expired keys when map exceeds threshold to prevent unbounded memory growth
+  if (rateLimitMap.size >= CLEANUP_THRESHOLD) {
+    cleanupExpiredRateLimits(now);
+  }
+
   const timestamps = rateLimitMap.get(ip) || [];
 
   // Remove timestamps outside the sliding window
@@ -116,7 +136,16 @@ export async function POST(request: NextRequest) {
     // 5. Dispatch Email notification via secure server-side email service
     const emailResult = await sendContactEmail(validatedData);
     if (!emailResult.success) {
-      console.warn("[Contact API] Email dispatch issue:", emailResult.error);
+      console.error("[Contact API] Email dispatch failure:", emailResult.error);
+      return NextResponse.json(
+        {
+          success: false,
+          error:
+            emailResult.error ||
+            "Failed to send message due to email service error. Please try again later.",
+        },
+        { status: 500 },
+      );
     }
 
     return NextResponse.json(
