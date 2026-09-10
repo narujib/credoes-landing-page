@@ -22,6 +22,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { Turnstile, type TurnstileInstance } from "@marsidev/react-turnstile";
 
 export function ContactSection() {
   const t = useTranslations("Contact");
@@ -35,18 +36,52 @@ export function ContactSection() {
     "idle" | "submitting" | "success" | "error"
   >("idle");
   const [responseMessage, setResponseMessage] = React.useState<string>("");
+  const [captchaToken, setCaptchaToken] = React.useState<string | null>(null);
+  const turnstileRef = React.useRef<TurnstileInstance>(null);
 
   const {
     register,
     handleSubmit,
     reset,
+    setValue,
     formState: { errors },
   } = useForm<ContactFormData>({
     resolver: zodResolver(contactValidationSchema),
     mode: "onBlur",
+    defaultValues: {
+      name: "",
+      email: "",
+      subject: "",
+      message: "",
+      captchaToken: "",
+    },
   });
 
-  const onSubmit = async (data: ContactFormData) => {
+  const handleCaptchaSuccess = React.useCallback(
+    (token: string) => {
+      setCaptchaToken(token);
+      setValue("captchaToken", token, { shouldValidate: true });
+    },
+    [setValue],
+  );
+
+  const handleCaptchaExpire = React.useCallback(() => {
+    setCaptchaToken(null);
+    setValue("captchaToken", "", { shouldValidate: true });
+  }, [setValue]);
+
+  const handleCaptchaError = React.useCallback(() => {
+    setCaptchaToken(null);
+    setValue("captchaToken", "", { shouldValidate: true });
+  }, [setValue]);
+
+  const resetCaptcha = React.useCallback(() => {
+    setCaptchaToken(null);
+    setValue("captchaToken", "", { shouldValidate: false });
+    turnstileRef.current?.reset();
+  }, [setValue]);
+
+  const onValidSubmit = async (data: ContactFormData) => {
     setStatus("submitting");
     setResponseMessage("");
 
@@ -61,15 +96,23 @@ export function ContactSection() {
         setStatus("success");
         setResponseMessage(t("successMsg"));
         reset();
+        resetCaptcha();
       } else {
         const errorData = await response.json().catch(() => null);
         setStatus("error");
         setResponseMessage(errorData?.error || t("errorMsg"));
+        resetCaptcha();
       }
     } catch {
       setStatus("error");
       setResponseMessage(t("errorMsg"));
+      resetCaptcha();
     }
+  };
+
+  const onFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    void handleSubmit(onValidSubmit)(e);
   };
 
   const contactDetails = [
@@ -214,11 +257,7 @@ export function ContactSection() {
                 </div>
               )}
 
-              <form
-                onSubmit={handleSubmit(onSubmit)}
-                className="space-y-5"
-                noValidate
-              >
+              <form onSubmit={onFormSubmit} className="space-y-5" noValidate>
                 {/* Name & Email Fields */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div className="space-y-1.5">
@@ -330,12 +369,43 @@ export function ContactSection() {
                   )}
                 </div>
 
+                {/* Turnstile CAPTCHA Security Verification */}
+                <div className="space-y-1.5">
+                  <span className="text-xs font-semibold uppercase tracking-wider text-foreground block">
+                    {t("captchaLabel")}
+                  </span>
+                  <div className="flex justify-start min-h-[65px] pt-1">
+                    <Turnstile
+                      ref={turnstileRef}
+                      siteKey={
+                        process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY ||
+                        "1x00000000000000000000AA"
+                      }
+                      onSuccess={handleCaptchaSuccess}
+                      onExpire={handleCaptchaExpire}
+                      onError={handleCaptchaError}
+                      options={{
+                        theme: "auto",
+                        size: "normal",
+                      }}
+                    />
+                  </div>
+                  {errors.captchaToken && (
+                    <p
+                      id="captcha-error"
+                      className="text-xs text-destructive mt-1"
+                    >
+                      {errors.captchaToken.message}
+                    </p>
+                  )}
+                </div>
+
                 {/* Submit Button */}
                 <Button
                   type="submit"
                   size="lg"
-                  disabled={status === "submitting"}
-                  className="w-full h-11 text-base font-semibold shadow-xs cursor-pointer transition-all duration-300 ease-in-out hover:-translate-y-0.5 hover:shadow-md"
+                  disabled={status === "submitting" || !captchaToken}
+                  className="w-full h-11 text-base font-semibold shadow-xs cursor-pointer transition-all duration-300 ease-in-out hover:-translate-y-0.5 hover:shadow-md disabled:cursor-not-allowed disabled:opacity-50"
                   aria-label={t("submitBtn")}
                 >
                   {status === "submitting" ? (
