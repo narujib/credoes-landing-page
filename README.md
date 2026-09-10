@@ -16,19 +16,19 @@ A production-ready, opinionated **Next.js landing page starter** built for enter
 
 ### Technologies Used
 
-| Layer | Technology |
-|---|---|
-| **Framework** | [Next.js 16](https://nextjs.org/) (App Router) |
-| **Language** | [TypeScript 5](https://www.typescriptlang.org/) |
-| **Styling** | [Tailwind CSS v4](https://tailwindcss.com/) + `tw-animate-css` |
-| **Component System** | [shadcn/ui](https://ui.shadcn.com/) + [Base UI](https://base-ui.com/) |
-| **Icons** | [Lucide React](https://lucide.dev/) |
-| **i18n** | [next-intl v4](https://next-intl-docs.vercel.app/) |
-| **Theming** | [next-themes](https://github.com/pacocoursey/next-themes) |
-| **Forms** | [React Hook Form v7](https://react-hook-form.com/) + [Zod v4](https://zod.dev/) |
-| **CAPTCHA** | [Cloudflare Turnstile](https://www.cloudflare.com/products/turnstile/) (`@marsidev/react-turnstile`) |
-| **Email Delivery** | [Resend](https://resend.com/) (REST API, no SDK) |
-| **Linting / Formatting** | ESLint 9 + Prettier 3 |
+| Layer                    | Technology                                                                                           |
+| ------------------------ | ---------------------------------------------------------------------------------------------------- |
+| **Framework**            | [Next.js 16](https://nextjs.org/) (App Router)                                                       |
+| **Language**             | [TypeScript 5](https://www.typescriptlang.org/)                                                      |
+| **Styling**              | [Tailwind CSS v4](https://tailwindcss.com/) + `tw-animate-css`                                       |
+| **Component System**     | [shadcn/ui](https://ui.shadcn.com/) + [Base UI](https://base-ui.com/)                                |
+| **Icons**                | [Lucide React](https://lucide.dev/)                                                                  |
+| **i18n**                 | [next-intl v4](https://next-intl-docs.vercel.app/)                                                   |
+| **Theming**              | [next-themes](https://github.com/pacocoursey/next-themes)                                            |
+| **Forms**                | [React Hook Form v7](https://react-hook-form.com/) + [Zod v4](https://zod.dev/)                      |
+| **CAPTCHA**              | [Cloudflare Turnstile](https://www.cloudflare.com/products/turnstile/) (`@marsidev/react-turnstile`) |
+| **Email Delivery**       | [Resend](https://resend.com/) (REST API, no SDK)                                                     |
+| **Linting / Formatting** | ESLint 9 + Prettier 3                                                                                |
 
 ### Key Features
 
@@ -171,3 +171,58 @@ npm run lint     # Run ESLint across the codebase
 npm run format   # Auto-format all files with Prettier
 ```
 
+---
+
+## Customization Guide
+
+### 1. Editing Page Content & Copy
+
+All user-facing text is managed through the i18n translation files — **do not hardcode strings directly in components.**
+
+| Locale     | File               |
+| ---------- | ------------------ |
+| English    | `messages/en.json` |
+| Indonesian | `messages/id.json` |
+
+Update the relevant key in both files and the change will reflect across all components automatically.
+
+### 2. Adding a New Landing Page Section
+
+1. **Create the component** in `components/sections/YourSection.tsx`.
+2. **Add translation keys** to `messages/en.json` and `messages/id.json` under a new namespace (e.g., `"yourSection": { "title": "..." }`).
+3. **Consume translations** inside the component:
+   ```tsx
+   const t = useTranslations("yourSection");
+   ```
+4. **Register it** in `app/[locale]/page.tsx` by importing and placing the component in the desired order.
+
+### 3. Adding a New Language / Locale
+
+1. **Declare the locale** in `i18n/routing.ts`:
+   ```ts
+   export const locales = ["en", "id", "fr"] as const; // add your locale here
+   ```
+2. **Create the translation file** `messages/fr.json` (copy `en.json` as a template and translate).
+3. **Update the language switcher** labels in `components/language-switcher.tsx` if you display locale names explicitly.
+
+The routing, middleware, and `hreflang` meta tags will pick up the new locale automatically.
+
+### 4. Configuring Email & CAPTCHA Services
+
+All credentials are managed via environment variables — see the [Environment Variables](#environment-variables) section. No source code changes are required to swap API keys or change recipient addresses.
+
+| What to change                     | Variable                         |
+| ---------------------------------- | -------------------------------- |
+| Email recipient                    | `CONTACT_EMAIL_TO`               |
+| Sender display name / address      | `CONTACT_EMAIL_FROM`             |
+| Turnstile widget on the client     | `NEXT_PUBLIC_TURNSTILE_SITE_KEY` |
+| Turnstile server-side verification | `TURNSTILE_SECRET_KEY`           |
+
+### 5. Extending the Contact Form
+
+The form schema is the single source of truth for both client-side validation and the API route handler.
+
+- **Schema:** `lib/validations/contact.ts` — add or modify Zod fields here.
+- **Form UI:** `components/sections/ContactSection.tsx` — add the corresponding `<input>` / `<Controller>` field.
+- **API handler:** `app/api/contact/route.ts` — the handler already parses the schema; new fields are available automatically once added to the schema.
+- **Email template:** `lib/email.ts` — update the HTML renderer to include the new field in the outbound email body.
