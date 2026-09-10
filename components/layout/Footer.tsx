@@ -138,17 +138,17 @@ export function Footer({ locale = "id" }: FooterProps) {
       className="border-t border-border/40 bg-card/50 backdrop-blur-xs text-card-foreground"
       aria-label={t("navTitle")}
     >
-      <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
+      <div className="container mx-auto max-w-7xl px-4 md:px-6 lg:px-8 py-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 md:gap-10">
           {/* Brand & Mission (Spans 2 cols on desktop) */}
-          <div className="lg:col-span-2 space-y-4">
+          <div className="sm:col-span-2 lg:col-span-2 space-y-4">
             <Link
               href={`/${locale}`}
               onClick={(e) => handleNavClick(e, "")}
-              className="flex items-center gap-2 font-bold text-xl tracking-tight text-foreground transition-opacity hover:opacity-90 inline-flex"
+              className="flex items-center gap-2 font-bold text-xl tracking-tight text-foreground transition-all duration-300 ease-in-out hover:opacity-90 inline-flex"
               aria-label="Acme Corp Home"
             >
-              <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-primary-foreground font-extrabold text-sm">
+              <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-primary-foreground font-extrabold text-sm transition-transform duration-300 ease-in-out group-hover:scale-105">
                 CO
               </div>
               <span>Acme Corp</span>
@@ -166,7 +166,7 @@ export function Footer({ locale = "id" }: FooterProps) {
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex h-9 w-9 items-center justify-center rounded-lg border border-border/80 bg-background text-muted-foreground transition-colors hover:bg-primary/10 hover:text-primary hover:border-primary/40"
+                    className="flex h-9 w-9 items-center justify-center rounded-lg border border-border/80 bg-background text-muted-foreground transition-all duration-300 ease-in-out hover:bg-primary/10 hover:text-primary hover:border-primary/40 hover:-translate-y-0.5 hover:shadow-xs"
                     aria-label={social.label}
                   >
                     <Icon className="h-4 w-4" />
@@ -187,7 +187,7 @@ export function Footer({ locale = "id" }: FooterProps) {
                   <Link
                     href={`/${locale}${link.href}`}
                     onClick={(e) => handleNavClick(e, link.href)}
-                    className="text-muted-foreground transition-colors hover:text-foreground"
+                    className="inline-block text-muted-foreground transition-all duration-300 ease-in-out hover:text-foreground hover:translate-x-0.5"
                     aria-label={link.label}
                   >
                     {link.label}
@@ -208,7 +208,7 @@ export function Footer({ locale = "id" }: FooterProps) {
                   <Link
                     href={`/${locale}${link.href}`}
                     onClick={(e) => handleNavClick(e, link.href)}
-                    className="text-muted-foreground transition-colors hover:text-foreground"
+                    className="inline-block text-muted-foreground transition-all duration-300 ease-in-out hover:text-foreground hover:translate-x-0.5"
                     aria-label={link.label}
                   >
                     {link.label}
@@ -228,7 +228,7 @@ export function Footer({ locale = "id" }: FooterProps) {
                 <li key={idx}>
                   <Link
                     href={`/${locale}${link.href}`}
-                    className="text-muted-foreground transition-colors hover:text-foreground"
+                    className="inline-block text-muted-foreground transition-all duration-300 ease-in-out hover:text-foreground hover:translate-x-0.5"
                     aria-label={link.label}
                   >
                     {link.label}
