@@ -14,18 +14,11 @@
     "settings": "Settings"
   },
   "Hero": {
-    "badge": "Next-Generation Enterprise Solutions",
-    "titlePart1": "Empowering Your Digital Transformation with",
-    "titleHighlight": "Reliability & Precision",
-    "subtitle": "We build scalable, high-performance web systems and digital architecture designed to drive sustainable growth for modern companies.",
-    "ctaContact": "Contact Us",
-    "ctaServices": "Our Services",
-    "uptimeValue": "99.9%",
-    "uptimeLabel": "Uptime SLA Guarantee",
-    "clientsValue": "500+",
-    "clientsLabel": "Enterprise Clients",
-    "supportValue": "24/7",
-    "supportLabel": "Dedicated Support"
+    "titlePart1": "Business Aggregator for Companies requiring ",
+    "titleHighlight": "Working Capital or Investment",
+    "subtitle": "Need business development for optimal growth? Let's discuss together.",
+    "ctaContact": "Start Discussion",
+    "ctaServices": "Our Services"
   },
   "About": {
     "badge": "About CREdoes",

@@ -14,18 +14,11 @@
     "settings": "Pengaturan"
   },
   "Hero": {
-    "badge": "Solusi Enterprise Generasi Terbaru",
-    "titlePart1": "Mentransformasi Bisnis Digital Anda dengan",
-    "titleHighlight": "Keandalan & Presisi",
-    "subtitle": "Kami membangun arsitektur digital dan sistem web berperforma tinggi yang dirancang untuk mendorong pertumbuhan berkelanjutan perusahaan modern.",
-    "ctaContact": "Hubungi Kami",
-    "ctaServices": "Pelajari Layanan",
-    "uptimeValue": "99.9%",
-    "uptimeLabel": "Jaminan Uptime SLA",
-    "clientsValue": "500+",
-    "clientsLabel": "Klien Korporat",
-    "supportValue": "24/7",
-    "supportLabel": "Dukungan Teknis"
+    "titlePart1": "Aggregator Bisnis bagi Perusahaan yang memerlukan ",
+    "titleHighlight": "Modal Kerja ataupun Investasi",
+    "subtitle": "Butuh Pengembangan bisnis untuk pengembangan optimal? Mari berdiskusi bersama.",
+    "ctaContact": "Mulai Diskusi",
+    "ctaServices": "Pelajari Layanan"
   },
   "About": {
     "badge": "Tentang CREdoes",

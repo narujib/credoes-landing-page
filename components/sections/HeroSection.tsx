@@ -1,9 +1,10 @@
 "use client";
 
 import * as React from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { useTranslations } from "next-intl";
-import { ArrowRight, ShieldCheck, Sparkles } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
@@ -29,92 +30,87 @@ export function HeroSection({ locale = "id" }: HeroSectionProps) {
 
   return (
     <section
-      className="relative overflow-hidden pt-8 pb-12 md:pt-14 md:pb-16"
+      className="relative overflow-hidden pt-12 pb-16 md:pt-20 md:pb-24 bg-background"
       aria-label="Hero"
     >
-      {/* Background Decorative Gradients */}
-      <div
-        className="pointer-events-none absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80 max-w-full"
-        aria-hidden="true"
-      >
-        <div className="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] max-w-[100vw] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-primary/30 to-accent/40 opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]" />
-      </div>
-
       <div className="container mx-auto max-w-7xl px-4 md:px-6 lg:px-8">
-        <div className="flex flex-col items-center text-center space-y-6 md:space-y-8 animate-fade-in-up">
-          {/* Badge */}
-          <div className="inline-flex items-center gap-2 rounded-full border border-border/80 bg-muted/60 px-4 py-1.5 text-xs font-medium text-foreground backdrop-blur-sm shadow-xs transition-all duration-300 ease-in-out hover:bg-muted hover:scale-105">
-            <Sparkles className="h-3.5 w-3.5 text-primary" />
-            <span>{t("badge")}</span>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-12 items-center lg:items-stretch">
+          {/* Left Column: Text & CTA */}
+          <div className="flex flex-col justify-center space-y-6 md:space-y-8 animate-fade-in-up">
+            {/* Main Headline (H1) */}
+            <h1 className="max-w-2xl font-heading text-4xl font-bold tracking-tight text-foreground sm:text-5xl md:text-6xl leading-tight">
+              {t("titlePart1")}
+              <span className="text-[#0e7452] dark:text-[#20b284]">
+                {t("titleHighlight")}
+              </span>
+            </h1>
+
+            {/* Subtitle */}
+            <p className="max-w-xl text-lg text-muted-foreground sm:text-xl font-normal leading-relaxed">
+              {t("subtitle")}
+            </p>
+
+            {/* CTA Buttons */}
+            <div className="flex flex-col sm:flex-row items-center gap-4 pt-2 w-full sm:w-auto">
+              <a
+                href="https://wa.me/6281234567890?text=Halo%20CREdoes,%20saya%20ingin%20berdiskusi"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={t("ctaContact")}
+                className={cn(
+                  buttonVariants({ size: "lg" }),
+                  "w-full sm:w-auto text-xl px-8 h-12 shadow-xs cursor-pointer transition-colors duration-200 font-bold font-agency tracking-wider hover:bg-primary/90 active:translate-y-0 active:transform-none active:scale-100",
+                )}
+              >
+                <span>{t("ctaContact")}</span>
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </a>
+              <Link
+                href={`/${locale}#services`}
+                onClick={(e) => handleNavClick(e, "services")}
+                aria-label={t("ctaServices")}
+                className={cn(
+                  buttonVariants({ variant: "outline", size: "lg" }),
+                  "w-full sm:w-auto text-xl px-8 h-12 cursor-pointer transition-colors duration-200 font-bold font-agency tracking-wider hover:bg-muted active:translate-y-0 active:transform-none active:scale-100",
+                )}
+              >
+                <span>{t("ctaServices")}</span>
+              </Link>
+            </div>
           </div>
 
-          {/* Main Headline (H1) */}
-          <h1 className="max-w-4xl font-heading text-5xl font-bold uppercase tracking-wide text-foreground sm:text-6xl md:text-7xl lg:text-8xl leading-none">
-            {t("titlePart1")}{" "}
-            <span className="bg-gradient-to-r from-primary via-primary/90 to-accent bg-clip-text text-transparent dark:from-primary dark:via-accent dark:to-secondary">
-              {t("titleHighlight")}
+          {/* Right Column: Image */}
+          <div className="relative w-full aspect-[4/3] lg:aspect-auto min-h-[300px] sm:min-h-[360px] lg:min-h-0 flex items-center justify-center animate-fade-in-up">
+            <div className="relative w-full h-full rounded-2xl overflow-hidden shadow-xl">
+              <Image
+                src="https://images.unsplash.com/photo-1573164713988-8665fc963095?q=80&w=2069&auto=format&fit=crop"
+                alt="Business Professionals"
+                fill
+                priority
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                className="object-cover"
+              />
+            </div>
+          </div>
+        </div>
+
+        {/* Logo Banner */}
+        <div className="mt-20 pt-10 border-t border-border/40">
+          <div className="flex flex-wrap justify-center gap-8 md:gap-16 items-center opacity-60 grayscale hover:grayscale-0 transition-all duration-300">
+            <span className="text-xl font-serif font-bold tracking-tighter">
+              WALL STREET JOURNAL
             </span>
-          </h1>
-
-          {/* Subtitle */}
-          <p className="max-w-2xl text-lg text-muted-foreground sm:text-xl font-normal leading-relaxed">
-            {t("subtitle")}
-          </p>
-
-          {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row items-center gap-4 pt-2 w-full sm:w-auto">
-            <Link
-              href={`/${locale}#contact`}
-              onClick={(e) => handleNavClick(e, "contact")}
-              aria-label={t("ctaContact")}
-              className={cn(
-                buttonVariants({ size: "lg" }),
-                "w-full sm:w-auto text-base px-8 h-12 shadow-xs cursor-pointer transition-all duration-300 ease-in-out hover:-translate-y-0.5 hover:shadow-md font-medium",
-              )}
-            >
-              <span>{t("ctaContact")}</span>
-              <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 ease-in-out group-hover:translate-x-1" />
-            </Link>
-            <Link
-              href={`/${locale}#services`}
-              onClick={(e) => handleNavClick(e, "services")}
-              aria-label={t("ctaServices")}
-              className={cn(
-                buttonVariants({ variant: "outline", size: "lg" }),
-                "w-full sm:w-auto text-base px-8 h-12 cursor-pointer transition-all duration-300 ease-in-out hover:-translate-y-0.5 hover:shadow-md font-medium",
-              )}
-            >
-              <span>{t("ctaServices")}</span>
-            </Link>
-          </div>
-
-          {/* Highlights / Trust Indicators */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-8 text-muted-foreground max-w-3xl w-full border-t border-border/40">
-            <div className="flex flex-col items-center p-2 rounded-xl transition-all duration-300 ease-in-out hover:bg-muted/40">
-              <span className="font-heading text-3xl sm:text-4xl font-bold text-foreground">
-                {t("uptimeValue")}
-              </span>
-              <span className="text-xs sm:text-sm mt-1">
-                {t("uptimeLabel")}
-              </span>
-            </div>
-            <div className="flex flex-col items-center p-2 rounded-xl transition-all duration-300 ease-in-out hover:bg-muted/40">
-              <span className="font-heading text-3xl sm:text-4xl font-bold text-foreground">
-                {t("clientsValue")}
-              </span>
-              <span className="text-xs sm:text-sm mt-1">
-                {t("clientsLabel")}
-              </span>
-            </div>
-            <div className="flex flex-col items-center p-2 rounded-xl transition-all duration-300 ease-in-out hover:bg-muted/40">
-              <div className="flex items-center gap-1.5 font-heading text-3xl sm:text-4xl font-bold text-foreground">
-                <ShieldCheck className="h-6 w-6 text-primary" />
-                <span>{t("supportValue")}</span>
-              </div>
-              <span className="text-xs sm:text-sm mt-1">
-                {t("supportLabel")}
-              </span>
-            </div>
+            <span className="text-xl font-sans font-bold">Forbes</span>
+            <span className="text-xl font-sans font-bold tracking-widest">
+              FAST OMPANY
+            </span>
+            <span className="text-2xl font-sans font-extrabold text-green-700 dark:text-green-500">
+              TC
+            </span>
+            <span className="text-xl font-sans font-bold">TechCrunch</span>
+            <span className="text-lg font-serif italic text-gray-500">
+              THE HUFFINGTON POST
+            </span>
           </div>
         </div>
       </div>
