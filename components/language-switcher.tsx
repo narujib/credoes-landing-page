@@ -36,12 +36,11 @@ export function LanguageSwitcher({
         render={
           <Button
             variant="ghost"
-            size="sm"
             disabled={isPending}
             aria-label="Switch language"
-            className="flex items-center gap-1.5 px-2.5 text-xs font-semibold uppercase tracking-wider"
+            className="flex items-center gap-1.5 px-3 py-1.5 h-9 rounded-lg font-heading text-base md:text-lg font-bold tracking-wider uppercase transition-all duration-300 ease-in-out hover:bg-primary-foreground/15 text-primary-foreground cursor-pointer"
           >
-            <Globe className="h-4 w-4" />
+            <Globe className="h-4.5 w-4.5" />
             <span>{activeLocale}</span>
           </Button>
         }

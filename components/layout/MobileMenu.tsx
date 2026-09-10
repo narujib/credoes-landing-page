@@ -94,7 +94,7 @@ export function MobileMenu({ items, locale = "id" }: MobileMenuProps) {
                 key={item.href}
                 href={`/${locale}${item.href}`}
                 onClick={(e) => handleNavClick(e, item.href)}
-                className="text-base font-medium text-muted-foreground transition-all duration-300 ease-in-out hover:text-foreground hover:translate-x-1 py-2"
+                className="font-heading text-lg font-bold tracking-wider uppercase text-foreground transition-colors duration-300 ease-linear hover:text-primary py-2"
                 aria-label={item.label}
               >
                 {item.label}

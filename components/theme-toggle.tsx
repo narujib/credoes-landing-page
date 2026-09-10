@@ -34,10 +34,10 @@ export function ThemeToggle() {
             variant="ghost"
             size="icon"
             aria-label="Toggle theme"
-            className="h-9 w-9 rounded-full"
+            className="h-9 w-9 rounded-full transition-all duration-300 ease-in-out hover:bg-primary-foreground/15 text-primary-foreground cursor-pointer"
           >
-            <Sun className="h-4 w-4 scale-100 rotate-0 transition-all duration-500 ease-in-out dark:scale-0 dark:-rotate-90" />
-            <Moon className="absolute h-4 w-4 scale-0 rotate-90 transition-all duration-500 ease-in-out dark:scale-100 dark:rotate-0" />
+            <Sun className="h-5 w-5 scale-100 rotate-0 transition-all duration-500 ease-in-out dark:scale-0 dark:-rotate-90" />
+            <Moon className="absolute h-5 w-5 scale-0 rotate-90 transition-all duration-500 ease-in-out dark:scale-100 dark:rotate-0" />
             <span className="sr-only">Toggle theme</span>
           </Button>
         }
