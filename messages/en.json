@@ -130,7 +130,11 @@
     "submitBtn": "Send Message",
     "sendingBtn": "Sending...",
     "successMsg": "Thank you! Your message has been sent successfully. We will reach out shortly.",
-    "errorMsg": "Sorry, an unexpected error occurred. Please try again later."
+    "errorMsg": "Sorry, an unexpected error occurred. Please try again later.",
+    "captchaRequired": "Please complete the CAPTCHA verification.",
+    "captchaExpired": "CAPTCHA has expired. Please verify again.",
+    "captchaFailed": "CAPTCHA verification failed. Please try again.",
+    "captchaLabel": "Security Verification"
   },
   "Footer": {
     "brandDesc": "Delivering state-of-the-art enterprise web architectures, cloud infrastructure, and intelligent automation systems worldwide.",

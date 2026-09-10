@@ -130,7 +130,11 @@
     "submitBtn": "Kirim Pesan",
     "sendingBtn": "Mengirim...",
     "successMsg": "Terima kasih! Pesan Anda berhasil dikirim. Tim kami akan segera menghubungi Anda.",
-    "errorMsg": "Maaf, terjadi kesalahan. Silakan coba lagi beberapa saat lagi."
+    "errorMsg": "Maaf, terjadi kesalahan. Silakan coba lagi beberapa saat lagi.",
+    "captchaRequired": "Silakan selesaikan verifikasi CAPTCHA.",
+    "captchaExpired": "CAPTCHA telah kedaluwarsa. Silakan verifikasi ulang.",
+    "captchaFailed": "Verifikasi CAPTCHA gagal. Silakan coba lagi.",
+    "captchaLabel": "Verifikasi Keamanan"
   },
   "Footer": {
     "brandDesc": "Menyediakan arsitektur web enterprise mutakhir, infrastruktur cloud tangguh, dan sistem otomasi cerdas untuk pasar global.",
