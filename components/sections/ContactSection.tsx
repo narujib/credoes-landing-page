@@ -105,10 +105,10 @@ export function ContactSection() {
       className="py-20 md:py-28 bg-muted/20 border-t border-border/40 scroll-mt-16"
       aria-label={t("badge")}
     >
-      <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div className="container mx-auto max-w-7xl px-4 md:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="max-w-3xl mx-auto text-center space-y-4 mb-16">
-          <div className="inline-flex items-center gap-2 rounded-full border border-border bg-background px-3.5 py-1 text-xs font-semibold text-primary shadow-xs">
+        <div className="max-w-3xl mx-auto text-center space-y-4 mb-16 animate-fade-in-up">
+          <div className="inline-flex items-center gap-2 rounded-full border border-border bg-background px-3.5 py-1 text-xs font-semibold text-primary shadow-xs transition-all duration-300 ease-in-out hover:scale-105">
             <MessageSquare className="h-3.5 w-3.5" />
             <span>{t("badge")}</span>
           </div>
@@ -123,7 +123,7 @@ export function ContactSection() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-12 max-w-6xl mx-auto">
           {/* Left Column: Direct Contact Info */}
           <div className="lg:col-span-5 flex flex-col justify-between space-y-8">
             <div className="space-y-6">
@@ -138,8 +138,8 @@ export function ContactSection() {
                 {contactDetails.map((detail, idx) => {
                   const Icon = detail.icon;
                   const content = (
-                    <div className="flex items-start gap-3.5 p-3.5 rounded-xl border border-border/60 bg-card hover:bg-muted/40 transition-colors">
-                      <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                    <div className="flex items-start gap-3.5 p-3.5 rounded-xl border border-border/60 bg-card hover:bg-muted/40 hover:border-primary/40 transition-all duration-300 ease-in-out hover:-translate-y-0.5 hover:shadow-xs">
+                      <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary transition-all duration-300 ease-in-out group-hover:scale-105 group-hover:bg-primary group-hover:text-primary-foreground">
                         <Icon className="h-5 w-5" />
                       </div>
                       <div className="flex flex-col min-w-0">
@@ -335,7 +335,7 @@ export function ContactSection() {
                   type="submit"
                   size="lg"
                   disabled={status === "submitting"}
-                  className="w-full h-11 text-base font-semibold shadow-xs"
+                  className="w-full h-11 text-base font-semibold shadow-xs cursor-pointer transition-all duration-300 ease-in-out hover:-translate-y-0.5 hover:shadow-md"
                   aria-label={t("submitBtn")}
                 >
                   {status === "submitting" ? (
@@ -346,7 +346,7 @@ export function ContactSection() {
                   ) : (
                     <>
                       <span>{t("submitBtn")}</span>
-                      <Send className="ml-2 h-4 w-4" />
+                      <Send className="ml-2 h-4 w-4 transition-transform duration-300 ease-in-out group-hover:translate-x-0.5" />
                     </>
                   )}
                 </Button>
