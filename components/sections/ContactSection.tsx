@@ -102,12 +102,12 @@ export function ContactSection() {
   return (
     <section
       id="contact"
-      className="py-20 md:py-28 bg-muted/20 border-t border-border/40 scroll-mt-16"
+      className="py-12 md:py-16 bg-muted/20 border-t border-border/40 scroll-mt-16"
       aria-label={t("badge")}
     >
       <div className="container mx-auto max-w-7xl px-4 md:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="max-w-3xl mx-auto text-center space-y-4 mb-16 animate-fade-in-up">
+        <div className="max-w-3xl mx-auto text-center space-y-4 mb-10 md:mb-12 animate-fade-in-up">
           <div className="inline-flex items-center gap-2 rounded-full border border-border bg-background px-3.5 py-1 text-xs font-semibold text-primary shadow-xs transition-all duration-300 ease-in-out hover:scale-105">
             <MessageSquare className="h-3.5 w-3.5" />
             <span>{t("badge")}</span>

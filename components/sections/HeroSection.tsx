@@ -29,7 +29,7 @@ export function HeroSection({ locale = "id" }: HeroSectionProps) {
 
   return (
     <section
-      className="relative overflow-hidden pt-12 pb-20 md:pt-20 md:pb-32"
+      className="relative overflow-hidden pt-8 pb-12 md:pt-14 md:pb-16"
       aria-label="Hero"
     >
       {/* Background Decorative Gradients */}
@@ -41,7 +41,7 @@ export function HeroSection({ locale = "id" }: HeroSectionProps) {
       </div>
 
       <div className="container mx-auto max-w-7xl px-4 md:px-6 lg:px-8">
-        <div className="flex flex-col items-center text-center space-y-8 animate-fade-in-up">
+        <div className="flex flex-col items-center text-center space-y-6 md:space-y-8 animate-fade-in-up">
           {/* Badge */}
           <div className="inline-flex items-center gap-2 rounded-full border border-border/80 bg-muted/60 px-4 py-1.5 text-xs font-medium text-foreground backdrop-blur-sm shadow-xs transition-all duration-300 ease-in-out hover:bg-muted hover:scale-105">
             <Sparkles className="h-3.5 w-3.5 text-primary" />
@@ -89,7 +89,7 @@ export function HeroSection({ locale = "id" }: HeroSectionProps) {
           </div>
 
           {/* Highlights / Trust Indicators */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-12 text-muted-foreground max-w-3xl w-full border-t border-border/40">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-8 text-muted-foreground max-w-3xl w-full border-t border-border/40">
             <div className="flex flex-col items-center p-2 rounded-xl transition-all duration-300 ease-in-out hover:bg-muted/40">
               <span className="text-2xl sm:text-3xl font-bold text-foreground">
                 {t("uptimeValue")}

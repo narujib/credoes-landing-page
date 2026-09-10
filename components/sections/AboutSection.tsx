@@ -54,12 +54,12 @@ export function AboutSection() {
   return (
     <section
       id="about"
-      className="py-20 md:py-28 bg-muted/30 border-y border-border/40 scroll-mt-16"
+      className="py-12 md:py-16 bg-muted/30 border-y border-border/40 scroll-mt-16"
       aria-label={t("badge")}
     >
       <div className="container mx-auto max-w-7xl px-4 md:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="max-w-3xl mx-auto text-center space-y-4 mb-16 animate-fade-in-up">
+        <div className="max-w-3xl mx-auto text-center space-y-4 mb-10 md:mb-12 animate-fade-in-up">
           <div className="inline-flex items-center gap-2 rounded-full border border-border bg-background px-3.5 py-1 text-xs font-semibold text-primary shadow-xs transition-all duration-300 ease-in-out hover:scale-105">
             <Globe2 className="h-3.5 w-3.5" />
             <span>{t("badge")}</span>
@@ -76,7 +76,7 @@ export function AboutSection() {
         </div>
 
         {/* Value Proposition Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-10 md:mb-12">
           {values.map((item, index) => {
             const IconComponent = item.icon;
             return (
@@ -99,7 +99,7 @@ export function AboutSection() {
         </div>
 
         {/* Company Stats Banner */}
-        <div className="rounded-2xl border border-border bg-background/80 p-8 sm:p-10 shadow-xs backdrop-blur-sm">
+        <div className="rounded-2xl border border-border bg-background/80 p-6 sm:p-8 shadow-xs backdrop-blur-sm">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 divide-y sm:divide-y-0 sm:divide-x divide-border/60">
             {stats.map((stat, idx) => (
               <div

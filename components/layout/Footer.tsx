@@ -138,7 +138,7 @@ export function Footer({ locale = "id" }: FooterProps) {
       className="border-t border-border/40 bg-card/50 backdrop-blur-xs text-card-foreground"
       aria-label={t("navTitle")}
     >
-      <div className="container mx-auto max-w-7xl px-4 md:px-6 lg:px-8 py-16">
+      <div className="container mx-auto max-w-7xl px-4 md:px-6 lg:px-8 py-10 md:py-12">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 md:gap-10">
           {/* Brand & Mission (Spans 2 cols on desktop) */}
           <div className="sm:col-span-2 lg:col-span-2 space-y-4">
@@ -240,7 +240,7 @@ export function Footer({ locale = "id" }: FooterProps) {
         </div>
 
         {/* Bottom Bar */}
-        <div className="mt-16 pt-8 border-t border-border/40 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-muted-foreground">
+        <div className="mt-10 md:mt-12 pt-6 border-t border-border/40 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-muted-foreground">
           <p>
             &copy; {currentYear} Acme Corp Ltd. {t("allRightsReserved")}
           </p>
