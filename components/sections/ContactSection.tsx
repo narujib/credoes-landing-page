@@ -370,30 +370,27 @@ export function ContactSection() {
                 </div>
 
                 {/* Turnstile CAPTCHA Security Verification */}
-                <div className="space-y-1.5">
-                  <span className="text-xs font-semibold uppercase tracking-wider text-foreground block">
-                    {t("captchaLabel")}
-                  </span>
-                  <div className="flex justify-start min-h-[65px] pt-1">
-                    <Turnstile
-                      ref={turnstileRef}
-                      siteKey={
-                        process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY ||
-                        "1x00000000000000000000AA"
-                      }
-                      onSuccess={handleCaptchaSuccess}
-                      onExpire={handleCaptchaExpire}
-                      onError={handleCaptchaError}
-                      options={{
-                        theme: "auto",
-                        size: "normal",
-                      }}
-                    />
-                  </div>
+                <div className="pt-1">
+                  <Turnstile
+                    id="captcha-turnstile"
+                    ref={turnstileRef}
+                    siteKey={
+                      process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY ||
+                      "1x00000000000000000000AA"
+                    }
+                    onSuccess={handleCaptchaSuccess}
+                    onExpire={handleCaptchaExpire}
+                    onError={handleCaptchaError}
+                    options={{
+                      theme: "auto",
+                      size: "flexible",
+                    }}
+                    className="w-full"
+                  />
                   {errors.captchaToken && (
                     <p
                       id="captcha-error"
-                      className="text-xs text-destructive mt-1"
+                      className="text-xs text-destructive mt-1.5 text-center sm:text-left"
                     >
                       {errors.captchaToken.message}
                     </p>
