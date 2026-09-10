@@ -1,6 +1,5 @@
 # next-landing-starter
 
-![Version](https://img.shields.io/badge/version-0.1.0-blue?style=flat-square)
 ![Next.js](https://img.shields.io/badge/Next.js-16.3.4-black?style=flat-square&logo=next.js)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.x-3178c6?style=flat-square&logo=typescript)
 
