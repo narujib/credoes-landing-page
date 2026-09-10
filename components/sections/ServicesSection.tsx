@@ -69,10 +69,10 @@ export function ServicesSection({ locale = "id" }: ServicesSectionProps) {
       className="py-20 md:py-28 scroll-mt-16"
       aria-label={t("badge")}
     >
-      <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div className="container mx-auto max-w-7xl px-4 md:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="max-w-3xl mx-auto text-center space-y-4 mb-16">
-          <div className="inline-flex items-center gap-2 rounded-full border border-border bg-muted/60 px-3.5 py-1 text-xs font-semibold text-primary shadow-xs">
+        <div className="max-w-3xl mx-auto text-center space-y-4 mb-16 animate-fade-in-up">
+          <div className="inline-flex items-center gap-2 rounded-full border border-border bg-muted/60 px-3.5 py-1 text-xs font-semibold text-primary shadow-xs transition-all duration-300 ease-in-out hover:scale-105">
             <Sparkles className="h-3.5 w-3.5" />
             <span>{t("badge")}</span>
           </div>
@@ -88,7 +88,7 @@ export function ServicesSection({ locale = "id" }: ServicesSectionProps) {
         </div>
 
         {/* Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {services.map((service, index) => (
             <ServiceCard key={index} service={service} locale={locale} />
           ))}
