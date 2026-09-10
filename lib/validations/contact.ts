@@ -17,6 +17,7 @@ export const contactSchema = z.object({
     .string()
     .min(10, "Message must be at least 10 characters.")
     .max(2000, "Message is too long (max 2000 characters)."),
+  captchaToken: z.string().min(1, "CAPTCHA verification is required."),
 });
 
 export type ContactFormData = z.infer<typeof contactSchema>;
@@ -36,5 +37,6 @@ export function createLocalizedContactSchema(t: (key: string) => string) {
       .string()
       .min(10, t("messageErrorMin"))
       .max(2000, t("messageErrorMax")),
+    captchaToken: z.string().min(1, t("captchaRequired")),
   });
 }
