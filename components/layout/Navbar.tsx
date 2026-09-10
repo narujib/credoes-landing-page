@@ -106,8 +106,7 @@ export function Navbar({ locale = "id" }: NavbarProps) {
           </div>
 
           {/* Mobile Menu Trigger */}
-          <div className="flex md:hidden items-center gap-2">
-            <ThemeToggle />
+          <div className="flex md:hidden items-center">
             <MobileMenu items={navItems} locale={locale} />
           </div>
         </div>
