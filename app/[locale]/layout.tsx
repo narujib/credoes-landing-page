@@ -40,7 +40,7 @@ export default async function LocaleLayout({
         id="main-content"
         tabIndex={-1}
         key={locale}
-        className="flex-1 flex flex-col outline-none animate-fade-in"
+        className="flex-1 flex flex-col outline-none animate-fade-in overflow-x-clip"
       >
         {children}
       </div>

@@ -34,10 +34,10 @@ export function HeroSection({ locale = "id" }: HeroSectionProps) {
     >
       {/* Background Decorative Gradients */}
       <div
-        className="pointer-events-none absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
+        className="pointer-events-none absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80 max-w-full"
         aria-hidden="true"
       >
-        <div className="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-primary/30 to-accent/40 opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]" />
+        <div className="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] max-w-[100vw] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-primary/30 to-accent/40 opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]" />
       </div>
 
       <div className="container mx-auto max-w-7xl px-4 md:px-6 lg:px-8">

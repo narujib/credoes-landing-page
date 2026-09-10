@@ -109,7 +109,7 @@ export function MobileMenu({ items, locale = "id" }: MobileMenuProps) {
 
       {/* Dropdown Menu with slide-down & fade entrance animation */}
       <div
-        className={`fixed left-0 top-20 w-full z-50 bg-primary text-primary-foreground border-b border-primary-foreground/15 shadow-2xl flex flex-col justify-between overflow-hidden transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] origin-top md:hidden ${
+        className={`fixed inset-x-0 top-20 w-full z-50 bg-primary text-primary-foreground border-b border-primary-foreground/15 shadow-2xl flex flex-col justify-between overflow-hidden transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] origin-top md:hidden ${
           open
             ? "translate-y-0 opacity-100 pointer-events-auto visible"
             : "-translate-y-4 opacity-0 pointer-events-none invisible"
@@ -118,7 +118,7 @@ export function MobileMenu({ items, locale = "id" }: MobileMenuProps) {
         <div className="px-6 pt-3 pb-7 overflow-y-auto max-h-[calc(100dvh-5rem)]">
           {/* Navigation Links */}
           <nav
-            className="flex flex-col space-y-4 pt-2 pb-5"
+            className="flex flex-col items-start space-y-4 pt-2 pb-5"
             aria-label="Mobile navigation"
           >
             {items.map((item, index) => (
@@ -129,7 +129,7 @@ export function MobileMenu({ items, locale = "id" }: MobileMenuProps) {
                 style={{
                   transitionDelay: open ? `${index * 60}ms` : "0ms",
                 }}
-                className={`font-heading text-lg sm:text-xl font-bold tracking-wider uppercase text-white/90 hover:text-secondary py-1.5 transition-all duration-300 ease-out transform ${
+                className={`w-fit inline-block font-heading text-lg sm:text-xl font-bold tracking-wider uppercase text-white/90 hover:text-secondary py-1.5 transition-all duration-300 ease-out transform ${
                   open
                     ? "translate-x-0 opacity-100"
                     : "-translate-x-3 opacity-0"
@@ -150,8 +150,11 @@ export function MobileMenu({ items, locale = "id" }: MobileMenuProps) {
               open ? "translate-y-0 opacity-100" : "translate-y-2 opacity-0"
             }`}
           >
-            <LanguageSwitcher currentLocale={locale} />
-            <ThemeToggle />
+            <LanguageSwitcher
+              currentLocale={locale}
+              onToggle={() => setOpen(false)}
+            />
+            <ThemeToggle onToggle={() => setOpen(false)} />
           </div>
         </div>
       </div>
