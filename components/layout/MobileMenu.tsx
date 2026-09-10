@@ -70,7 +70,7 @@ export function MobileMenu({ items, locale = "id" }: MobileMenuProps) {
           <Button
             variant="ghost"
             size="icon"
-            className="md:hidden"
+            className="md:hidden transition-all duration-300 ease-in-out"
             aria-label={t("menu")}
           >
             <Menu className="h-5 w-5" />
@@ -78,7 +78,7 @@ export function MobileMenu({ items, locale = "id" }: MobileMenuProps) {
           </Button>
         }
       />
-      <SheetContent side="right" className="w-[300px] sm:w-[350px]">
+      <SheetContent side="right" className="w-full max-w-xs sm:max-w-sm">
         <SheetHeader>
           <SheetTitle className="text-left font-bold text-lg">
             {t("menu")}
@@ -94,7 +94,7 @@ export function MobileMenu({ items, locale = "id" }: MobileMenuProps) {
                 key={item.href}
                 href={`/${locale}${item.href}`}
                 onClick={(e) => handleNavClick(e, item.href)}
-                className="text-base font-medium text-muted-foreground transition-colors hover:text-foreground py-2"
+                className="text-base font-medium text-muted-foreground transition-all duration-300 ease-in-out hover:text-foreground hover:translate-x-1 py-2"
                 aria-label={item.label}
               >
                 {item.label}

@@ -61,16 +61,16 @@ export function Navbar({ locale = "id" }: NavbarProps) {
       >
         {t("skipToContent")}
       </a>
-      <header className="sticky top-0 z-40 w-full border-b border-border/40 bg-background/80 backdrop-blur-md transition-all">
-        <div className="container mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+      <header className="sticky top-0 z-40 w-full border-b border-border/40 bg-background/80 backdrop-blur-md transition-all duration-300">
+        <div className="container mx-auto flex h-16 max-w-7xl items-center justify-between px-4 md:px-6 lg:px-8">
           {/* Logo */}
           <Link
             href={`/${locale}`}
             onClick={(e) => handleNavClick(e, "")}
-            className="flex items-center gap-2 font-bold text-xl tracking-tight text-foreground transition-opacity hover:opacity-90"
+            className="flex items-center gap-2 font-bold text-xl tracking-tight text-foreground transition-all duration-300 ease-in-out hover:opacity-90"
             aria-label="Acme Corp Home"
           >
-            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-primary-foreground font-extrabold text-sm">
+            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-primary-foreground font-extrabold text-sm transition-transform duration-300 ease-in-out group-hover:scale-105">
               CO
             </div>
             <span>Acme Corp</span>
@@ -86,7 +86,7 @@ export function Navbar({ locale = "id" }: NavbarProps) {
                 key={item.href}
                 href={`/${locale}${item.href}`}
                 onClick={(e) => handleNavClick(e, item.href)}
-                className="text-muted-foreground transition-colors hover:text-foreground"
+                className="text-muted-foreground transition-all duration-300 ease-in-out hover:text-foreground"
                 aria-label={item.label}
               >
                 {item.label}
