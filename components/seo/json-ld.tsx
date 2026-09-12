@@ -11,25 +11,21 @@ export function OrganizationJsonLd() {
     "@context": "https://schema.org",
     "@type": "Organization",
     "@id": `${siteUrl}/#organization`,
-    name: "Acme Corp Ltd.",
-    alternateName: "Acme Corp",
+    name: "CREdoes",
+    alternateName: "CREdoes Indonesia",
     url: siteUrl,
     logo: `${siteUrl}/favicon.ico`,
     contactPoint: [
       {
         "@type": "ContactPoint",
-        telephone: "+62-21-555-0199",
+        telephone: "+62-811-8076-807",
         contactType: "customer support",
-        email: "hello@acmecorp.example",
-        areaServed: ["ID", "SG", "US", "GB"],
+        email: siteConfig.contact.email,
+        areaServed: ["ID"],
         availableLanguage: ["Indonesian", "English"],
       },
     ],
-    sameAs: [
-      "https://github.com",
-      "https://twitter.com",
-      "https://linkedin.com",
-    ],
+    sameAs: [siteConfig.social.instagram, siteConfig.social.linkedin],
   };
 
   return (
@@ -46,7 +42,7 @@ export function WebSiteJsonLd() {
     "@context": "https://schema.org",
     "@type": "WebSite",
     "@id": `${siteUrl}/#website`,
-    name: "Acme Corp",
+    name: "CREdoes",
     url: `${siteUrl}/${locale}`,
     inLanguage: locale === "id" ? "id-ID" : "en-US",
     publisher: {
@@ -71,25 +67,24 @@ export function LocalBusinessJsonLd() {
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
     "@id": `${siteUrl}/#localbusiness`,
-    name: "Acme Corp Headquarters",
+    name: "CREdoes - Kantor Pusat",
     image: `${siteUrl}/favicon.ico`,
-    telephone: "+62-21-555-0199",
-    email: "hello@acmecorp.example",
+    telephone: "+62-811-8076-807",
+    email: siteConfig.contact.email,
     url: siteUrl,
-    priceRange: "$$$$",
+    priceRange: "$$$",
     address: {
       "@type": "PostalAddress",
-      streetAddress:
-        "Sudirman Central Business District (SCBD), Jl. Jend. Sudirman Kav. 52-53",
-      addressLocality: "Jakarta Selatan",
-      addressRegion: "DKI Jakarta",
-      postalCode: "12190",
+      streetAddress: "Assati Garden House, Green Tower 501",
+      addressLocality: "BSD - Tangerang Selatan",
+      addressRegion: "Banten",
+      postalCode: "15345",
       addressCountry: "ID",
     },
     geo: {
       "@type": "GeoCoordinates",
-      latitude: -6.225588,
-      longitude: 106.809706,
+      latitude: -6.30205,
+      longitude: 106.65297,
     },
     openingHoursSpecification: [
       {

@@ -71,8 +71,8 @@ export function HeroSection() {
             {/* Main Image Container */}
             <div className="relative w-full h-full rounded-tr-[100px] rounded-bl-[100px] rounded-tl-2xl rounded-br-2xl overflow-hidden shadow-2xl">
               <Image
-                src="https://images.unsplash.com/photo-1573164713988-8665fc963095?q=80&w=2069&auto=format&fit=crop"
-                alt="Business Professionals"
+                src="/images/Hero.svg"
+                alt="Ilustrasi Layanan Pendanaan dan Investasi CREdoes"
                 fill
                 priority
                 sizes="(max-width: 1024px) 100vw, 50vw"

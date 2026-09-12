@@ -55,7 +55,7 @@ export function renderContactEmailHtml({
       </div>
     </div>
     <div class="footer">
-      Received via Acme Corp Enterprise Contact Portal • ${timestamp}
+      Received via CREdoes Contact Portal • ${timestamp}
     </div>
   </div>
 </body>
@@ -76,9 +76,9 @@ export async function sendContactEmail(
   data: ContactFormData,
 ): Promise<SendEmailResult> {
   const apiKey = process.env.RESEND_API_KEY;
-  const toEmail = process.env.CONTACT_EMAIL_TO || "inquiries@acmecorp.example";
+  const toEmail = process.env.CONTACT_EMAIL_TO || "admin@credoes.id";
   const fromEmail =
-    process.env.CONTACT_EMAIL_FROM || "Acme Corp <onboarding@resend.dev>";
+    process.env.CONTACT_EMAIL_FROM || "CREdoes <onboarding@resend.dev>";
 
   const htmlContent = renderContactEmailHtml(data);
 

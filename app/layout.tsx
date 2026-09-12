@@ -17,11 +17,11 @@ const siteUrl = siteConfig.url;
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Acme Corp — Modern Digital Solutions & Enterprise Architecture",
-    template: "%s | Acme Corp",
+    default: "CREdoes — Aggregator Bisnis, Pendanaan & Konsultasi Investasi",
+    template: "%s | CREdoes",
   },
   description:
-    "We build scalable, high-performance web systems and digital architecture designed to drive sustainable growth for modern enterprises.",
+    "CREdoes adalah aggregator bisnis yang menyediakan solusi pendanaan, modal kerja, investasi, dan konsultasi strategis untuk mengakselerasi pertumbuhan perusahaan Anda.",
   robots: {
     index: true,
     follow: true,

@@ -6,13 +6,7 @@
     "services": "Services",
     "faq": "FAQ",
     "contact": "Contact",
-    "toggleTheme": "Toggle theme",
-    "light": "Light",
-    "dark": "Dark",
-    "system": "System",
-    "switchLanguage": "Switch language",
-    "menu": "Menu",
-    "settings": "Settings"
+    "menu": "Menu"
   },
   "Hero": {
     "titlePart1": "Business Aggregator for Companies requiring ",
@@ -60,7 +54,7 @@
     "badge": "Get In Touch",
     "titlePart1": "Let's Build Something",
     "titleHighlight": "Exceptional Together",
-    "description": "Have a project in mind or need enterprise technical consulting? Send us a message and our lead architects will respond within 24 hours.",
+    "description": "Have a business development plan or need funding & investment consulting? Send us a message and our professional team will respond within 24 hours.",
     "infoTitlePart1": "Contact",
     "infoTitleHighlight": "Information",
     "infoDesc": "Discuss your funding, working capital, and business investment needs directly with the CREdoes team.",
@@ -91,67 +85,15 @@
     "sendingBtn": "Sending...",
     "successMsg": "Thank you! Your message has been sent successfully. We will reach out shortly.",
     "errorMsg": "Sorry, an unexpected error occurred. Please try again later.",
-    "captchaRequired": "Please complete the CAPTCHA verification.",
-    "captchaExpired": "CAPTCHA has expired. Please verify again.",
-    "captchaFailed": "CAPTCHA verification failed. Please try again.",
-    "captchaLabel": "Security Verification"
+    "captchaRequired": "Please complete the CAPTCHA verification."
   },
   "Footer": {
-    "brandDesc": "Delivering state-of-the-art enterprise web architectures, cloud infrastructure, and intelligent automation systems worldwide.",
     "navTitle": "Navigation",
     "home": "Home",
     "about": "About Us",
     "services": "Services",
     "faq": "FAQ",
-    "contact": "Contact",
-    "capTitle": "Capabilities",
-    "webEngineering": "Web Engineering",
-    "cloudDevOps": "Cloud & DevOps",
-    "enterpriseAi": "Enterprise AI",
-    "cybersecurity": "Cybersecurity",
-    "legalTitle": "Legal & Trust",
-    "privacyPolicy": "Privacy Policy",
-    "termsOfService": "Terms of Service",
-    "allRightsReserved": "All rights reserved.",
-    "systemsOperational": "All Systems Operational"
-  },
-  "Privacy": {
-    "backToHome": "Back to Home",
-    "badge": "Legal & Compliance",
-    "title": "Privacy Policy",
-    "lastUpdated": "Last Updated: September 2026 • Version 2.4",
-    "s1Title": "1. Overview & Commitment",
-    "s1Desc": "Acme Corp Ltd. ('we', 'us', or 'our') is deeply committed to protecting the privacy, confidentiality, and security of our clients, partners, and visitors. This Privacy Policy details how we handle, process, and safeguard personal and business data in compliance with GDPR, ISO 27001, and applicable data privacy regulations.",
-    "s2Title": "2. Information We Collect",
-    "s2Desc": "We only collect information strictly necessary to provide enterprise services and maintain business communication:",
-    "s2Item1Title": "Direct Inquiries:",
-    "s2Item1Desc": "Name, corporate email address, phone number, and project specifications provided via our contact forms.",
-    "s2Item2Title": "Technical & Diagnostic Data:",
-    "s2Item2Desc": "Anonymized IP address, browser type, operating system, and interaction timestamps to optimize platform delivery.",
-    "s3Title": "3. Data Security & Storage",
-    "s3Desc": "All data in transit and at rest is secured with enterprise-grade encryption (TLS 1.3 and AES-256). We enforce strict role-based access control (RBAC), multi-factor authentication, and continuous automated vulnerability scans across our multi-region cloud infrastructure.",
-    "s4Title": "4. Your Rights & Data Ownership",
-    "s4Desc": "You retain full ownership of your data. You have the explicit right to request data access, rectification, exportation, or complete erasure from our systems at any time by contacting our Data Protection Officer.",
-    "dpoTitle": "Data Protection Officer (DPO)",
-    "dpoDesc": "For inquiries regarding our compliance or data processing practices, please reach out directly to:",
-    "dpoContact": "privacy@acmecorp.example • Sudirman Central Business District (SCBD), Jakarta"
-  },
-  "Terms": {
-    "backToHome": "Back to Home",
-    "badge": "Legal & Governance",
-    "title": "Terms of Service",
-    "lastUpdated": "Last Updated: September 2026 • Version 2.4",
-    "s1Title": "1. Acceptance of Terms",
-    "s1Desc": "By accessing or utilizing any digital services, software products, or consulting provided by Acme Corp Ltd., you agree to be bound by these Terms of Service, applicable Master Services Agreements (MSA), and Statements of Work (SOW).",
-    "s2Title": "2. Intellectual Property & Ownership",
-    "s2Desc": "Unless explicitly agreed otherwise in a written project agreement, all custom deliverables developed specifically for the client become the proprietary property of the client upon full settlement of contract fees. Acme Corp retains proprietary rights to its foundational tools, reusable components, and core libraries.",
-    "s3Title": "3. Service Level Agreements & Reliability",
-    "s3Desc": "We guarantee 99.9% uptime for cloud-managed infrastructures governed by our enterprise SLA packages. Scheduled maintenance windows are announced at least 72 hours in advance and executed during off-peak hours to minimize business disruption.",
-    "s4Title": "4. Limitation of Liability",
-    "s4Desc": "To the maximum extent permitted by law, Acme Corp shall not be held liable for indirect, incidental, or consequential damages resulting from third-party vendor downtime, force majeure events, or unauthorized customer credential compromises.",
-    "jurTitle": "Governing Jurisdiction",
-    "jurDesc": "These terms are governed by and construed in accordance with the laws of the Republic of Indonesia and international commercial arbitration standards.",
-    "jurContact": "legal@acmecorp.example • Legal Counsel Office, SCBD, Jakarta"
+    "contact": "Contact"
   },
   "Faq": {
     "badge": "Frequently Asked Questions",
@@ -174,13 +116,6 @@
     "bannerSubtitle": "Let's discuss the right capital and strategic expansion solutions to accelerate your enterprise.",
     "contactSupport": "Consult with Us Today",
     "contactSupportWa": "Hello CREdoes, I would like to consult regarding capital and expansion."
-  },
-  "Common": {
-    "loading": "Loading...",
-    "submit": "Submit",
-    "close": "Close",
-    "language": "Language",
-    "allRightsReserved": "All rights reserved."
   },
   "NotFound": {
     "titlePart1": "Page Not",

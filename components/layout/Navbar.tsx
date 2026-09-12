@@ -36,7 +36,7 @@ export function Navbar() {
           >
             <Image
               src="/images/logo-full.svg"
-              alt="CREdoes"
+              alt="Logo CREdoes"
               width={220}
               height={64}
               className="h-11 md:h-13 w-auto object-contain"

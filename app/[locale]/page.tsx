@@ -16,8 +16,8 @@ export async function generateMetadata({
 
   const titleString =
     locale === "id"
-      ? `Acme Corp — Solusi Digital & Rekayasa Web Enterprise`
-      : `Acme Corp — Modern Digital Solutions & Enterprise Architecture`;
+      ? `CREdoes — Aggregator Bisnis, Pendanaan & Konsultasi Investasi`
+      : `CREdoes — Business Aggregator, Funding & Investment Consulting`;
   const description = t("subtitle");
 
   return {
@@ -37,14 +37,9 @@ export async function generateMetadata({
       title: titleString,
       description,
       url: `/${locale}`,
-      siteName: "Acme Corp",
+      siteName: "CREdoes",
       locale: locale === "id" ? "id_ID" : "en_US",
       type: "website",
-    },
-    twitter: {
-      card: "summary_large_image",
-      title: titleString,
-      description,
     },
   };
 }

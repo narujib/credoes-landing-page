@@ -49,7 +49,7 @@ export function Footer() {
           >
             <Image
               src="/images/logo-full.svg"
-              alt="CREdoes"
+              alt="Logo CREdoes"
               width={260}
               height={75}
               className="h-12 md:h-15 w-auto object-contain"

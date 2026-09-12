@@ -81,8 +81,8 @@ export function AboutSection() {
             {/* Main Image Container */}
             <div className="relative w-full h-full rounded-tl-[80px] rounded-2xl overflow-hidden shadow-xl border border-border/50">
               <Image
-                src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=2070&auto=format&fit=crop"
-                alt="Professional Consulting Team"
+                src="/images/Business-bg.svg"
+                alt="Tim Konsultan Profesional CREdoes"
                 fill
                 sizes="(max-width: 1024px) 100vw, 400px"
                 className="object-cover"

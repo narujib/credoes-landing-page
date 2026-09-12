@@ -4,8 +4,8 @@
  */
 export const siteConfig = {
   name: "CREdoes",
-  legalName: "Acme Corp Ltd.",
-  url: process.env.NEXT_PUBLIC_SITE_URL || "https://acmecorp.example",
+  legalName: "CREdoes",
+  url: process.env.NEXT_PUBLIC_SITE_URL || "https://credoes.id",
   contact: {
     email: "admin@credoes.id",
     phone: "+62 811-8076-807",
@@ -15,7 +15,5 @@ export const siteConfig = {
   social: {
     instagram: "https://www.instagram.com/solusicredoes/",
     linkedin: "https://www.linkedin.com/company/credoes/",
-    twitter: "https://twitter.com",
-    github: "https://github.com",
   },
 } as const;

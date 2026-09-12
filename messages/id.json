@@ -6,13 +6,7 @@
     "services": "Layanan",
     "faq": "FAQ",
     "contact": "Kontak",
-    "toggleTheme": "Ganti tema",
-    "light": "Terang",
-    "dark": "Gelap",
-    "system": "Sistem",
-    "switchLanguage": "Ganti bahasa",
-    "menu": "Menu",
-    "settings": "Pengaturan"
+    "menu": "Menu"
   },
   "Hero": {
     "titlePart1": "Aggregator Bisnis bagi Perusahaan yang memerlukan ",
@@ -60,7 +54,7 @@
     "badge": "Kontak Kami",
     "titlePart1": "Mari Bangun Solusi",
     "titleHighlight": "Digital Terbaik Bersama",
-    "description": "Punya rencana proyek baru atau butuh konsultasi teknis arsitektur enterprise? Kirimkan pesan Anda dan tim arsitek utama kami akan merespons dalam 24 jam.",
+    "description": "Punya rencana pengembangan bisnis atau butuh konsultasi pendanaan & investasi? Kirimkan pesan Anda dan tim profesional kami akan merespons dalam 24 jam.",
     "infoTitlePart1": "Informasi",
     "infoTitleHighlight": "Kontak",
     "infoDesc": "Diskusikan kebutuhan pendanaan, modal kerja, dan solusi investasi bisnis Anda bersama tim profesional CREdoes.",
@@ -91,67 +85,15 @@
     "sendingBtn": "Mengirim...",
     "successMsg": "Terima kasih! Pesan Anda berhasil dikirim. Tim kami akan segera menghubungi Anda.",
     "errorMsg": "Maaf, terjadi kesalahan. Silakan coba lagi beberapa saat lagi.",
-    "captchaRequired": "Silakan selesaikan verifikasi CAPTCHA.",
-    "captchaExpired": "CAPTCHA telah kedaluwarsa. Silakan verifikasi ulang.",
-    "captchaFailed": "Verifikasi CAPTCHA gagal. Silakan coba lagi.",
-    "captchaLabel": "Verifikasi Keamanan"
+    "captchaRequired": "Silakan selesaikan verifikasi CAPTCHA."
   },
   "Footer": {
-    "brandDesc": "Menyediakan arsitektur web enterprise mutakhir, infrastruktur cloud tangguh, dan sistem otomasi cerdas untuk pasar global.",
     "navTitle": "Navigasi",
     "home": "Beranda",
     "about": "Tentang Kami",
     "services": "Layanan",
     "faq": "FAQ",
-    "contact": "Kontak",
-    "capTitle": "Layanan",
-    "webEngineering": "Rekayasa Web",
-    "cloudDevOps": "Cloud & DevOps",
-    "enterpriseAi": "AI Enterprise",
-    "cybersecurity": "Keamanan Siber",
-    "legalTitle": "Legalitas & Kepatuhan",
-    "privacyPolicy": "Kebijakan Privasi",
-    "termsOfService": "Syarat & Ketentuan",
-    "allRightsReserved": "Hak cipta dilindungi undang-undang.",
-    "systemsOperational": "Semua Sistem Normal"
-  },
-  "Privacy": {
-    "backToHome": "Kembali ke Beranda",
-    "badge": "Legalitas & Kepatuhan",
-    "title": "Kebijakan Privasi",
-    "lastUpdated": "Terakhir Diperbarui: September 2026 • Versi 2.4",
-    "s1Title": "1. Ringkasan & Komitmen",
-    "s1Desc": "Acme Corp Ltd. ('kami') berkomitmen penuh untuk melindungi privasi, kerahasiaan, dan keamanan data klien, mitra, serta pengunjung kami. Kebijakan Privasi ini menjelaskan bagaimana kami mengumpulkan, memproses, dan menjaga keamanan data pribadi dan bisnis sesuai standar GDPR, ISO 27001, dan peraturan perundang-undangan perlindungan data yang berlaku.",
-    "s2Title": "2. Informasi yang Kami Kumpulkan",
-    "s2Desc": "Kami hanya mengumpulkan informasi yang esensial untuk penyediaan layanan enterprise dan kelancaran komunikasi bisnis:",
-    "s2Item1Title": "Komunikasi Langsung:",
-    "s2Item1Desc": "Nama lengkap, alamat email perusahaan, nomor telepon, dan rincian kebutuhan proyek yang Anda kirimkan melalui formulir kontak.",
-    "s2Item2Title": "Data Teknis & Diagnostik:",
-    "s2Item2Desc": "Alamat IP terenkripsi/anonim, tipe peramban, sistem operasi, dan log interaksi untuk optimalisasi performa platform.",
-    "s3Title": "3. Keamanan & Penyimpanan Data",
-    "s3Desc": "Seluruh data dalam transmisi maupun penyimpanan diamankan dengan enkripsi standar enterprise (TLS 1.3 dan AES-256). Kami menerapkan kontrol akses berbasis peran (RBAC) yang ketat, autentikasi multi-faktor, serta pemindaian kerentanan otomatis berkala di seluruh infrastruktur cloud kami.",
-    "s4Title": "4. Hak dan Kepemilikan Data Anda",
-    "s4Desc": "Anda memiliki hak penuh atas kepemilikan data Anda. Anda berhak meminta salinan data, perbaikan, pemindahan data (portabilitas), maupun penghapusan permanen dari sistem kami kapan saja dengan menghubungi Petugas Perlindungan Data kami.",
-    "dpoTitle": "Petugas Perlindungan Data (DPO)",
-    "dpoDesc": "Untuk pertanyaan terkait kepatuhan privasi atau pemrosesan data, silakan hubungi:",
-    "dpoContact": "privacy@acmecorp.example • Sudirman Central Business District (SCBD), Jakarta"
-  },
-  "Terms": {
-    "backToHome": "Kembali ke Beranda",
-    "badge": "Legalitas & Tata Kelola",
-    "title": "Syarat & Ketentuan Layanan",
-    "lastUpdated": "Terakhir Diperbarui: September 2026 • Versi 2.4",
-    "s1Title": "1. Penerimaan Ketentuan",
-    "s1Desc": "Dengan mengakses atau menggunakan layanan digital, produk perangkat lunak, atau konsultasi yang disediakan oleh Acme Corp Ltd., Anda menyatakan setuju untuk terikat oleh Syarat & Ketentuan Layanan ini, Perjanjian Layanan Utama (MSA), dan Rincian Kerja (SOW) yang berlaku.",
-    "s2Title": "2. Hak Kekayaan Intelektual",
-    "s2Desc": "Kecuali dinyatakan lain secara tertulis dalam kontrak kerja, seluruh hasil kerja yang dikembangkan khusus untuk klien menjadi hak milik klien setelah penyelesaian pembayaran kontrak secara penuh. Acme Corp tetap mempertahankan hak kepemilikan atas modul dasar, komponen pakai ulang, dan pustaka inti miliknya.",
-    "s3Title": "3. Standar Layanan (SLA) & Keandalan",
-    "s3Desc": "Kami menjamin uptime 99.9% untuk infrastruktur terkelola cloud di bawah paket SLA enterprise kami. Pemeliharaan terjadwal akan diumumkan minimal 72 jam sebelumnya dan dilakukan pada jam dengan lalu lintas terendah untuk mencegah gangguan operasional.",
-    "s4Title": "4. Batasan Tanggung Jawab",
-    "s4Desc": "Sepanjang diizinkan oleh hukum yang berlaku, Acme Corp tidak bertanggung jawab atas kerugian tidak langsung, insidental, atau konsekuensial yang diakibatkan oleh gangguan vendor pihak ketiga, peristiwa kahar (force majeure), atau kelalaian kredensial oleh pengguna.",
-    "jurTitle": "Yurisdiksi Hukum",
-    "jurDesc": "Ketentuan ini diatur dan ditafsirkan sesuai dengan hukum Republik Indonesia dan standar arbitrase komersial internasional.",
-    "jurContact": "legal@acmecorp.example • Legal Counsel Office, SCBD, Jakarta"
+    "contact": "Kontak"
   },
   "Faq": {
     "badge": "Pertanyaan Umum",
@@ -174,13 +116,6 @@
     "bannerSubtitle": "Mari diskusikan solusi permodalan dan strategi ekspansi yang tepat untuk akselerasi perusahaan Anda.",
     "contactSupport": "Konsultasi Sekarang",
     "contactSupportWa": "Halo CREdoes, saya ingin berkonsultasi mengenai permodalan dan ekspansi."
-  },
-  "Common": {
-    "loading": "Memuat...",
-    "submit": "Kirim",
-    "close": "Tutup",
-    "language": "Bahasa",
-    "allRightsReserved": "Hak cipta dilindungi undang-undang."
   },
   "NotFound": {
     "titlePart1": "Halaman Tidak",
