@@ -7,14 +7,15 @@ export const siteConfig = {
   legalName: "Acme Corp Ltd.",
   url: process.env.NEXT_PUBLIC_SITE_URL || "https://acmecorp.example",
   contact: {
-    email: "hello@acmecorp.example",
-    phone: "+62-21-555-0199",
+    email: "admin@credoes.id",
+    phone: "+62 811-8076-807",
     whatsappUrl:
-      "https://wa.me/6281234567890?text=Halo%20CREdoes,%20saya%20ingin%20berdiskusi",
+      "https://wa.me/628118076807?text=Halo%20CREdoes,%20saya%20ingin%20berkonsultasi",
   },
   social: {
+    instagram: "https://www.instagram.com/solusicredoes/",
+    linkedin: "https://www.linkedin.com/company/credoes/",
     twitter: "https://twitter.com",
-    linkedin: "https://linkedin.com",
     github: "https://github.com",
   },
 } as const;

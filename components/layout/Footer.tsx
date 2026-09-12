@@ -33,7 +33,7 @@ export function Footer() {
     },
     {
       icon: InstagramIcon,
-      href: "https://instagram.com",
+      href: siteConfig.social.instagram,
       label: "Instagram",
     },
   ];
