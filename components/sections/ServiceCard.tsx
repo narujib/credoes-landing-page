@@ -32,12 +32,12 @@ export function ServiceCard({ service, className }: ServiceCardProps) {
       )}
     >
       {/* Background Shape */}
-      <div className="absolute top-0 right-0 w-[60%] h-full pointer-events-none opacity-30 z-0 group-hover:opacity-70 transition-opacity duration-300">
+      <div className="absolute top-0 right-0 w-[60%] h-full pointer-events-none opacity-30 dark:opacity-10 z-0 group-hover:opacity-70 dark:group-hover:opacity-20 transition-opacity duration-300">
         <Image
           src="/images/hero-shape-1.svg"
           alt=""
           fill
-          className="object-contain rotate-10 scale-140"
+          className="object-contain rotate-10 scale-150"
         />
       </div>
 

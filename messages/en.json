@@ -182,5 +182,11 @@
     "close": "Close",
     "language": "Language",
     "allRightsReserved": "All rights reserved."
+  },
+  "NotFound": {
+    "titlePart1": "Page Not",
+    "titleHighlight": "Found",
+    "backHome": "Back to Home",
+    "contact": "Contact Us"
   }
 }

@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useTranslations, useLocale } from "next-intl";
 import { useSmoothScroll } from "@/hooks/use-smooth-scroll";
-import { mainNavLinks, legalNavLinks } from "@/lib/navigation";
+import { mainNavLinks } from "@/lib/navigation";
 import { siteConfig } from "@/lib/site";
 import { LinkedInIcon, InstagramIcon } from "@/components/icons";
 
@@ -39,11 +39,11 @@ export function Footer() {
   ];
 
   // Combine links for horizontal layout
-  const allNavLinks = [...mainNavLinks, ...legalNavLinks];
+  const allNavLinks = [...mainNavLinks];
 
   return (
     <footer
-      className="bg-muted/50 border-t border-border/60 pt-10 pb-8 text-foreground"
+      className="bg-background border-t border-border/60 pt-10 pb-8 text-foreground"
       aria-label={t("navTitle")}
     >
       <div className="container mx-auto max-w-7xl px-4 md:px-6 lg:px-8">

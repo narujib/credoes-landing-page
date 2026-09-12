@@ -182,5 +182,11 @@
     "close": "Tutup",
     "language": "Bahasa",
     "allRightsReserved": "Hak cipta dilindungi undang-undang."
+  },
+  "NotFound": {
+    "titlePart1": "Halaman Tidak",
+    "titleHighlight": "Ditemukan",
+    "backHome": "Kembali ke Beranda",
+    "contact": "Hubungi Kami"
   }
 }

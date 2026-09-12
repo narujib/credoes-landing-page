@@ -21,8 +21,3 @@ export const serviceNavLinks: NavLinkDef[] = [
   { labelKey: "enterpriseAi", href: "/#services" },
   { labelKey: "cybersecurity", href: "/#services" },
 ];
-
-export const legalNavLinks: NavLinkDef[] = [
-  { labelKey: "privacyPolicy", href: "/privacy-policy" },
-  { labelKey: "termsOfService", href: "/terms-of-service" },
-];
