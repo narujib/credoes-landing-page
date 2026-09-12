@@ -40,7 +40,7 @@ export function HeroSection() {
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row items-center gap-4 pt-2 w-full sm:w-auto">
               <a
-                href={siteConfig.contact.whatsappUrl}
+                href={`${siteConfig.contact.whatsappUrl.split("?")[0]}?text=${encodeURIComponent(t("ctaContactWa"))}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={t("ctaContact")}

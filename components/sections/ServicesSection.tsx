@@ -1,13 +1,6 @@
 import * as React from "react";
 import { useTranslations } from "next-intl";
-import {
-  BrainCircuit,
-  Cloud,
-  Code2,
-  LayoutGrid,
-  ShieldCheck,
-  Smartphone,
-} from "lucide-react";
+
 import { ServiceCard, type ServiceItem } from "./ServiceCard";
 import { SectionHeader } from "@/components/sections";
 
@@ -16,46 +9,32 @@ export function ServicesSection() {
 
   const services: ServiceItem[] = [
     {
-      icon: Code2,
-      tag: t("s1Tag"),
+      iconSrc: "/icons/capital.svg",
       title: t("s1Title"),
       description: t("s1Desc"),
-      features: [t("s1F1"), t("s1F2"), t("s1F3")],
+      ctaText: t("s1Cta"),
+      waMessage: t("s1Wa"),
     },
     {
-      icon: Cloud,
-      tag: t("s2Tag"),
+      iconSrc: "/icons/profit.svg",
       title: t("s2Title"),
       description: t("s2Desc"),
-      features: [t("s2F1"), t("s2F2"), t("s2F3")],
+      ctaText: t("s2Cta"),
+      waMessage: t("s2Wa"),
     },
     {
-      icon: BrainCircuit,
-      tag: t("s3Tag"),
+      iconSrc: "/icons/consultant.svg",
       title: t("s3Title"),
       description: t("s3Desc"),
-      features: [t("s3F1"), t("s3F2"), t("s3F3")],
+      ctaText: t("s3Cta"),
+      waMessage: t("s3Wa"),
     },
     {
-      icon: ShieldCheck,
-      tag: t("s4Tag"),
+      iconSrc: "/icons/cooperation.svg",
       title: t("s4Title"),
       description: t("s4Desc"),
-      features: [t("s4F1"), t("s4F2"), t("s4F3")],
-    },
-    {
-      icon: Smartphone,
-      tag: t("s5Tag"),
-      title: t("s5Title"),
-      description: t("s5Desc"),
-      features: [t("s5F1"), t("s5F2"), t("s5F3")],
-    },
-    {
-      icon: LayoutGrid,
-      tag: t("s6Tag"),
-      title: t("s6Title"),
-      description: t("s6Desc"),
-      features: [t("s6F1"), t("s6F2"), t("s6F3")],
+      ctaText: t("s4Cta"),
+      waMessage: t("s4Wa"),
     },
   ];
 
@@ -70,10 +49,11 @@ export function ServicesSection() {
           titlePart1={t("titlePart1")}
           titleHighlight={t("titleHighlight")}
           description={t("description")}
+          className="mb-10 md:mb-12"
         />
 
         {/* Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
           {services.map((service, index) => (
             <ServiceCard key={index} service={service} />
           ))}

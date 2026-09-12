@@ -60,8 +60,8 @@ export default async function HomePage({
   return (
     <main className="flex flex-1 flex-col">
       <HeroSection />
-      <AboutSection />
       <ServicesSection />
+      <AboutSection />
       <FaqSection />
       <ContactSection />
     </main>

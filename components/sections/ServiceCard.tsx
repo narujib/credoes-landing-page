@@ -1,58 +1,89 @@
 import * as React from "react";
-import { LucideIcon, ArrowUpRight } from "lucide-react";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import Image from "next/image";
+import { ChevronRight } from "lucide-react";
+import { siteConfig } from "@/lib/site";
+import { Card } from "@/components/ui/card";
+import { cn } from "@/lib/utils";
 
 export interface ServiceItem {
-  icon: LucideIcon;
+  iconSrc: string;
   title: string;
   description: string;
-  features: string[];
-  tag?: string;
+  ctaText: string;
+  waMessage: string;
 }
 
 interface ServiceCardProps {
   service: ServiceItem;
+  className?: string;
 }
 
-export function ServiceCard({ service }: ServiceCardProps) {
-  const Icon = service.icon;
+export function ServiceCard({ service, className }: ServiceCardProps) {
+  const waUrl = new URL(siteConfig.contact.whatsappUrl);
+  if (service.waMessage) {
+    waUrl.searchParams.set("text", service.waMessage);
+  }
 
   return (
-    <Card className="group relative flex flex-col justify-between overflow-hidden border border-border/80 bg-card/80 backdrop-blur-xs p-2 transition-all duration-300 ease-in-out hover:-translate-y-1.5 hover:border-primary/50 hover:shadow-xl">
-      <CardHeader className="p-6">
-        <div className="flex items-center justify-between mb-4">
-          <div className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary transition-all duration-300 ease-in-out group-hover:bg-primary group-hover:text-primary-foreground group-hover:scale-110">
-            <Icon className="h-6 w-6" />
-          </div>
-          {service.tag && (
-            <span className="rounded-full bg-secondary px-2.5 py-0.5 text-xs font-semibold text-secondary-foreground transition-colors duration-300">
-              {service.tag}
-            </span>
-          )}
+    <Card
+      className={cn(
+        "group relative flex flex-col justify-between overflow-hidden border border-border/50 bg-background p-5 md:p-6 transition-all duration-300 ease-in-out hover:border-primary/40 hover:shadow-sm hover:ring-1 hover:ring-primary/20 h-full rounded-xl",
+        className,
+      )}
+    >
+      {/* Background Shape */}
+      <div className="absolute top-0 right-0 w-[60%] h-full pointer-events-none opacity-30 z-0 group-hover:opacity-70 transition-opacity duration-300">
+        <Image
+          src="/images/hero-shape-1.svg"
+          alt=""
+          fill
+          className="object-contain rotate-10 scale-140"
+        />
+      </div>
+
+      <div className="flex-1 flex flex-col relative z-10">
+        {/* Icon */}
+        <div className="mb-4 inline-flex items-center justify-center w-16 h-16 md:w-20 md:h-20 rounded-xl bg-[#0e7452]/0 transition-all duration-700 ease-out group-hover:bg-[#0e7452] group-hover:shadow-md -ml-2 -mt-2">
+          <div
+            className="w-12 h-12 md:w-14 md:h-14 transition-colors duration-700 ease-out bg-[#0e7452] group-hover:bg-white"
+            style={{
+              maskImage: `url(${service.iconSrc})`,
+              maskSize: "contain",
+              maskRepeat: "no-repeat",
+              maskPosition: "center",
+              WebkitMaskImage: `url(${service.iconSrc})`,
+              WebkitMaskSize: "contain",
+              WebkitMaskRepeat: "no-repeat",
+              WebkitMaskPosition: "center",
+            }}
+          />
         </div>
-        <CardTitle className="text-xl font-bold tracking-tight text-card-foreground group-hover:text-primary transition-colors duration-300">
-          <h3 className="flex items-center justify-between text-xl font-bold tracking-tight">
-            <span>{service.title}</span>
-            <ArrowUpRight className="h-4 w-4 opacity-0 transition-all duration-300 ease-in-out -translate-x-1 translate-y-1 group-hover:opacity-100 group-hover:translate-x-0 group-hover:translate-y-0 text-primary" />
-          </h3>
-        </CardTitle>
-        <p className="text-sm text-muted-foreground leading-relaxed mt-2">
+
+        {/* Text */}
+        <h3 className="text-xl md:text-2xl font-heading font-bold tracking-tight text-foreground leading-tight mb-2.5">
+          {service.title}
+        </h3>
+        <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
           {service.description}
         </p>
-      </CardHeader>
-      <CardContent className="p-6 pt-0 border-t border-border/40 mt-auto">
-        <ul className="flex flex-col space-y-2 pt-4">
-          {service.features.map((feature, idx) => (
-            <li
-              key={idx}
-              className="flex items-center text-xs sm:text-sm text-muted-foreground"
-            >
-              <div className="mr-2.5 h-1.5 w-1.5 rounded-full bg-primary" />
-              <span>{feature}</span>
-            </li>
-          ))}
-        </ul>
-      </CardContent>
+      </div>
+
+      <div className="mt-auto relative z-10">
+        {/* Dotted separator */}
+        <div className="w-full border-t-[2px] border-dotted border-[#0e7452]/40 mt-0 mb-3.5" />
+
+        {/* WhatsApp CTA Button */}
+        <a
+          href={waUrl.toString()}
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{ fontFamily: '"Agency FB", sans-serif' }}
+          className="flex w-full items-center justify-center rounded bg-[#0e7452] px-4 py-2.5 text-[17px] tracking-wide text-white transition-colors hover:bg-[#0e7452]/90 shadow-sm"
+        >
+          {service.ctaText}
+          <ChevronRight className="ml-1.5 h-4 w-4" />
+        </a>
+      </div>
     </Card>
   );
 }

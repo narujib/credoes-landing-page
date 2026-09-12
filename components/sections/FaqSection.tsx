@@ -69,7 +69,7 @@ export function FaqSection() {
             </div>
             <div className="shrink-0">
               <a
-                href={siteConfig.contact.whatsappUrl}
+                href={`${siteConfig.contact.whatsappUrl.split("?")[0]}?text=${encodeURIComponent(t("contactSupportWa"))}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 rounded-lg border border-primary-foreground/30 bg-primary-foreground/10 px-6 py-3.5 text-lg font-bold font-agency tracking-wider text-primary-foreground backdrop-blur-xs transition-colors duration-200 hover:bg-primary-foreground hover:text-primary hover:border-transparent focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-secondary"
