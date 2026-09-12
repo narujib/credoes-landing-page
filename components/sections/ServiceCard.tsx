@@ -4,14 +4,7 @@ import { ChevronRight } from "lucide-react";
 import { siteConfig } from "@/lib/site";
 import { Card } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
-
-export interface ServiceItem {
-  iconSrc: string;
-  title: string;
-  description: string;
-  ctaText: string;
-  waMessage: string;
-}
+import type { ServiceItem } from "@/types/services";
 
 interface ServiceCardProps {
   service: ServiceItem;

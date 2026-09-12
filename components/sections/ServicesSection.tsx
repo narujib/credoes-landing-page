@@ -1,7 +1,9 @@
+"use client";
+
 import * as React from "react";
 import { useTranslations } from "next-intl";
-
-import { ServiceCard, type ServiceItem } from "./ServiceCard";
+import type { ServiceItem } from "@/types/services";
+import { ServiceCard } from "./ServiceCard";
 import { SectionHeader } from "@/components/sections";
 
 export function ServicesSection() {

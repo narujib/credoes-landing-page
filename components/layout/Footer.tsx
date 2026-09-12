@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useTranslations, useLocale } from "next-intl";
 import { useSmoothScroll } from "@/hooks/use-smooth-scroll";
+import { useLogoClick } from "@/hooks/use-logo-click";
 import { mainNavLinks } from "@/lib/navigation";
 import { siteConfig } from "@/lib/site";
 import { LinkedInIcon, InstagramIcon } from "@/components/icons";
@@ -14,16 +15,7 @@ export function Footer() {
   const t = useTranslations("Footer");
   const currentYear = new Date().getFullYear();
   const { handleNavClick } = useSmoothScroll();
-
-  const handleLogoClick = () => {
-    if (
-      typeof window !== "undefined" &&
-      (window.location.pathname === `/${locale}` ||
-        window.location.pathname === `/${locale}/`)
-    ) {
-      window.location.reload();
-    }
-  };
+  const { handleLogoClick } = useLogoClick();
 
   const socialLinks = [
     {

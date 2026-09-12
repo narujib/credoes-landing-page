@@ -9,3 +9,5 @@ export interface SocialLink {
   href: string;
   label: string;
 }
+
+export type { ServiceItem } from "./services";

@@ -31,7 +31,7 @@ const renderText = (str: string) => {
 const FaqAnswer = ({ text }: { text: string }) => {
   const segments = text.split("\n\n");
   return (
-    <div className="space-y-4 px-5 pb-5 md:px-6 md:pb-6 text-sm md:text-base leading-relaxed text-muted-foreground border-t border-border/40 pt-5">
+    <div className="space-y-4 px-4 pb-4 md:px-5 md:pb-5 text-sm md:text-base leading-relaxed text-muted-foreground border-t border-border/40 pt-4">
       {segments.map((segment, idx) => {
         if (segment.trim().startsWith("- ")) {
           const items = segment.split("\n").filter((i) => i.trim() !== "");
@@ -96,7 +96,7 @@ export function FaqAccordionItem({
           aria-expanded={isOpen}
           aria-controls={contentId}
           onClick={onToggle}
-          className="flex w-full items-start justify-between gap-4 p-5 md:p-6 text-left transition-colors focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring hover:bg-muted/30"
+          className="flex w-full items-start justify-between gap-4 p-4 md:p-5 text-left transition-colors focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring hover:bg-muted/30"
         >
           <span className="font-heading text-base md:text-lg font-semibold text-card-foreground pt-0.5">
             {item.question}

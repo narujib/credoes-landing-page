@@ -1,3 +1,5 @@
+"use client";
+
 import * as React from "react";
 import { useLocale } from "next-intl";
 import { siteConfig } from "@/lib/site";

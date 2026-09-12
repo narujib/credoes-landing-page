@@ -8,22 +8,14 @@ import { ThemeToggle } from "@/components/theme-toggle";
 import { LanguageSwitcher } from "@/components/language-switcher";
 import { MobileMenu } from "./MobileMenu";
 import { useSmoothScroll } from "@/hooks/use-smooth-scroll";
+import { useLogoClick } from "@/hooks/use-logo-click";
 import { mainNavLinks } from "@/lib/navigation";
 
 export function Navbar() {
   const locale = useLocale();
   const t = useTranslations("Navbar");
   const { handleNavClick } = useSmoothScroll();
-
-  const handleLogoClick = () => {
-    if (
-      typeof window !== "undefined" &&
-      (window.location.pathname === `/${locale}` ||
-        window.location.pathname === `/${locale}/`)
-    ) {
-      window.location.reload();
-    }
-  };
+  const { handleLogoClick } = useLogoClick();
 
   return (
     <>
