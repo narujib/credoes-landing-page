@@ -21,7 +21,7 @@ export function HeroSection() {
       aria-label="Hero"
     >
       <div className="container mx-auto max-w-7xl px-4 md:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-12 items-center lg:items-stretch">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center lg:items-stretch">
           {/* Left Column: Text & CTA */}
           <div className="flex flex-col justify-center space-y-6 md:space-y-8 animate-fade-in-up">
             {/* Main Headline (H1) */}
@@ -67,11 +67,9 @@ export function HeroSection() {
           </div>
 
           {/* Right Column: Image */}
-          <div className="relative w-full aspect-[4/3] lg:aspect-auto min-h-[300px] sm:min-h-[360px] lg:min-h-0 flex items-center justify-center animate-fade-in-up">
-            <div
-              className="relative w-full h-full rounded-2xl overflow-hidden shadow-xl"
-              style={{ position: "relative" }}
-            >
+          <div className="lg:col-span-1 relative w-full lg:w-11/12 ml-auto aspect-[4/3] lg:aspect-auto min-h-[300px] sm:min-h-[360px] lg:min-h-[500px] animate-fade-in-up">
+            {/* Main Image Container */}
+            <div className="relative w-full h-full rounded-tr-[100px] rounded-bl-[100px] rounded-tl-2xl rounded-br-2xl overflow-hidden shadow-2xl">
               <Image
                 src="https://images.unsplash.com/photo-1573164713988-8665fc963095?q=80&w=2069&auto=format&fit=crop"
                 alt="Business Professionals"
@@ -80,6 +78,7 @@ export function HeroSection() {
                 sizes="(max-width: 1024px) 100vw, 50vw"
                 className="object-cover"
               />
+              <div className="absolute inset-0 bg-linear-to-tr from-black/20 via-transparent to-transparent pointer-events-none" />
             </div>
           </div>
         </div>
