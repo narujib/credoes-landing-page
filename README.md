@@ -126,7 +126,10 @@ next-landing-starter/
 │   ├── ui/                     # shadcn/ui primitive components (Button, Input, etc.)
 │   ├── language-switcher.tsx   # Locale toggle dropdown
 │   ├── theme-provider.tsx      # next-themes provider wrapper
-│   └── theme-toggle.tsx        # Dark/light mode toggle button
+│   ├── theme-toggle.tsx        # Dark/light mode toggle button
+│   └── icons.tsx               # Reusable SVG icon components
+│
+├── hooks/                      # Custom React hooks (e.g., use-smooth-scroll)
 │
 ├── i18n/                       # next-intl configuration
 │   ├── routing.ts              # Locale list, default locale, detection config
@@ -134,6 +137,8 @@ next-landing-starter/
 │
 ├── lib/                        # Shared utilities and server-side helpers
 │   ├── email.ts                # HTML email renderer + Resend dispatch function
+│   ├── site.ts                 # Centralized site configuration (URL, socials)
+│   ├── navigation.ts           # Centralized navigation definitions
 │   ├── utils.ts                # General utility helpers (e.g., cn)
 │   └── validations/            # Zod schemas (e.g., contact form schema)
 │
@@ -141,8 +146,12 @@ next-landing-starter/
 │   ├── en.json                 # English translations
 │   └── id.json                 # Indonesian translations
 │
+├── types/                      # Shared TypeScript definitions
+│   └── index.ts
+│
 ├── .env.example                # Environment variable template (safe to commit)
 ├── next.config.ts              # Next.js configuration (next-intl plugin)
+├── proxy.ts                    # Next.js Proxy for i18n routing
 ├── tsconfig.json               # TypeScript compiler options
 ├── eslint.config.mjs           # ESLint flat config
 └── components.json             # shadcn/ui CLI configuration
