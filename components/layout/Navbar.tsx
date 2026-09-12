@@ -15,6 +15,16 @@ export function Navbar() {
   const t = useTranslations("Navbar");
   const { handleNavClick } = useSmoothScroll();
 
+  const handleLogoClick = () => {
+    if (
+      typeof window !== "undefined" &&
+      (window.location.pathname === `/${locale}` ||
+        window.location.pathname === `/${locale}/`)
+    ) {
+      window.location.reload();
+    }
+  };
+
   return (
     <>
       <a
@@ -26,10 +36,10 @@ export function Navbar() {
       <header className="sticky top-0 z-40 w-full border-b border-primary/20 bg-primary text-primary-foreground shadow-sm transition-all duration-300">
         <div className="container mx-auto flex h-20 max-w-7xl items-center justify-between px-4 md:px-6 lg:px-8">
           {/* Logo */}
-          <Link
+          <a
             href={`/${locale}`}
-            onClick={(e) => handleNavClick(e, "")}
-            className="flex items-center gap-2 transition-all duration-300 ease-in-out hover:opacity-90 py-1"
+            onClick={handleLogoClick}
+            className="flex items-center gap-2 py-1"
             aria-label="CREdoes Home"
           >
             <Image
@@ -41,7 +51,7 @@ export function Navbar() {
               priority
               loading="eager"
             />
-          </Link>
+          </a>
 
           {/* Desktop Navigation */}
           <nav

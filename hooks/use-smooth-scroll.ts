@@ -21,10 +21,21 @@ export function useSmoothScroll() {
 
       if (!isHomePage) return;
 
-      if (href === "") {
+      if (href === "" || href === "/") {
         e.preventDefault();
+
+        // Ensure both window and document.documentElement are scrolled
         window.scrollTo({ top: 0, behavior: "smooth" });
-        window.history.pushState(null, "", `/${locale}`);
+        document.documentElement.scrollTo({ top: 0, behavior: "smooth" });
+
+        // Remove hash from URL without triggering a full page reload or Next.js route change if it exists
+        if (window.location.hash) {
+          window.history.replaceState(
+            null,
+            "",
+            window.location.pathname + window.location.search,
+          );
+        }
         return;
       }
 
