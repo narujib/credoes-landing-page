@@ -1,10 +1,11 @@
 import * as React from "react";
+import { siteConfig } from "@/lib/site";
 
 interface StructuredDataProps {
   locale?: string;
 }
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://acmecorp.example";
+const siteUrl = siteConfig.url;
 
 export function OrganizationJsonLd() {
   const schema = {

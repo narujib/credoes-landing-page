@@ -7,53 +7,21 @@ import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { LanguageSwitcher } from "@/components/language-switcher";
-
-interface NavItem {
-  label: string;
-  href: string;
-}
+import { useSmoothScroll } from "@/hooks/use-smooth-scroll";
+import { mainNavLinks } from "@/lib/navigation";
 
 interface MobileMenuProps {
-  items: NavItem[];
   locale?: string;
 }
 
-export function MobileMenu({ items, locale = "id" }: MobileMenuProps) {
+export function MobileMenu({ locale = "id" }: MobileMenuProps) {
   const [open, setOpen] = React.useState(false);
   const t = useTranslations("Navbar");
+  const { handleNavClick } = useSmoothScroll(locale);
 
-  const handleNavClick = (
-    e: React.MouseEvent<HTMLAnchorElement>,
-    href: string,
-  ) => {
+  const onNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     setOpen(false);
-
-    if (typeof window === "undefined") return;
-
-    const isHomePage =
-      window.location.pathname === `/${locale}` ||
-      window.location.pathname === `/${locale}/` ||
-      window.location.pathname === "/";
-
-    if (!isHomePage) return;
-
-    if (href === "") {
-      e.preventDefault();
-      window.scrollTo({ top: 0, behavior: "smooth" });
-      window.history.pushState(null, "", `/${locale}`);
-      return;
-    }
-
-    const hashIndex = href.indexOf("#");
-    if (hashIndex !== -1) {
-      const targetId = href.slice(hashIndex + 1);
-      const element = document.getElementById(targetId);
-      if (element) {
-        e.preventDefault();
-        element.scrollIntoView({ behavior: "smooth" });
-        window.history.pushState(null, "", `/${locale}${href}`);
-      }
-    }
+    handleNavClick(e, href);
   };
 
   // Prevent scroll when menu is open
@@ -121,11 +89,11 @@ export function MobileMenu({ items, locale = "id" }: MobileMenuProps) {
             className="flex flex-col items-start space-y-4 pt-2 pb-5"
             aria-label="Mobile navigation"
           >
-            {items.map((item, index) => (
+            {mainNavLinks.map((item, index) => (
               <Link
                 key={item.href}
                 href={`/${locale}${item.href}`}
-                onClick={(e) => handleNavClick(e, item.href)}
+                onClick={(e) => onNavClick(e, item.href)}
                 style={{
                   transitionDelay: open ? `${index * 60}ms` : "0ms",
                 }}
@@ -134,9 +102,9 @@ export function MobileMenu({ items, locale = "id" }: MobileMenuProps) {
                     ? "translate-x-0 opacity-100"
                     : "-translate-x-3 opacity-0"
                 }`}
-                aria-label={item.label}
+                aria-label={t(item.labelKey)}
               >
-                {item.label}
+                {t(item.labelKey)}
               </Link>
             ))}
           </nav>
@@ -144,7 +112,7 @@ export function MobileMenu({ items, locale = "id" }: MobileMenuProps) {
           {/* Bottom Actions (Language Switcher & Theme Toggle) */}
           <div
             style={{
-              transitionDelay: open ? `${items.length * 60}ms` : "0ms",
+              transitionDelay: open ? `${mainNavLinks.length * 60}ms` : "0ms",
             }}
             className={`border-t border-white/15 pt-5 flex items-center justify-center gap-4 transition-all duration-300 ease-out transform ${
               open ? "translate-y-0 opacity-100" : "translate-y-2 opacity-0"

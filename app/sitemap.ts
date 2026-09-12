@@ -1,6 +1,7 @@
-import type { MetadataRoute } from "next";
+import { MetadataRoute } from "next";
+import { siteConfig } from "@/lib/site";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://acmecorp.example";
+const siteUrl = siteConfig.url;
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = new Date();

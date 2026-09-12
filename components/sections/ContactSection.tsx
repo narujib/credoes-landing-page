@@ -23,6 +23,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Turnstile, type TurnstileInstance } from "@marsidev/react-turnstile";
+import { SectionHeader } from "@/components/sections";
 
 export function ContactSection() {
   const t = useTranslations("Contact");
@@ -149,22 +150,13 @@ export function ContactSection() {
       aria-label={t("badge")}
     >
       <div className="container mx-auto max-w-7xl px-4 md:px-6 lg:px-8">
-        {/* Section Header */}
-        <div className="max-w-3xl mx-auto text-center space-y-4 mb-10 md:mb-12 animate-fade-in-up">
-          <div className="inline-flex items-center gap-2 rounded-full border border-border bg-background px-3.5 py-1 text-xs font-semibold text-primary shadow-xs transition-all duration-300 ease-in-out hover:scale-105">
-            <MessageSquare className="h-3.5 w-3.5" />
-            <span>{t("badge")}</span>
-          </div>
-          <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl md:text-5xl">
-            {t("titlePart1")}{" "}
-            <span className="bg-gradient-to-r from-foreground via-foreground/90 to-foreground/70 bg-clip-text text-transparent dark:from-white dark:to-zinc-300">
-              {t("titleHighlight")}
-            </span>
-          </h2>
-          <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
-            {t("description")}
-          </p>
-        </div>
+        <SectionHeader
+          badge={t("badge")}
+          badgeIcon={MessageSquare}
+          titlePart1={t("titlePart1")}
+          titleHighlight={t("titleHighlight")}
+          description={t("description")}
+        />
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-12 max-w-6xl mx-auto">
           {/* Left Column: Direct Contact Info */}

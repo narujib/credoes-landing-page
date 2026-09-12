@@ -7,6 +7,8 @@ import { useTranslations } from "next-intl";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { LanguageSwitcher } from "@/components/language-switcher";
 import { MobileMenu } from "./MobileMenu";
+import { useSmoothScroll } from "@/hooks/use-smooth-scroll";
+import { mainNavLinks } from "@/lib/navigation";
 
 interface NavbarProps {
   locale?: string;
@@ -14,45 +16,7 @@ interface NavbarProps {
 
 export function Navbar({ locale = "id" }: NavbarProps) {
   const t = useTranslations("Navbar");
-
-  const navItems = [
-    { label: t("home"), href: "" },
-    { label: t("about"), href: "/#about" },
-    { label: t("services"), href: "/#services" },
-    { label: t("contact"), href: "/#contact" },
-  ];
-
-  const handleNavClick = (
-    e: React.MouseEvent<HTMLAnchorElement>,
-    href: string,
-  ) => {
-    if (typeof window === "undefined") return;
-
-    const isHomePage =
-      window.location.pathname === `/${locale}` ||
-      window.location.pathname === `/${locale}/` ||
-      window.location.pathname === "/";
-
-    if (!isHomePage) return;
-
-    if (href === "") {
-      e.preventDefault();
-      window.scrollTo({ top: 0, behavior: "smooth" });
-      window.history.pushState(null, "", `/${locale}`);
-      return;
-    }
-
-    const hashIndex = href.indexOf("#");
-    if (hashIndex !== -1) {
-      const targetId = href.slice(hashIndex + 1);
-      const element = document.getElementById(targetId);
-      if (element) {
-        e.preventDefault();
-        element.scrollIntoView({ behavior: "smooth" });
-        window.history.pushState(null, "", `/${locale}${href}`);
-      }
-    }
-  };
+  const { handleNavClick } = useSmoothScroll(locale);
 
   return (
     <>
@@ -86,15 +50,15 @@ export function Navbar({ locale = "id" }: NavbarProps) {
             className="hidden md:flex items-center gap-7 font-heading text-base md:text-lg font-bold tracking-wider uppercase"
             aria-label="Main navigation"
           >
-            {navItems.map((item) => (
+            {mainNavLinks.map((item) => (
               <Link
                 key={item.href}
                 href={`/${locale}${item.href}`}
                 onClick={(e) => handleNavClick(e, item.href)}
                 className="text-primary-foreground/80 transition-colors duration-300 ease-linear hover:text-secondary"
-                aria-label={item.label}
+                aria-label={t(item.labelKey)}
               >
-                {item.label}
+                {t(item.labelKey)}
               </Link>
             ))}
           </nav>
@@ -107,7 +71,7 @@ export function Navbar({ locale = "id" }: NavbarProps) {
 
           {/* Mobile Menu Trigger */}
           <div className="flex md:hidden items-center">
-            <MobileMenu items={navItems} locale={locale} />
+            <MobileMenu locale={locale} />
           </div>
         </div>
       </header>

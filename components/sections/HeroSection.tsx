@@ -7,6 +7,8 @@ import { useTranslations } from "next-intl";
 import { ArrowRight } from "lucide-react";
 import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { useSmoothScroll } from "@/hooks/use-smooth-scroll";
+import { siteConfig } from "@/lib/site";
 
 interface HeroSectionProps {
   locale?: string;
@@ -14,19 +16,7 @@ interface HeroSectionProps {
 
 export function HeroSection({ locale = "id" }: HeroSectionProps) {
   const t = useTranslations("Hero");
-
-  const handleNavClick = (
-    e: React.MouseEvent<HTMLAnchorElement>,
-    targetId: string,
-  ) => {
-    if (typeof window === "undefined") return;
-    const element = document.getElementById(targetId);
-    if (element) {
-      e.preventDefault();
-      element.scrollIntoView({ behavior: "smooth" });
-      window.history.pushState(null, "", `/${locale}#${targetId}`);
-    }
-  };
+  const { handleNavClick } = useSmoothScroll(locale);
 
   return (
     <section
@@ -53,7 +43,7 @@ export function HeroSection({ locale = "id" }: HeroSectionProps) {
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row items-center gap-4 pt-2 w-full sm:w-auto">
               <a
-                href="https://wa.me/6281234567890?text=Halo%20CREdoes,%20saya%20ingin%20berdiskusi"
+                href={siteConfig.contact.whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={t("ctaContact")}
@@ -67,7 +57,7 @@ export function HeroSection({ locale = "id" }: HeroSectionProps) {
               </a>
               <Link
                 href={`/${locale}#services`}
-                onClick={(e) => handleNavClick(e, "services")}
+                onClick={(e) => handleNavClick(e, "/#services")}
                 aria-label={t("ctaServices")}
                 className={cn(
                   buttonVariants({ variant: "outline", size: "lg" }),

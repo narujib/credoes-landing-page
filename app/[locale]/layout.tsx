@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import { getMessages, setRequestLocale } from "next-intl/server";
 import { NextIntlClientProvider } from "next-intl";
 import { routing } from "@/i18n/routing";
+import type { Locale } from "@/types";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import {
@@ -14,16 +15,18 @@ export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
 }
 
+interface LocaleLayoutProps {
+  children: React.ReactNode;
+  params: Promise<{ locale: string }>;
+}
+
 export default async function LocaleLayout({
   children,
   params,
-}: {
-  children: React.ReactNode;
-  params: Promise<{ locale: string }>;
-}) {
+}: LocaleLayoutProps) {
   const { locale } = await params;
 
-  if (!routing.locales.includes(locale as "id" | "en")) {
+  if (!routing.locales.includes(locale as Locale)) {
     notFound();
   }
 

@@ -1,6 +1,7 @@
 import * as React from "react";
 import { useTranslations } from "next-intl";
 import { Award, Globe2, ShieldCheck, TrendingUp, Users } from "lucide-react";
+import { SectionHeader } from "@/components/sections";
 
 export function AboutSection() {
   const t = useTranslations("About");
@@ -58,22 +59,13 @@ export function AboutSection() {
       aria-label={t("badge")}
     >
       <div className="container mx-auto max-w-7xl px-4 md:px-6 lg:px-8">
-        {/* Section Header */}
-        <div className="max-w-3xl mx-auto text-center space-y-4 mb-10 md:mb-12 animate-fade-in-up">
-          <div className="inline-flex items-center gap-2 rounded-full border border-border bg-background px-3.5 py-1 text-xs font-semibold text-primary shadow-xs transition-all duration-300 ease-in-out hover:scale-105">
-            <Globe2 className="h-3.5 w-3.5" />
-            <span>{t("badge")}</span>
-          </div>
-          <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl md:text-5xl">
-            {t("titlePart1")}{" "}
-            <span className="bg-gradient-to-r from-foreground via-foreground/90 to-foreground/70 bg-clip-text text-transparent dark:from-white dark:to-zinc-300">
-              {t("titleHighlight")}
-            </span>
-          </h2>
-          <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
-            {t("description")}
-          </p>
-        </div>
+        <SectionHeader
+          badge={t("badge")}
+          badgeIcon={Globe2}
+          titlePart1={t("titlePart1")}
+          titleHighlight={t("titleHighlight")}
+          description={t("description")}
+        />
 
         {/* Value Proposition Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-10 md:mb-12">
