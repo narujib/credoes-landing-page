@@ -1,9 +1,6 @@
 import * as React from "react";
+import { useLocale } from "next-intl";
 import { siteConfig } from "@/lib/site";
-
-interface StructuredDataProps {
-  locale?: string;
-}
 
 const siteUrl = siteConfig.url;
 
@@ -41,7 +38,8 @@ export function OrganizationJsonLd() {
   );
 }
 
-export function WebSiteJsonLd({ locale = "id" }: StructuredDataProps) {
+export function WebSiteJsonLd() {
+  const locale = useLocale();
   const schema = {
     "@context": "https://schema.org",
     "@type": "WebSite",

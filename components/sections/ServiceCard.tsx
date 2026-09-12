@@ -12,7 +12,6 @@ export interface ServiceItem {
 
 interface ServiceCardProps {
   service: ServiceItem;
-  locale?: string;
 }
 
 export function ServiceCard({ service }: ServiceCardProps) {

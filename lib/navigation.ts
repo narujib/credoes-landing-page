@@ -11,6 +11,7 @@ export const mainNavLinks: NavLinkDef[] = [
   { labelKey: "home", href: "" },
   { labelKey: "about", href: "/#about" },
   { labelKey: "services", href: "/#services" },
+  { labelKey: "faq", href: "/#faq" },
   { labelKey: "contact", href: "/#contact" },
 ];
 

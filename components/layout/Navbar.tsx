@@ -3,20 +3,17 @@
 import * as React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { LanguageSwitcher } from "@/components/language-switcher";
 import { MobileMenu } from "./MobileMenu";
 import { useSmoothScroll } from "@/hooks/use-smooth-scroll";
 import { mainNavLinks } from "@/lib/navigation";
 
-interface NavbarProps {
-  locale?: string;
-}
-
-export function Navbar({ locale = "id" }: NavbarProps) {
+export function Navbar() {
+  const locale = useLocale();
   const t = useTranslations("Navbar");
-  const { handleNavClick } = useSmoothScroll(locale);
+  const { handleNavClick } = useSmoothScroll();
 
   return (
     <>
@@ -42,6 +39,7 @@ export function Navbar({ locale = "id" }: NavbarProps) {
               height={64}
               className="h-11 md:h-13 w-auto object-contain"
               priority
+              loading="eager"
             />
           </Link>
 
@@ -65,13 +63,13 @@ export function Navbar({ locale = "id" }: NavbarProps) {
 
           {/* Right Actions (Desktop) */}
           <div className="hidden md:flex items-center gap-3">
-            <LanguageSwitcher currentLocale={locale} />
+            <LanguageSwitcher />
             <ThemeToggle />
           </div>
 
           {/* Mobile Menu Trigger */}
           <div className="flex md:hidden items-center">
-            <MobileMenu locale={locale} />
+            <MobileMenu />
           </div>
         </div>
       </header>

@@ -3,20 +3,17 @@
 import * as React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 import { ArrowRight } from "lucide-react";
 import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { useSmoothScroll } from "@/hooks/use-smooth-scroll";
 import { siteConfig } from "@/lib/site";
 
-interface HeroSectionProps {
-  locale?: string;
-}
-
-export function HeroSection({ locale = "id" }: HeroSectionProps) {
+export function HeroSection() {
+  const locale = useLocale();
   const t = useTranslations("Hero");
-  const { handleNavClick } = useSmoothScroll(locale);
+  const { handleNavClick } = useSmoothScroll();
 
   return (
     <section
@@ -49,7 +46,7 @@ export function HeroSection({ locale = "id" }: HeroSectionProps) {
                 aria-label={t("ctaContact")}
                 className={cn(
                   buttonVariants({ size: "lg" }),
-                  "w-full sm:w-auto text-xl px-8 h-12 shadow-xs cursor-pointer transition-colors duration-200 font-bold font-agency tracking-wider hover:bg-primary/90 active:translate-y-0 active:transform-none active:scale-100",
+                  "w-full sm:w-auto text-xl px-8 h-12 shadow-xs cursor-pointer transition-colors duration-200 hover:bg-primary/90",
                 )}
               >
                 <span>{t("ctaContact")}</span>
@@ -61,7 +58,7 @@ export function HeroSection({ locale = "id" }: HeroSectionProps) {
                 aria-label={t("ctaServices")}
                 className={cn(
                   buttonVariants({ variant: "outline", size: "lg" }),
-                  "w-full sm:w-auto text-xl px-8 h-12 cursor-pointer transition-colors duration-200 font-bold font-agency tracking-wider hover:bg-muted active:translate-y-0 active:transform-none active:scale-100",
+                  "w-full sm:w-auto text-xl px-8 h-12 cursor-pointer transition-colors duration-200 hover:bg-muted",
                 )}
               >
                 <span>{t("ctaServices")}</span>
@@ -71,7 +68,10 @@ export function HeroSection({ locale = "id" }: HeroSectionProps) {
 
           {/* Right Column: Image */}
           <div className="relative w-full aspect-[4/3] lg:aspect-auto min-h-[300px] sm:min-h-[360px] lg:min-h-0 flex items-center justify-center animate-fade-in-up">
-            <div className="relative w-full h-full rounded-2xl overflow-hidden shadow-xl">
+            <div
+              className="relative w-full h-full rounded-2xl overflow-hidden shadow-xl"
+              style={{ position: "relative" }}
+            >
               <Image
                 src="https://images.unsplash.com/photo-1573164713988-8665fc963095?q=80&w=2069&auto=format&fit=crop"
                 alt="Business Professionals"

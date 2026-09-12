@@ -1,12 +1,15 @@
 "use client";
 
 import * as React from "react";
+import { useLocale } from "next-intl";
 
 /**
  * Custom hook for smooth-scroll navigation within the same page.
  * Consolidates duplicated handleNavClick logic from Navbar, MobileMenu, Footer, HeroSection.
  */
-export function useSmoothScroll(locale: string) {
+export function useSmoothScroll() {
+  const locale = useLocale();
+
   const handleNavClick = React.useCallback(
     (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
       if (typeof window === "undefined") return;

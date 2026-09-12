@@ -3,6 +3,7 @@ import { setRequestLocale, getTranslations } from "next-intl/server";
 import { HeroSection } from "@/components/sections/HeroSection";
 import { AboutSection } from "@/components/sections/AboutSection";
 import { ServicesSection } from "@/components/sections/ServicesSection";
+import { FaqSection } from "@/components/sections/FaqSection";
 import { ContactSection } from "@/components/sections/ContactSection";
 
 export async function generateMetadata({
@@ -58,9 +59,10 @@ export default async function HomePage({
 
   return (
     <main className="flex flex-1 flex-col">
-      <HeroSection locale={locale} />
+      <HeroSection />
       <AboutSection />
-      <ServicesSection locale={locale} />
+      <ServicesSection />
+      <FaqSection />
       <ContactSection />
     </main>
   );

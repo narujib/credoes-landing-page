@@ -1,6 +1,6 @@
 import * as React from "react";
 import { useTranslations } from "next-intl";
-import { Award, Globe2, ShieldCheck, TrendingUp, Users } from "lucide-react";
+import { Award, ShieldCheck, TrendingUp, Users } from "lucide-react";
 import { SectionHeader } from "@/components/sections";
 
 export function AboutSection() {
@@ -60,8 +60,6 @@ export function AboutSection() {
     >
       <div className="container mx-auto max-w-7xl px-4 md:px-6 lg:px-8">
         <SectionHeader
-          badge={t("badge")}
-          badgeIcon={Globe2}
           titlePart1={t("titlePart1")}
           titleHighlight={t("titleHighlight")}
           description={t("description")}

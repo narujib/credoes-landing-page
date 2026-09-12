@@ -15,7 +15,6 @@ import {
   Loader2,
   Mail,
   MapPin,
-  MessageSquare,
   Phone,
   Send,
 } from "lucide-react";
@@ -151,8 +150,6 @@ export function ContactSection() {
     >
       <div className="container mx-auto max-w-7xl px-4 md:px-6 lg:px-8">
         <SectionHeader
-          badge={t("badge")}
-          badgeIcon={MessageSquare}
           titlePart1={t("titlePart1")}
           titleHighlight={t("titleHighlight")}
           description={t("description")}
@@ -391,7 +388,7 @@ export function ContactSection() {
                   type="submit"
                   size="lg"
                   disabled={status === "submitting" || !captchaToken}
-                  className="w-full h-11 text-base font-semibold shadow-xs cursor-pointer transition-all duration-300 ease-in-out hover:-translate-y-0.5 hover:shadow-md disabled:cursor-not-allowed disabled:opacity-50"
+                  className="w-full h-11 text-base font-semibold shadow-xs cursor-pointer transition-colors duration-200 hover:bg-primary/90 disabled:cursor-not-allowed disabled:opacity-50"
                   aria-label={t("submitBtn")}
                 >
                   {status === "submitting" ? (
@@ -402,7 +399,7 @@ export function ContactSection() {
                   ) : (
                     <>
                       <span>{t("submitBtn")}</span>
-                      <Send className="ml-2 h-4 w-4 transition-transform duration-300 ease-in-out group-hover:translate-x-0.5" />
+                      <Send className="ml-2 h-4 w-4" />
                     </>
                   )}
                 </Button>

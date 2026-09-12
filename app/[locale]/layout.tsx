@@ -36,9 +36,9 @@ export default async function LocaleLayout({
   return (
     <NextIntlClientProvider messages={messages}>
       <OrganizationJsonLd />
-      <WebSiteJsonLd locale={locale} />
+      <WebSiteJsonLd />
       <LocalBusinessJsonLd />
-      <Navbar locale={locale} />
+      <Navbar />
       <div
         id="main-content"
         tabIndex={-1}
@@ -47,7 +47,7 @@ export default async function LocaleLayout({
       >
         {children}
       </div>
-      <Footer locale={locale} />
+      <Footer />
     </NextIntlClientProvider>
   );
 }

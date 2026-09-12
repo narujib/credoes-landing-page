@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import Link from "next/link";
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/theme-toggle";
@@ -10,14 +10,11 @@ import { LanguageSwitcher } from "@/components/language-switcher";
 import { useSmoothScroll } from "@/hooks/use-smooth-scroll";
 import { mainNavLinks } from "@/lib/navigation";
 
-interface MobileMenuProps {
-  locale?: string;
-}
-
-export function MobileMenu({ locale = "id" }: MobileMenuProps) {
+export function MobileMenu() {
   const [open, setOpen] = React.useState(false);
+  const locale = useLocale();
   const t = useTranslations("Navbar");
-  const { handleNavClick } = useSmoothScroll(locale);
+  const { handleNavClick } = useSmoothScroll();
 
   const onNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     setOpen(false);
@@ -118,10 +115,7 @@ export function MobileMenu({ locale = "id" }: MobileMenuProps) {
               open ? "translate-y-0 opacity-100" : "translate-y-2 opacity-0"
             }`}
           >
-            <LanguageSwitcher
-              currentLocale={locale}
-              onToggle={() => setOpen(false)}
-            />
+            <LanguageSwitcher onToggle={() => setOpen(false)} />
             <ThemeToggle onToggle={() => setOpen(false)} />
           </div>
         </div>

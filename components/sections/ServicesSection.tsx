@@ -7,16 +7,11 @@ import {
   LayoutGrid,
   ShieldCheck,
   Smartphone,
-  Sparkles,
 } from "lucide-react";
 import { ServiceCard, type ServiceItem } from "./ServiceCard";
 import { SectionHeader } from "@/components/sections";
 
-interface ServicesSectionProps {
-  locale?: string;
-}
-
-export function ServicesSection({ locale = "id" }: ServicesSectionProps) {
+export function ServicesSection() {
   const t = useTranslations("Services");
 
   const services: ServiceItem[] = [
@@ -72,18 +67,15 @@ export function ServicesSection({ locale = "id" }: ServicesSectionProps) {
     >
       <div className="container mx-auto max-w-7xl px-4 md:px-6 lg:px-8">
         <SectionHeader
-          badge={t("badge")}
-          badgeIcon={Sparkles}
           titlePart1={t("titlePart1")}
           titleHighlight={t("titleHighlight")}
           description={t("description")}
-          badgeVariant="muted"
         />
 
         {/* Services Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {services.map((service, index) => (
-            <ServiceCard key={index} service={service} locale={locale} />
+            <ServiceCard key={index} service={service} />
           ))}
         </div>
       </div>

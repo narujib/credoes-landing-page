@@ -23,8 +23,7 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-outfit);
   --font-heading: var(--font-agency);
   --font-agency: var(--font-agency);
   --color-sidebar-ring: var(--sidebar-ring);

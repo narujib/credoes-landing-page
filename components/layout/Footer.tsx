@@ -3,21 +3,18 @@
 import * as React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 import { Globe } from "lucide-react";
 import { useSmoothScroll } from "@/hooks/use-smooth-scroll";
 import { mainNavLinks, serviceNavLinks, legalNavLinks } from "@/lib/navigation";
 import { siteConfig } from "@/lib/site";
 import { TwitterIcon, LinkedInIcon, GitHubIcon } from "@/components/icons";
 
-interface FooterProps {
-  locale?: string;
-}
-
-export function Footer({ locale = "id" }: FooterProps) {
+export function Footer() {
+  const locale = useLocale();
   const t = useTranslations("Footer");
   const currentYear = new Date().getFullYear();
-  const { handleNavClick } = useSmoothScroll(locale);
+  const { handleNavClick } = useSmoothScroll();
 
   const socialLinks = [
     {
@@ -63,6 +60,8 @@ export function Footer({ locale = "id" }: FooterProps) {
                 width={140}
                 height={40}
                 className="h-8 md:h-9 w-auto object-contain"
+                priority
+                loading="eager"
               />
             </Link>
             <p className="text-sm text-muted-foreground leading-relaxed max-w-sm">

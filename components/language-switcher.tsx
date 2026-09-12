@@ -6,15 +6,8 @@ import { usePathname, useRouter } from "@/i18n/routing";
 import { Globe } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-export function LanguageSwitcher({
-  currentLocale,
-  onToggle,
-}: {
-  currentLocale?: string;
-  onToggle?: () => void;
-}) {
-  const localeFromHook = useLocale();
-  const activeLocale = currentLocale || localeFromHook || "id";
+export function LanguageSwitcher({ onToggle }: { onToggle?: () => void }) {
+  const activeLocale = useLocale() || "id";
   const pathname = usePathname();
   const router = useRouter();
   const [isPending, startTransition] = React.useTransition();
@@ -22,7 +15,7 @@ export function LanguageSwitcher({
   const handleToggleLocale = () => {
     const nextLocale = activeLocale === "id" ? "en" : "id";
     startTransition(() => {
-      router.replace(pathname, { locale: nextLocale });
+      router.replace(pathname, { locale: nextLocale, scroll: false });
     });
     onToggle?.();
   };
