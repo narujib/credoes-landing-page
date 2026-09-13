@@ -30,7 +30,7 @@ export function ServiceCard({ service, className }: ServiceCardProps) {
           src="/images/hero-shape-1.svg"
           alt=""
           fill
-          className="object-contain rotate-10 scale-150"
+          className="object-cover object-left rotate-10 scale-130"
         />
       </div>
 

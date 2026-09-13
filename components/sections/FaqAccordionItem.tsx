@@ -62,7 +62,7 @@ const FaqAnswer = ({ text }: { text: string }) => {
           );
         }
         return (
-          <p key={idx} className="text-justify sm:text-left">
+          <p key={idx} className="text-left">
             {renderText(segment.trim())}
           </p>
         );
