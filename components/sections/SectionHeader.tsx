@@ -4,9 +4,10 @@ import { cn } from "@/lib/utils";
 interface SectionHeaderProps {
   titlePart1: string;
   titleHighlight: string;
-  description: string;
+  description?: string;
   align?: "center" | "left";
   className?: string;
+  titleClassName?: string;
 }
 
 export function SectionHeader({
@@ -15,6 +16,7 @@ export function SectionHeader({
   description,
   align = "center",
   className,
+  titleClassName,
 }: SectionHeaderProps) {
   return (
     <div
@@ -24,12 +26,19 @@ export function SectionHeader({
         className,
       )}
     >
-      <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl md:text-5xl">
+      <h2
+        className={cn(
+          "text-3xl font-bold tracking-tight text-foreground sm:text-4xl md:text-5xl font-heading leading-tight",
+          titleClassName,
+        )}
+      >
         {titlePart1} <span className="text-primary">{titleHighlight}</span>
       </h2>
-      <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
-        {description}
-      </p>
+      {description && (
+        <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
+          {description}
+        </p>
+      )}
     </div>
   );
 }

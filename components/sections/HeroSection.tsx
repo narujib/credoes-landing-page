@@ -10,6 +10,13 @@ import { cn } from "@/lib/utils";
 import { useSmoothScroll } from "@/hooks/use-smooth-scroll";
 import { siteConfig } from "@/lib/site";
 
+const LOGOS = [
+  { src: "/images/logos/carsome.png", alt: "Carsome" },
+  { src: "/images/logos/DUF.png", alt: "DUF" },
+  { src: "/images/logos/infinID.png", alt: "infinID" },
+  { src: "/images/logos/moladin.png", alt: "Moladin" },
+];
+
 export function HeroSection() {
   const locale = useLocale();
   const t = useTranslations("Hero");
@@ -17,7 +24,7 @@ export function HeroSection() {
 
   return (
     <section
-      className="relative overflow-hidden pt-12 pb-16 md:pt-20 md:pb-24 bg-background"
+      className="relative overflow-hidden pt-12 md:pt-20 bg-background"
       aria-label="Hero"
     >
       <div className="container mx-auto max-w-7xl px-4 md:px-6 lg:px-8">
@@ -83,23 +90,28 @@ export function HeroSection() {
           </div>
         </div>
 
-        {/* Logo Banner */}
-        <div className="mt-20 pt-10 border-t border-border/40">
-          <div className="flex flex-wrap justify-center gap-8 md:gap-16 items-center opacity-60 grayscale hover:grayscale-0 transition-all duration-300">
-            <span className="text-xl font-serif font-bold tracking-tighter">
-              WALL STREET JOURNAL
-            </span>
-            <span className="text-xl font-sans font-bold">Forbes</span>
-            <span className="text-xl font-sans font-bold tracking-widest">
-              FAST OMPANY
-            </span>
-            <span className="text-2xl font-sans font-extrabold text-green-700 dark:text-green-500">
-              TC
-            </span>
-            <span className="text-xl font-sans font-bold">TechCrunch</span>
-            <span className="text-lg font-serif italic text-gray-500">
-              THE HUFFINGTON POST
-            </span>
+        {/* Trusted By Banner */}
+        <div className="mt-16 pt-8 border-t border-border/40 overflow-hidden w-full relative">
+          <div className="relative flex max-w-full overflow-hidden group">
+            <div className="flex w-max animate-marquee items-center gap-8 md:gap-16 px-4 md:px-8 group-hover:[animation-play-state:paused]">
+              {Array.from({ length: 4 }).map((_, i) => (
+                <React.Fragment key={i}>
+                  {LOGOS.map((logo, idx) => (
+                    <Image
+                      key={`${i}-${idx}`}
+                      src={logo.src}
+                      alt={logo.alt}
+                      width={180}
+                      height={60}
+                      className="object-contain h-12 md:h-16 w-auto opacity-60 grayscale hover:grayscale-0 transition-all duration-300"
+                    />
+                  ))}
+                </React.Fragment>
+              ))}
+            </div>
+            {/* Gradient Mask for fading edges */}
+            <div className="pointer-events-none absolute inset-y-0 left-0 w-12 md:w-32 bg-linear-to-r from-background to-transparent" />
+            <div className="pointer-events-none absolute inset-y-0 right-0 w-12 md:w-32 bg-linear-to-l from-background to-transparent" />
           </div>
         </div>
       </div>
