@@ -92,7 +92,11 @@ export function ContactForm() {
       } else {
         const errorData = await response.json().catch(() => null);
         setStatus("error");
-        setResponseMessage(errorData?.error || t("errorMsg"));
+        if (response.status >= 500) {
+          setResponseMessage(t("errorMsg"));
+        } else {
+          setResponseMessage(errorData?.error || t("errorMsg"));
+        }
         resetCaptcha();
       }
     } catch {

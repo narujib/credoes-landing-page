@@ -105,7 +105,7 @@ export async function sendContactEmail(
         console.error("[Email Service Error]:", errorData);
         return {
           success: false,
-          error: "Failed to dispatch email via delivery service.",
+          error: "Failed to send message. Please try again later.",
         };
       }
 

@@ -110,7 +110,7 @@ export async function POST(request: NextRequest) {
           success: false,
           error:
             emailResult.error ||
-            "Failed to send message due to email service error. Please try again later.",
+            "Failed to send message. Please try again later.",
         },
         { status: 500 },
       );
