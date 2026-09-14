@@ -27,8 +27,11 @@ export function AboutSection() {
           {/* Left Column: Text & Features */}
           <div className="lg:col-span-7 animate-fade-in-up">
             <SectionHeader
-              titlePart1={t("titlePart1")}
-              titleHighlight={t("titleHighlight")}
+              title={t.rich("title", {
+                primary: (chunks) => (
+                  <span className="text-primary">{chunks}</span>
+                ),
+              })}
               description={t("description")}
               align="left"
               className="mb-6 md:mb-8"

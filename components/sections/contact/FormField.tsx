@@ -16,13 +16,25 @@ interface FormFieldProps {
 export function FormField({ id, label, error, children }: FormFieldProps) {
   const errorId = `${id}-error`;
 
+  const renderLabel = () => {
+    if (label.endsWith("*")) {
+      const text = label.slice(0, -1).trimEnd();
+      return (
+        <>
+          {text} <span className="text-destructive font-bold ml-0.5">*</span>
+        </>
+      );
+    }
+    return label;
+  };
+
   return (
     <div className="space-y-1">
       <label
         htmlFor={id}
         className="text-[11px] font-semibold uppercase tracking-wider text-foreground"
       >
-        {label}
+        {renderLabel()}
       </label>
       {children}
       {error && (

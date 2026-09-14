@@ -2,8 +2,9 @@ import * as React from "react";
 import { cn } from "@/lib/utils";
 
 interface SectionHeaderProps {
-  titlePart1: string;
-  titleHighlight: string;
+  title?: React.ReactNode;
+  titlePart1?: string;
+  titleHighlight?: string;
   description?: string;
   align?: "center" | "left";
   className?: string;
@@ -11,6 +12,7 @@ interface SectionHeaderProps {
 }
 
 export function SectionHeader({
+  title,
   titlePart1,
   titleHighlight,
   description,
@@ -32,7 +34,13 @@ export function SectionHeader({
           titleClassName,
         )}
       >
-        {titlePart1} <span className="text-primary">{titleHighlight}</span>
+        {title ? (
+          title
+        ) : (
+          <>
+            {titlePart1} <span className="text-primary">{titleHighlight}</span>
+          </>
+        )}
       </h2>
       {description && (
         <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">

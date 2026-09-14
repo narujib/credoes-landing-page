@@ -33,10 +33,13 @@ export function HeroSection() {
           <div className="flex flex-col justify-center space-y-6 md:space-y-8 animate-fade-in-up">
             {/* Main Headline (H1) */}
             <h1 className="max-w-2xl font-heading text-4xl font-bold tracking-tight text-foreground sm:text-5xl md:text-6xl leading-tight">
-              {t("titlePart1")}
-              <span className="text-[#0e7452] dark:text-[#20b284]">
-                {t("titleHighlight")}
-              </span>
+              {t.rich("title", {
+                primary: (chunks) => (
+                  <span className="text-[#0e7452] dark:text-[#20b284]">
+                    {chunks}
+                  </span>
+                ),
+              })}
             </h1>
 
             {/* Subtitle */}
@@ -93,12 +96,31 @@ export function HeroSection() {
         {/* Trusted By Banner */}
         <div className="mt-16 pt-8 border-t border-border/40 overflow-hidden w-full relative">
           <div className="relative flex max-w-full overflow-hidden group">
-            <div className="flex w-max animate-marquee items-center gap-8 md:gap-16 px-4 md:px-8 group-hover:[animation-play-state:paused]">
-              {Array.from({ length: 4 }).map((_, i) => (
+            <div className="flex shrink-0 animate-marquee items-center justify-around gap-8 md:gap-16 pr-8 md:pr-16 group-hover:[animation-play-state:paused]">
+              {Array.from({ length: 3 }).map((_, i) => (
                 <React.Fragment key={i}>
                   {LOGOS.map((logo, idx) => (
                     <Image
-                      key={`${i}-${idx}`}
+                      key={`logo-1-${i}-${idx}`}
+                      src={logo.src}
+                      alt={logo.alt}
+                      width={180}
+                      height={60}
+                      className="object-contain h-12 md:h-16 w-auto opacity-60 grayscale hover:grayscale-0 transition-all duration-300"
+                    />
+                  ))}
+                </React.Fragment>
+              ))}
+            </div>
+            <div
+              className="flex shrink-0 animate-marquee items-center justify-around gap-8 md:gap-16 pr-8 md:pr-16 group-hover:[animation-play-state:paused]"
+              aria-hidden="true"
+            >
+              {Array.from({ length: 3 }).map((_, i) => (
+                <React.Fragment key={i}>
+                  {LOGOS.map((logo, idx) => (
+                    <Image
+                      key={`logo-2-${i}-${idx}`}
                       src={logo.src}
                       alt={logo.alt}
                       width={180}
@@ -110,8 +132,8 @@ export function HeroSection() {
               ))}
             </div>
             {/* Gradient Mask for fading edges */}
-            <div className="pointer-events-none absolute inset-y-0 left-0 w-12 md:w-32 bg-linear-to-r from-background to-transparent" />
-            <div className="pointer-events-none absolute inset-y-0 right-0 w-12 md:w-32 bg-linear-to-l from-background to-transparent" />
+            <div className="pointer-events-none absolute inset-y-0 left-0 w-12 md:w-32 bg-linear-to-r from-background to-transparent z-10" />
+            <div className="pointer-events-none absolute inset-y-0 right-0 w-12 md:w-32 bg-linear-to-l from-background to-transparent z-10" />
           </div>
         </div>
       </div>

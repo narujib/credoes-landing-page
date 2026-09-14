@@ -48,8 +48,9 @@ export function ServicesSection() {
     >
       <div className="container mx-auto max-w-7xl px-4 md:px-6 lg:px-8">
         <SectionHeader
-          titlePart1={t("titlePart1")}
-          titleHighlight={t("titleHighlight")}
+          title={t.rich("title", {
+            primary: (chunks) => <span className="text-primary">{chunks}</span>,
+          })}
           description={t("description")}
           className="mb-10 md:mb-12"
         />

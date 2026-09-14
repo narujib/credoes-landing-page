@@ -9,6 +9,7 @@
     "menu": "Menu"
   },
   "Hero": {
+    "title": "<primary>Business Aggregator</primary> for Companies requiring <primary>Working Capital</primary> or <primary>Investment</primary>",
     "titlePart1": "Business Aggregator for Companies requiring ",
     "titleHighlight": "Working Capital or Investment",
     "subtitle": "Need business development for optimal growth? Let's discuss together.",
@@ -18,6 +19,7 @@
   },
   "About": {
     "badge": "About Us",
+    "title": "<primary>Get to Know Us</primary> Closer",
     "titlePart1": "Get to Know Us",
     "titleHighlight": "Closer",
     "description": "We are a consulting firm trusted by large domestic and international groups. Our founders and partners are professionals with over 20 years of experience in finance and investment. They are also active as official speakers and assessors in the financial industry.",
@@ -30,6 +32,7 @@
   },
   "Services": {
     "badge": "Core Capabilities",
+    "title": "Our <primary>Services</primary> and <primary>Solutions</primary>",
     "titlePart1": "Our Services and ",
     "titleHighlight": "Solutions",
     "description": "We provide comprehensive consulting, funding, and strategic solutions to accelerate your business growth and investments.",
@@ -55,6 +58,7 @@
     "titlePart1": "Let's Build Something",
     "titleHighlight": "Exceptional Together",
     "description": "Have a business development plan or need funding & investment consulting? Send us a message and our professional team will respond within 24 hours.",
+    "infoTitle": "<primary>Contact</primary> Information",
     "infoTitlePart1": "Contact",
     "infoTitleHighlight": "Information",
     "infoDesc": "Discuss your funding, working capital, and business investment needs directly with the CREdoes team.",
@@ -70,7 +74,7 @@
     "namePlaceholder": "John Doe",
     "nameErrorMin": "Name must be at least 2 characters.",
     "nameErrorMax": "Name is too long (max 100 characters).",
-    "emailInputLabel": "Work Email *",
+    "emailInputLabel": "Email *",
     "emailPlaceholder": "name@company.com",
     "emailError": "Please enter a valid email address.",
     "subjectLabel": "Subject *",
@@ -97,6 +101,7 @@
   },
   "Faq": {
     "badge": "Frequently Asked Questions",
+    "title": "<primary>Financial</primary> & <primary>Investment Services</primary> - <primary>FAQ</primary>",
     "titlePart1": "Financial & Investment",
     "titleHighlight": "Services FAQ",
     "description": "Find answers to the most common questions regarding our business aggregation, working capital advisory, and enterprise partnerships.",

@@ -9,6 +9,7 @@
     "menu": "Menu"
   },
   "Hero": {
+    "title": "<primary>Aggregator Bisnis</primary> bagi Perusahaan yang memerlukan <primary>Modal Kerja</primary> ataupun <primary>Investasi</primary>",
     "titlePart1": "Aggregator Bisnis bagi Perusahaan yang memerlukan ",
     "titleHighlight": "Modal Kerja ataupun Investasi",
     "subtitle": "Butuh Pengembangan bisnis untuk pengembangan optimal? Mari berdiskusi bersama.",
@@ -18,6 +19,7 @@
   },
   "About": {
     "badge": "Tentang Kami",
+    "title": "<primary>Kenali Kami</primary> Lebih Dekat",
     "titlePart1": "Kenali Kami",
     "titleHighlight": "Lebih Dekat",
     "description": "Kami adalah perusahaan konsultan yang dipercaya oleh grup besar dalam dan luar negeri. Founder dan partner kami profesional berpengalaman lebih dari 20 tahun di bidang keuangan dan investasi. Mereka juga aktif sebagai official speaker dan assessor di industri keuangan.",
@@ -30,6 +32,7 @@
   },
   "Services": {
     "badge": "Layanan Unggulan",
+    "title": "<primary>Layanan</primary> dan <primary>Solusi</primary> Kami",
     "titlePart1": "Layanan dan ",
     "titleHighlight": "Solusi Kami",
     "description": "Kami menyediakan berbagai layanan konsultasi, pendanaan, dan solusi strategis untuk mengakselerasi pertumbuhan bisnis dan investasi Anda.",
@@ -55,6 +58,7 @@
     "titlePart1": "Mari Bangun Solusi",
     "titleHighlight": "Digital Terbaik Bersama",
     "description": "Punya rencana pengembangan bisnis atau butuh konsultasi pendanaan & investasi? Kirimkan pesan Anda dan tim profesional kami akan merespons dalam 24 jam.",
+    "infoTitle": "Informasi <primary>Kontak</primary>",
     "infoTitlePart1": "Informasi",
     "infoTitleHighlight": "Kontak",
     "infoDesc": "Diskusikan kebutuhan pendanaan, modal kerja, dan solusi investasi bisnis Anda bersama tim profesional CREdoes.",
@@ -70,7 +74,7 @@
     "namePlaceholder": "Budi Santoso",
     "nameErrorMin": "Nama minimal 2 karakter.",
     "nameErrorMax": "Nama terlalu panjang (maks 100 karakter).",
-    "emailInputLabel": "Email Kantor *",
+    "emailInputLabel": "Email *",
     "emailPlaceholder": "nama@perusahaan.com",
     "emailError": "Format email tidak valid.",
     "subjectLabel": "Subjek *",
@@ -97,6 +101,7 @@
   },
   "Faq": {
     "badge": "Pertanyaan Umum",
+    "title": "<primary>FAQ</primary> - Layanan <primary>Keuangan</primary> & <primary>Investasi</primary>",
     "titlePart1": "FAQ Layanan",
     "titleHighlight": "Keuangan & Investasi",
     "description": "Temukan jawaban atas pertanyaan yang paling sering diajukan mengenai layanan konsultasi, skema pendanaan, dan kolaborasi bisnis bersama kami.",

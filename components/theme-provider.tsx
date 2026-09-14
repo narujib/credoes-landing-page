@@ -10,12 +10,9 @@ export function ThemeProvider({
   return (
     <NextThemesProvider
       attribute="class"
-      defaultTheme="system"
-      enableSystem
+      defaultTheme="light"
+      enableSystem={false}
       disableTransitionOnChange
-      scriptProps={{
-        type: typeof window === "undefined" ? undefined : "text/template",
-      }}
       {...props}
     >
       {children}

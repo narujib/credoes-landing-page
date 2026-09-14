@@ -44,8 +44,11 @@ export function ContactInfoPanel() {
       <div className="space-y-4">
         <div>
           <h2 className="text-3xl sm:text-4xl font-heading font-bold tracking-tight text-foreground leading-tight">
-            {t("infoTitlePart1")}{" "}
-            <span className="text-primary">{t("infoTitleHighlight")}</span>
+            {t.rich("infoTitle", {
+              primary: (chunks) => (
+                <span className="text-primary">{chunks}</span>
+              ),
+            })}
           </h2>
           <p className="text-sm md:text-base text-muted-foreground leading-relaxed mt-2">
             {t("infoDesc")}

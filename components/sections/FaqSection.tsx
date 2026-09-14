@@ -35,8 +35,9 @@ export function FaqSection() {
     >
       <div className="container mx-auto max-w-4xl px-4 md:px-6 lg:px-8">
         <SectionHeader
-          titlePart1={t("titlePart1")}
-          titleHighlight={t("titleHighlight")}
+          title={t.rich("title", {
+            primary: (chunks) => <span className="text-primary">{chunks}</span>,
+          })}
           description={t("description")}
         />
 
