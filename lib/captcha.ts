@@ -15,7 +15,7 @@ export async function verifyCaptchaToken(
   ip: string,
   expectedAction: string,
 ): Promise<CaptchaVerifyResult> {
-  const secretKey = process.env["TURNSTILE_SECRET_KEY"];
+  const secretKey = process.env.TURNSTILE_SECRET_KEY;
   if (!secretKey) {
     const availableKeys = Object.keys(process.env).filter(
       (k) =>
@@ -25,13 +25,6 @@ export async function verifyCaptchaToken(
     console.error("Available process.env keys:", availableKeys);
     return { success: false, error: "CAPTCHA service is not configured." };
   }
-
-  const expectedHostnames = new Set(
-    (process.env["TURNSTILE_HOSTNAMES"] ?? "")
-      .split(",")
-      .map((hostname) => hostname.trim())
-      .filter(Boolean),
-  );
 
   try {
     const formData = new URLSearchParams();
@@ -69,21 +62,6 @@ export async function verifyCaptchaToken(
       console.warn("[Turnstile Action Mismatch]:", {
         expected: expectedAction,
         received: result.action,
-      });
-      return {
-        success: false,
-        error: "CAPTCHA verification failed. Please try again.",
-      };
-    }
-
-    if (
-      expectedHostnames.size > 0 &&
-      result.hostname &&
-      !expectedHostnames.has(result.hostname)
-    ) {
-      console.warn("[Turnstile Hostname Mismatch]:", {
-        expected: Array.from(expectedHostnames),
-        received: result.hostname,
       });
       return {
         success: false,
