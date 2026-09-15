@@ -45,28 +45,22 @@ export async function verifyCaptchaToken(
       "error-codes"?: string[];
     };
 
-    const expectedHostnames = new Set(
-      (process.env.TURNSTILE_HOSTNAMES ?? "localhost,127.0.0.1")
-        .split(",")
-        .map((hostname) => hostname.trim())
-        .filter(Boolean),
-    );
-
-    if (
-      !result.success ||
-      result.action !== expectedAction ||
-      (result.hostname && !expectedHostnames.has(result.hostname))
-    ) {
-      console.warn("[Turnstile Verification Failed]:", {
-        success: result.success,
-        action: result.action,
-        expectedAction,
-        hostname: result.hostname,
-        errors: result["error-codes"],
-      });
+    if (!result.success) {
+      console.warn("[Turnstile Verification Failed]:", result["error-codes"]);
       return {
         success: false,
         error: "CAPTCHA verification failed. Please try again.",
+      };
+    }
+
+    if (result.action !== expectedAction) {
+      console.warn("[Turnstile Action Mismatch]:", {
+        expected: expectedAction,
+        received: result.action,
+      });
+      return {
+        success: false,
+        error: "Invalid CAPTCHA action.",
       };
     }
 
