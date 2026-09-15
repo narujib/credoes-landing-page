@@ -2,11 +2,11 @@ import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { siteConfig } from "@/lib/site";
 
-export async function generateMetadata({
+const generateMetadata = async ({
   params,
 }: {
   params: Promise<{ locale: string }>;
-}): Promise<Metadata> {
+}): Promise<Metadata> => {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "PrivacyPolicy" });
 
@@ -14,13 +14,13 @@ export async function generateMetadata({
     title: `${t("title")} | ${siteConfig.name}`,
     description: t("title"),
   };
-}
+};
 
-export default async function PrivacyPolicyPage({
+const PrivacyPolicyPage = async ({
   params,
 }: {
   params: Promise<{ locale: string }>;
-}) {
+}) => {
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations({ locale, namespace: "PrivacyPolicy" });
@@ -158,4 +158,7 @@ export default async function PrivacyPolicyPage({
       </div>
     </main>
   );
-}
+};
+
+export { generateMetadata };
+export default PrivacyPolicyPage;
