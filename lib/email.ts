@@ -20,14 +20,14 @@ export function renderContactEmailHtml({
   <title>New Inquiry: ${subject}</title>
   <style>
     body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background-color: #f4f4f5; margin: 0; padding: 24px; color: #18181b; }
-    .container { max-width: 600px; margin: 0 auto; background-color: #ffffff; border-radius: 12px; border: 1px solid #e4e4e7; overflow: hidden; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); }
-    .header { background-color: #09090b; color: #ffffff; padding: 24px 32px; }
-    .header h1 { margin: 0; font-size: 18px; font-weight: 700; letter-spacing: -0.02em; }
+    .container { max-width: 600px; margin: 0 auto; background-color: #ffffff; border-radius: 12px; border: 1px solid #e4e4e7; border-top: 4px solid #7AE127; overflow: hidden; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); }
+    .header { background-color: #006D5B; color: #ffffff; padding: 24px 32px; }
+    .header h1 { margin: 0; font-size: 20px; font-weight: 700; letter-spacing: -0.01em; }
     .content { padding: 32px; }
     .field { margin-bottom: 20px; }
     .field-label { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: #71717a; margin-bottom: 4px; }
     .field-value { font-size: 15px; color: #09090b; font-weight: 500; }
-    .message-box { background-color: #f4f4f5; border-radius: 8px; border: 1px solid #e4e4e7; padding: 16px; font-size: 14px; line-height: 1.6; color: #27272a; white-space: pre-wrap; }
+    .message-box { background-color: #f8faf9; border-radius: 8px; border: 1px solid #e5f0ee; padding: 16px; font-size: 14px; line-height: 1.6; color: #27272a; white-space: pre-wrap; }
     .footer { background-color: #fafafa; border-top: 1px solid #e4e4e7; padding: 16px 32px; font-size: 12px; color: #71717a; text-align: center; }
   </style>
 </head>
@@ -43,7 +43,7 @@ export function renderContactEmailHtml({
       </div>
       <div class="field">
         <div class="field-label">Email Address</div>
-        <div class="field-value"><a href="mailto:${email}" style="color: #2563eb; text-decoration: none;">${email}</a></div>
+        <div class="field-value"><a href="mailto:${email}" style="color: #006D5B; font-weight: 600; text-decoration: none;">${email}</a></div>
       </div>
       <div class="field">
         <div class="field-label">Subject</div>
