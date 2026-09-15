@@ -1,4 +1,4 @@
-# next-landing-starter
+# credoes-landing-page
 
 ![Next.js](https://img.shields.io/badge/Next.js-16.3.4-black?style=flat-square&logo=next.js)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.x-3178c6?style=flat-square&logo=typescript)
@@ -54,8 +54,8 @@ A production-ready, opinionated **Next.js landing page starter** built for enter
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/narujib/next-landing-starter.git
-cd next-landing-starter
+git clone https://github.com/narujib/credoes-landing-page.git
+cd credoes-landing-page
 
 # 2. Install dependencies
 npm install
@@ -96,7 +96,7 @@ TURNSTILE_SECRET_KEY=0x4AAAAAAA_your_secret_key
 ## Project Structure
 
 ```
-next-landing-starter/
+credoes-landing-page/
 ├── app/                        # Next.js App Router root
 │   ├── [locale]/               # Locale-scoped routes (i18n)
 │   │   ├── page.tsx            # Main landing page
