@@ -90,6 +90,7 @@ export async function POST(request: NextRequest) {
     const captchaResult = await verifyCaptchaToken(
       validatedData.captchaToken,
       ip,
+      "contact",
     );
     if (!captchaResult.success) {
       return NextResponse.json(

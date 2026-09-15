@@ -207,6 +207,7 @@ export function ContactForm() {
               onExpire={handleCaptchaExpire}
               onError={handleCaptchaError}
               options={{
+                action: "contact",
                 theme: "auto",
                 size: "flexible",
               }}

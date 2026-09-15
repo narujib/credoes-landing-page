@@ -13,6 +13,7 @@ export interface CaptchaVerifyResult {
 export async function verifyCaptchaToken(
   token: string,
   ip: string,
+  expectedAction: string,
 ): Promise<CaptchaVerifyResult> {
   const secretKey = process.env.TURNSTILE_SECRET_KEY;
   if (!secretKey) {
@@ -39,11 +40,30 @@ export async function verifyCaptchaToken(
 
     const result = (await response.json()) as {
       success: boolean;
+      action?: string;
+      hostname?: string;
       "error-codes"?: string[];
     };
 
-    if (!result.success) {
-      console.warn("[Turnstile Verification Failed]:", result["error-codes"]);
+    const expectedHostnames = new Set(
+      (process.env.TURNSTILE_HOSTNAMES ?? "localhost,127.0.0.1")
+        .split(",")
+        .map((hostname) => hostname.trim())
+        .filter(Boolean),
+    );
+
+    if (
+      !result.success ||
+      result.action !== expectedAction ||
+      (result.hostname && !expectedHostnames.has(result.hostname))
+    ) {
+      console.warn("[Turnstile Verification Failed]:", {
+        success: result.success,
+        action: result.action,
+        expectedAction,
+        hostname: result.hostname,
+        errors: result["error-codes"],
+      });
       return {
         success: false,
         error: "CAPTCHA verification failed. Please try again.",
