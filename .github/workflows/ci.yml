@@ -40,4 +40,9 @@ jobs:
       - name: Build Next.js application
         run: npm run build
         env:
-          NEXT_PUBLIC_SITE_URL: "https://acmecorp.example"
+          NEXT_PUBLIC_SITE_URL: "https://credoes.id"
+          NEXT_PUBLIC_TURNSTILE_SITE_KEY: "dummy_site_key"
+          TURNSTILE_SECRET_KEY: "dummy_secret_key"
+          RESEND_API_KEY: "dummy_resend_api_key"
+          CONTACT_EMAIL_TO: "dummy@example.com"
+          CONTACT_EMAIL_FROM: "dummy@example.com"
