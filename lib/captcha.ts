@@ -15,14 +15,19 @@ export async function verifyCaptchaToken(
   ip: string,
   expectedAction: string,
 ): Promise<CaptchaVerifyResult> {
-  const secretKey = process.env.TURNSTILE_SECRET_KEY;
+  const secretKey = process.env["TURNSTILE_SECRET_KEY"];
   if (!secretKey) {
+    const availableKeys = Object.keys(process.env).filter(
+      (k) =>
+        !k.toLowerCase().includes("secret") && !k.toLowerCase().includes("key"),
+    );
     console.error("[Contact API] TURNSTILE_SECRET_KEY is not configured.");
+    console.error("Available process.env keys:", availableKeys);
     return { success: false, error: "CAPTCHA service is not configured." };
   }
 
   const expectedHostnames = new Set(
-    (process.env.TURNSTILE_HOSTNAMES ?? "")
+    (process.env["TURNSTILE_HOSTNAMES"] ?? "")
       .split(",")
       .map((hostname) => hostname.trim())
       .filter(Boolean),
