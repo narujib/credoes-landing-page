@@ -101,11 +101,23 @@ export async function sendContactEmail(
       });
 
       if (!res.ok) {
-        const errorData = await res.json().catch(() => ({}));
-        console.error("[Email Service Error]:", errorData);
+        let errorData: Record<string, unknown> = {};
+        try {
+          errorData = (await res.json()) as Record<string, unknown>;
+        } catch {
+          // ignore
+        }
+        const errorMsg =
+          (errorData?.message as string | undefined) ||
+          (errorData?.name as string | undefined) ||
+          `HTTP ${res.status} ${res.statusText}`;
+        console.error(
+          `[Email Service Error] ${res.status} ${res.statusText}:`,
+          JSON.stringify(errorData),
+        );
         return {
           success: false,
-          error: "Failed to send message. Please try again later.",
+          error: `Resend API Error: ${errorMsg}`,
         };
       }
 
