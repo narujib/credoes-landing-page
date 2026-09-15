@@ -71,10 +71,10 @@ export function ServiceCard({ service, className }: ServiceCardProps) {
           target="_blank"
           rel="noopener noreferrer"
           style={{ fontFamily: '"Agency FB", sans-serif' }}
-          className="flex w-full items-center justify-center rounded bg-[#0e7452] px-4 py-2.5 text-[17px] tracking-wide text-white transition-colors hover:bg-[#0e7452]/90 shadow-sm"
+          className="flex w-full items-center justify-center rounded bg-[#0e7452] px-3 py-2 text-[15px] md:px-4 md:py-2.5 md:text-[17px] tracking-wide text-white transition-colors hover:bg-[#0e7452]/90 shadow-sm"
         >
           {service.ctaText}
-          <ChevronRight className="ml-1.5 h-4 w-4" />
+          <ChevronRight className="ml-1 md:ml-1.5 h-3.5 w-3.5 md:h-4 md:w-4" />
         </a>
       </div>
     </Card>
