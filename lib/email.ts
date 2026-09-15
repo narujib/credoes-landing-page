@@ -34,7 +34,7 @@ export function renderContactEmailHtml({
 <body>
   <div class="container">
     <div class="header">
-      <h1>New Enterprise Inquiry Received</h1>
+      <h1>New Contact Form Submission</h1>
     </div>
     <div class="content">
       <div class="field">

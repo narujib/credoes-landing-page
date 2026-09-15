@@ -73,6 +73,18 @@ export function ContactForm() {
     turnstileRef.current?.reset();
   }, [setValue]);
 
+  // Clear alert after 10 seconds
+  React.useEffect(() => {
+    let timer: NodeJS.Timeout;
+    if (status === "success" || status === "error") {
+      timer = setTimeout(() => {
+        setStatus("idle");
+        setResponseMessage("");
+      }, 10000);
+    }
+    return () => clearTimeout(timer);
+  }, [status]);
+
   const onValidSubmit = async (data: ContactFormData) => {
     setStatus("submitting");
     setResponseMessage("");
@@ -119,7 +131,17 @@ export function ContactForm() {
           <SubmissionAlert status={status} message={responseMessage} />
         )}
 
-        <form onSubmit={onFormSubmit} className="space-y-3.5" noValidate>
+        <form
+          onSubmit={onFormSubmit}
+          onChange={() => {
+            if (status === "success" || status === "error") {
+              setStatus("idle");
+              setResponseMessage("");
+            }
+          }}
+          className="space-y-3.5"
+          noValidate
+        >
           {/* Name & Email Fields */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <FormField
