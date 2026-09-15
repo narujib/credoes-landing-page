@@ -21,6 +21,13 @@ export async function verifyCaptchaToken(
     return { success: false, error: "CAPTCHA service is not configured." };
   }
 
+  const expectedHostnames = new Set(
+    (process.env.TURNSTILE_HOSTNAMES ?? "")
+      .split(",")
+      .map((hostname) => hostname.trim())
+      .filter(Boolean),
+  );
+
   try {
     const formData = new URLSearchParams();
     formData.append("secret", secretKey);
@@ -60,7 +67,22 @@ export async function verifyCaptchaToken(
       });
       return {
         success: false,
-        error: "Invalid CAPTCHA action.",
+        error: "CAPTCHA verification failed. Please try again.",
+      };
+    }
+
+    if (
+      expectedHostnames.size > 0 &&
+      result.hostname &&
+      !expectedHostnames.has(result.hostname)
+    ) {
+      console.warn("[Turnstile Hostname Mismatch]:", {
+        expected: Array.from(expectedHostnames),
+        received: result.hostname,
+      });
+      return {
+        success: false,
+        error: "CAPTCHA verification failed. Please try again.",
       };
     }
 
