@@ -9,7 +9,11 @@ export function renderContactEmailHtml({
   subject,
   message,
 }: ContactFormData): string {
-  const timestamp = new Date().toUTCString();
+  const timestamp = new Intl.DateTimeFormat("id-ID", {
+    dateStyle: "full",
+    timeStyle: "long",
+    timeZone: "Asia/Jakarta",
+  }).format(new Date());
 
   return `
 <!DOCTYPE html>
