@@ -97,7 +97,9 @@
     "about": "Tentang Kami",
     "services": "Layanan",
     "faq": "FAQ",
-    "contact": "Kontak"
+    "contact": "Kontak",
+    "privacyPolicy": "Kebijakan Privasi",
+    "termsOfService": "Syarat dan Ketentuan"
   },
   "Faq": {
     "badge": "Pertanyaan Umum",
@@ -127,5 +129,61 @@
     "titleHighlight": "Ditemukan",
     "backHome": "Kembali ke Beranda",
     "contact": "Hubungi Kami"
+  },
+  "PrivacyPolicy": {
+    "title": "Kebijakan Privasi",
+    "lastUpdated": "Terakhir Diperbarui",
+    "sections": [
+      {
+        "heading": "1. Pendahuluan",
+        "text": "Kebijakan Privasi ini menjelaskan bagaimana CREdoes (selanjutnya disebut \"kami\", \"milik kami\", atau \"Perusahaan\") mengumpulkan, menggunakan, membagikan, dan melindungi informasi pribadi serta data bisnis Anda ketika Anda menggunakan situs web dan layanan konsultasi kami.\n\nDengan mengakses situs web kami atau menggunakan layanan kami, Anda menyetujui pengumpulan dan penggunaan informasi sesuai dengan kebijakan ini. Jika Anda tidak setuju dengan ketentuan apa pun, harap hentikan penggunaan layanan kami."
+      },
+      {
+        "heading": "2. Informasi yang Kami Kumpulkan",
+        "text": "Dalam rangka menyediakan layanan konsultasi investasi dan pendanaan, kami dapat mengumpulkan berbagai jenis informasi, antara lain:\n- Informasi Identitas: Nama lengkap, jabatan, dan kontak perwakilan perusahaan.\n- Informasi Bisnis & Keuangan: Profil perusahaan, dokumen legalitas usaha, laporan keuangan, proyeksi bisnis, dan dokumen terkait jaminan yang diajukan.\n- Informasi Teknis: Alamat IP, jenis browser, dan data analitik interaksi Anda dengan situs web kami."
+      },
+      {
+        "heading": "3. Penggunaan Informasi",
+        "text": "Kami menggunakan informasi yang dikumpulkan untuk tujuan berikut:\n- Melakukan evaluasi awal atas kelayakan pendanaan atau investasi bisnis Anda.\n- Menyediakan layanan konsultasi bisnis dan manajemen yang relevan.\n- Menghubungkan Anda dengan mitra strategis atau calon investor di jaringan kami.\n- Meningkatkan kualitas situs web dan layanan kami.\n- Memenuhi kewajiban hukum dan regulasi yang berlaku di Indonesia."
+      },
+      {
+        "heading": "4. Berbagi Informasi dengan Pihak Ketiga",
+        "text": "Mengingat peran kami sebagai agregator bisnis, kami mungkin perlu membagikan data Anda kepada pihak ketiga secara terbatas. Hal ini meliputi:\n- Mitra Strategis & Investor: Kami hanya membagikan data profil bisnis dan proyeksi keuangan kepada lembaga keuangan (Bank, Multi Finance, P2P, dll) atau investor setelah mendapatkan persetujuan Anda, semata-mata untuk tujuan penyaluran pendanaan atau kolaborasi.\n- Otoritas Hukum: Kami dapat mengungkapkan informasi apabila diwajibkan oleh hukum, pengadilan, atau pihak berwenang."
+      },
+      {
+        "heading": "5. Keamanan dan Kerahasiaan Data",
+        "text": "Kami menyadari bahwa informasi keuangan Anda adalah rahasia dagang yang sangat penting. Kami menerapkan langkah-langkah keamanan teknis dan operasional (termasuk penerapan NDA yang disepakati bersama) untuk mencegah akses, penggunaan, atau pengungkapan yang tidak sah atas data Anda. Namun demikian, tidak ada metode transmisi di internet yang 100% aman, sehingga kami tidak dapat menjamin keamanan mutlak atas data tersebut."
+      }
+    ]
+  },
+  "TermsOfService": {
+    "title": "Syarat dan Ketentuan",
+    "lastUpdated": "Terakhir Diperbarui",
+    "sections": [
+      {
+        "heading": "1. Penerimaan Syarat",
+        "text": "Dengan mengakses situs web CREdoes dan menggunakan layanan konsultasi kami, Anda (\"Pengguna\" atau \"Klien\") secara sah menyatakan telah membaca, memahami, dan menyetujui untuk terikat oleh Syarat dan Ketentuan ini. Ketentuan ini mengatur hubungan antara Anda dan CREdoes."
+      },
+      {
+        "heading": "2. Deskripsi Layanan",
+        "text": "CREdoes bertindak sebagai agregator bisnis dan konsultan profesional. Kami memfasilitasi bertemunya perusahaan yang membutuhkan modal kerja atau investasi dengan mitra keuangan seperti Bank, Multi Finance, dan investor lainnya. Selain itu, kami memberikan jasa konsultasi manajemen dan strategi bisnis."
+      },
+      {
+        "heading": "3. Tanggung Jawab Pengguna",
+        "text": "Untuk dapat menggunakan layanan kami dengan efektif, Pengguna diwajibkan:\n- Memberikan informasi bisnis, laporan keuangan, dan jaminan yang akurat, lengkap, terbaru, dan tidak menyesatkan.\n- Bertanggung jawab atas setiap keputusan bisnis dan finansial yang diambil berdasarkan hasil konsultasi dari CREdoes.\n- Menjamin bahwa usaha yang dijalankan tidak melanggar hukum dan peraturan perundang-undangan di Republik Indonesia."
+      },
+      {
+        "heading": "4. Tidak Ada Jaminan Kepastian Pendanaan",
+        "text": "Meskipun CREdoes berkomitmen mencarikan solusi permodalan terbaik, kami TIDAK memberikan jaminan mutlak bahwa pengajuan pendanaan, fasilitas modal kerja, atau permohonan investasi Anda akan selalu disetujui oleh mitra pendana atau investor. Persetujuan akhir sepenuhnya menjadi hak prerogatif dan hasil uji tuntas (due diligence) dari pihak mitra pendana/investor."
+      },
+      {
+        "heading": "5. Perjanjian Kerahasiaan (NDA)",
+        "text": "Proses diskusi dan penyerahan data antara Pengguna dan CREdoes dilindungi oleh prinsip kerahasiaan yang ketat. Jika diperlukan, kedua belah pihak dapat menandatangani Perjanjian Kerahasiaan (Non-Disclosure Agreement) secara terpisah sebelum penyerahan data keuangan yang bersifat sensitif."
+      },
+      {
+        "heading": "6. Batasan Tanggung Jawab",
+        "text": "CREdoes tidak bertanggung jawab atas kerugian langsung, tidak langsung, kerugian laba, atau gangguan bisnis yang dialami oleh Pengguna, yang diakibatkan oleh keputusan investasi yang diambil, fluktuasi pasar, kegagalan pencairan dana oleh investor, atau force majeure (keadaan kahar)."
+      }
+    ]
   }
 }

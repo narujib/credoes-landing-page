@@ -6,7 +6,7 @@ import Link from "next/link";
 import { useTranslations, useLocale } from "next-intl";
 import { useSmoothScroll } from "@/hooks/use-smooth-scroll";
 import { useLogoClick } from "@/hooks/use-logo-click";
-import { mainNavLinks } from "@/lib/navigation";
+import { mainNavLinks, legalLinks } from "@/lib/navigation";
 import { siteConfig } from "@/lib/site";
 import { LinkedInIcon, InstagramIcon } from "@/components/icons";
 
@@ -93,9 +93,23 @@ export function Footer() {
         {/* Divider */}
         <hr className="border-t-2 border-dotted border-border/80 w-full mb-6" />
 
-        {/* Bottom Row: Copyright */}
-        <div className="flex items-center justify-center sm:justify-start text-sm text-muted-foreground">
-          <p className="font-medium">&copy; {currentYear} CREdoes</p>
+        {/* Bottom Row: Copyright & Legal */}
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
+          <p className="font-medium text-center sm:text-left">
+            &copy; {currentYear} CREdoes.{" "}
+            {locale === "id" ? "Hak Cipta Dilindungi." : "All rights reserved."}
+          </p>
+          <div className="flex items-center justify-center gap-4 sm:gap-6">
+            {legalLinks.map((link, idx) => (
+              <Link
+                key={idx}
+                href={`/${locale}${link.href}`}
+                className="hover:text-foreground transition-colors"
+              >
+                {t(link.labelKey)}
+              </Link>
+            ))}
+          </div>
         </div>
       </div>
     </footer>

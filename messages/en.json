@@ -97,7 +97,9 @@
     "about": "About Us",
     "services": "Services",
     "faq": "FAQ",
-    "contact": "Contact"
+    "contact": "Contact",
+    "privacyPolicy": "Privacy Policy",
+    "termsOfService": "Terms of Service"
   },
   "Faq": {
     "badge": "Frequently Asked Questions",
@@ -127,5 +129,61 @@
     "titleHighlight": "Found",
     "backHome": "Back to Home",
     "contact": "Contact Us"
+  },
+  "PrivacyPolicy": {
+    "title": "Privacy Policy",
+    "lastUpdated": "Last Updated",
+    "sections": [
+      {
+        "heading": "1. Introduction",
+        "text": "This Privacy Policy explains how CREdoes (hereinafter referred to as \"we\", \"our\", or the \"Company\") collects, uses, shares, and protects your personal and business information when you use our website and consulting services.\n\nBy accessing our website or using our services, you agree to the collection and use of information in accordance with this policy. If you do not agree with any terms, please discontinue use of our services."
+      },
+      {
+        "heading": "2. Information We Collect",
+        "text": "In order to provide investment and funding consulting services, we may collect various types of information, including:\n- Identity Information: Full name, title, and contact details of company representatives.\n- Business & Financial Information: Company profile, legal documents, financial statements, business projections, and documents related to proposed collateral.\n- Technical Information: IP address, browser type, and analytics data regarding your interaction with our website."
+      },
+      {
+        "heading": "3. Use of Information",
+        "text": "We use the collected information for the following purposes:\n- Conducting an initial evaluation of your business funding or investment eligibility.\n- Providing relevant business and management consulting services.\n- Connecting you with strategic partners or potential investors in our network.\n- Improving the quality of our website and services.\n- Complying with applicable legal and regulatory requirements in Indonesia."
+      },
+      {
+        "heading": "4. Sharing Information with Third Parties",
+        "text": "Given our role as a business aggregator, we may need to share your data with third parties on a limited basis. This includes:\n- Strategic Partners & Investors: We only share business profiles and financial projections with financial institutions (Banks, Multi Finance, P2P, etc.) or investors after obtaining your consent, solely for the purpose of facilitating funding or collaboration.\n- Legal Authorities: We may disclose information if required by law, court order, or authorized authorities."
+      },
+      {
+        "heading": "5. Data Security and Confidentiality",
+        "text": "We recognize that your financial information is a critical trade secret. We implement technical and operational security measures (including mutually agreed NDAs) to prevent unauthorized access, use, or disclosure of your data. However, no method of transmission over the internet is 100% secure, so we cannot guarantee the absolute security of the data."
+      }
+    ]
+  },
+  "TermsOfService": {
+    "title": "Terms of Service",
+    "lastUpdated": "Last Updated",
+    "sections": [
+      {
+        "heading": "1. Acceptance of Terms",
+        "text": "By accessing the CREdoes website and using our consulting services, you (\"User\" or \"Client\") legally declare that you have read, understood, and agreed to be bound by these Terms of Service. These terms govern the relationship between you and CREdoes."
+      },
+      {
+        "heading": "2. Description of Services",
+        "text": "CREdoes acts as a business aggregator and professional consultant. We facilitate the meeting of companies requiring working capital or investment with financial partners such as Banks, Multi Finance, and other investors. Additionally, we provide management and business strategy consulting services."
+      },
+      {
+        "heading": "3. User Responsibilities",
+        "text": "To effectively use our services, Users must:\n- Provide accurate, complete, current, and non-misleading business information, financial reports, and collateral details.\n- Bear responsibility for any business and financial decisions made based on the consultation results from CREdoes.\n- Guarantee that the operated business does not violate the laws and regulations of the Republic of Indonesia."
+      },
+      {
+        "heading": "4. No Guarantee of Funding",
+        "text": "Although CREdoes is committed to finding the best capital solutions, we DO NOT provide an absolute guarantee that your funding application, working capital facility, or investment request will always be approved by funding partners or investors. Final approval is entirely the prerogative and the result of due diligence by the funding partner/investor."
+      },
+      {
+        "heading": "5. Non-Disclosure Agreement (NDA)",
+        "text": "The discussion process and data submission between the User and CREdoes are protected by strict confidentiality principles. If necessary, both parties may sign a separate Non-Disclosure Agreement before the submission of sensitive financial data."
+      },
+      {
+        "heading": "6. Limitation of Liability",
+        "text": "CREdoes is not liable for any direct, indirect damages, loss of profits, or business interruption suffered by the User resulting from investment decisions made, market fluctuations, failure of fund disbursement by investors, or force majeure events."
+      }
+    ]
   }
 }
