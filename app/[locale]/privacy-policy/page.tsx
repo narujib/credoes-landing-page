@@ -13,6 +13,9 @@ const generateMetadata = async ({
   return {
     title: `${t("title")} | ${siteConfig.name}`,
     description: t("title"),
+    robots: {
+      index: false,
+    },
   };
 };
 

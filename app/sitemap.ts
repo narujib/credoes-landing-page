@@ -4,8 +4,8 @@ import { siteConfig } from "@/lib/site";
 const siteUrl = siteConfig.url;
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const lastModified = new Date();
-  const routes = ["", "/privacy-policy", "/terms-of-service"];
+  const lastModified = new Date("2024-01-01T00:00:00.000Z");
+  const routes = [""];
   const locales = ["id", "en"] as const;
 
   const sitemapEntries: MetadataRoute.Sitemap = [];
@@ -17,7 +17,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
         url: `${siteUrl}/${locale}${route}`,
         lastModified,
         changeFrequency: isHome ? "weekly" : "monthly",
-        priority: isHome ? 1.0 : 0.6,
+        priority: isHome ? 1.0 : 0.8,
         alternates: {
           languages: {
             id: `${siteUrl}/id${route}`,

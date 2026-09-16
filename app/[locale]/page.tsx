@@ -16,9 +16,11 @@ export async function generateMetadata({
 
   const titleString =
     locale === "id"
-      ? `CREdoes — Aggregator Bisnis, Pendanaan & Konsultasi Investasi`
-      : `CREdoes — Business Aggregator, Funding & Investment Consulting`;
+      ? `CREdoes - Aggregator Bisnis, Pendanaan & Konsultasi Investasi`
+      : `CREdoes - Business Aggregator, Funding & Investment Consulting`;
   const description = t("subtitle");
+
+  const path = locale === "id" ? "/id" : "/en";
 
   return {
     title: {
@@ -26,7 +28,7 @@ export async function generateMetadata({
     },
     description,
     alternates: {
-      canonical: `/${locale}`,
+      canonical: path,
       languages: {
         id: "/id",
         en: "/en",
@@ -36,10 +38,15 @@ export async function generateMetadata({
     openGraph: {
       title: titleString,
       description,
-      url: `/${locale}`,
+      url: path,
       siteName: "CREdoes",
       locale: locale === "id" ? "id_ID" : "en_US",
       type: "website",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: titleString,
+      description,
     },
   };
 }
